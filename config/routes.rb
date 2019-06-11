@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/backend', as: 'rails_admin'
+  mount TaiwanCity::Engine => '/taiwan_city'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root 'search#index'
 
-  resources :search, only: [:index, :show]
+  resource :searches, only: [:index, :show]
 
   resources :users do
     member do

@@ -12,4 +12,8 @@
  *
  *= require_tree .
  *= require_self
+ *= require bootstrap-datepicker
  */
+
+@import 'bootstrap-sprockets'; // 這行一定要在 "bootstrap 前面
+@import 'bootstrap';
