@@ -1,0 +1,2 @@
+class Sitter < ApplicationRecord
+end
