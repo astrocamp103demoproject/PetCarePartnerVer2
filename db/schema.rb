@@ -10,7 +10,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_11_072634) do
+ActiveRecord::Schema.define(version: 2019_06_11_073705) do
+
+  create_table "booking_dates", force: :cascade do |t|
+    t.integer "sitter_id"
+    t.integer "order_id"
+    t.datetime "date"
+    t.boolean "available"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_booking_dates_on_order_id"
+    t.index ["sitter_id"], name: "index_booking_dates_on_sitter_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "user_id"
+    t.datetime "drop_off"
+    t.datetime "pick_up"
+    t.text "note"
+    t.string "status"
+    t.datetime "checkout_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.integer "order_id"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_payments_on_order_id"
+  end
+
+  create_table "pets", force: :cascade do |t|
+    t.integer "size"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_pets_on_user_id"
+  end
 
   create_table "sitters", force: :cascade do |t|
     t.string "name"
