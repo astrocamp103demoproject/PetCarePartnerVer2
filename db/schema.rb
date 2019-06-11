@@ -10,16 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_11_082003) do
+ActiveRecord::Schema.define(version: 2019_06_11_090547) do
 
   create_table "booking_dates", force: :cascade do |t|
     t.integer "sitter_id"
-    t.integer "order_id"
     t.datetime "date"
     t.boolean "available"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["order_id"], name: "index_booking_dates_on_order_id"
     t.index ["sitter_id"], name: "index_booking_dates_on_sitter_id"
   end
 
