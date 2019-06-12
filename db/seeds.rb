@@ -6,11 +6,15 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 15.times { 
+    #sitter
     email = Faker::Internet.email
     name = Faker::Name.unique.name
     slogan = Faker::Lorem.paragraph(2, true)
     price = Faker::Number.number(3)
+    pet = Faker::Number.number(1)
+    Sitter.create(name: name ,email: email, password: '123456', slogan:slogan, address:'高雄市大寮區', price:price, pet_limit: pet)
     
-    Sitter.create(name: name ,email: email, password: '123456', slogan:slogan, address:'高雄市大寮區', price:price)
-    
+    #Booking_date
+    sitterid = Faker::Number.number(1)
+    # BookingDate.create(sitter_id:sitterid, date: '24/11/2018', available: false)
 }
