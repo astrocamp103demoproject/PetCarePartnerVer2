@@ -1,9 +1,18 @@
+<<<<<<< HEAD
 
 <h1>PetCollage</h1>
 <%= form_tag('searches', method: 'post') do %>
   <%= check_box_tag(:dog) %>
   <%= label_tag(:dog, "Dog") %>
   <%= check_box_tag(:cat) %>
+=======
+<h1>Local, Loving Pet Care</h1>
+<h3>Book trusted sitters who'll treat your pets like family.</h3>
+<%= form_tag('searches', method: 'post') do %>
+  <%= check_box_tag(:dog, 0) %>
+  <%= label_tag(:dog, "Dog") %>
+  <%= check_box_tag(:cat, 1) %>
+>>>>>>> master
   <%= label_tag(:cat, "Cat") %>
   <div class="city-group">
     <select name="" id="" class="city-select">
@@ -18,6 +27,7 @@
     <input type="text" data-provide='datepicker' placeholder="Drop-Off">
     <input type="text" data-provide='datepicker' placeholder="Pick-Up">
   </div>
+<<<<<<< HEAD
   <%= label_tag(:xs_count, "XS (0~10 kg)") %>
   <%= select_tag(:xs_count, options_for_select([['0', 0], ['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]],6)) %>
   <%= label_tag(:s_count, "S (11~25 kg)") %>
@@ -27,5 +37,18 @@
   <%= label_tag(:l_count, "L (41 kg up)") %>
   <%= select_tag(:l_count, options_for_select([['0', 0], ['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]],6)) %>
   <%= submit_tag("search") %>
+=======
+  <div class="pet-count">
+    <%= label_tag(:xs_count, "XS (0~10 kg)") %>
+    <%= select_tag(:xs_count, options_for_select([['0', 0], ['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]],6)) %>
+    <%= label_tag(:s_count, "S (11~25 kg)") %>
+    <%= select_tag(:s_count, options_for_select([['0', 0], ['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]],6)) %>
+    <%= label_tag(:m_count, "M (26~40 kg)") %>
+    <%= select_tag(:m_count, options_for_select([['0', 0], ['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]],6)) %>
+    <%= label_tag(:l_count, "L (41 kg up)") %>
+    <%= select_tag(:l_count, options_for_select([['0', 0], ['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]],6)) %>
+  </div>
+  <%= submit_tag("Search", class:'btn btn-primary') %>
+>>>>>>> master
 <% end %>
 
