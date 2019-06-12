@@ -7,16 +7,10 @@
     .search-bar{
         width: 20%;
         height: 100vh;
-        padding: 0 20px;
+        padding: 20px;
         outline: 1px solid black;
         
-        .search-bar-size, .search-pet, .city-group{
-            display: flex;
-            margin: 10px;
-        }
-        p{
-            margin: 0 5px;
-        }
+        
     }
     //中間的部分
     .search-sitters{
