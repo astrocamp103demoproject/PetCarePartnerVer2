@@ -1,0 +1,23 @@
+
+<div class="search-sitters">
+    <% if @sitters.empty?%>
+        <h1>找不到搜尋結果</h1>
+    <% else %>
+        <% @sitters.each do |sitter|%>
+            <div class="sitter-item">
+                <div class="item-pic"><img src="https://picsum.photos/80/80/?random=1"></div>
+                <div class="item-sitter-info">
+                    <div class="item-sitter-name"><%=sitter.name%></div>
+                    <div class="item-sitter-address"><%=sitter.address%></div>
+                    <div class="item-sitter-slogan"><%=sitter.slogan%></div>
+                </div>        
+                <div class="item-price">
+                    <p><%=sitter.price%>$</p>
+                    <p>per night</p>
+                    <%= link_to 'Choose',root_path(sitter)%>
+                </div>
+            </div>
+        <%end%>
+    <%end%>
+    <%= paginate @sitters, outer_window: 3 %>    
+</div>
