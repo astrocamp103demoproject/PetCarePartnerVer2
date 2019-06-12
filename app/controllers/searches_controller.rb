@@ -4,6 +4,5 @@ class SearchesController < ApplicationController
   end
   def update
     @sitters = Sitter.all.page(params[:page]).per(10)
-    
   end
 end
