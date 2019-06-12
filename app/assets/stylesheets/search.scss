@@ -1,90 +1,87 @@
-.search-wrap{
-    width: 100%;
-    min-width: 1200px;
-    margin: auto;
+.search-wrap {
+  width: 100%;
+  min-width: 1200px;
+  margin: auto;
+  display: flex;
+  //左邊的部分
+  .search-bar {
+    width: 20%;
+    height: 100vh;
+    padding: 0 20px;
+    outline: 1px solid black;
+
+    .search-bar-size,
+    .search-pet,
+    .city-group {
+      display: flex;
+      margin: 10px;
+    }
+    p {
+      margin: 0 5px;
+    }
+  }
+  //中間的部分
+  .search-sitters {
+    width: 40%;
+    height: 100vh;
+    outline: 1px solid black;
     display: flex;
-    //左邊的部分
-    .search-bar{
+    flex-wrap: wrap;
+    align-content: flex-start;
+    overflow: scroll;
+
+    .sitter-item {
+      width: 100%;
+      height: 100px;
+      outline: 1px solid black;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+
+      .item-pic {
         width: 20%;
-        height: 100vh;
-        padding: 0 20px;
-        outline: 1px solid black;
-        
-        .search-bar-size, .search-pet, .city-group{
-            display: flex;
-            margin: 10px;
+        padding: 5px;
+      }
+      .item-sitter-info {
+        width: 60%;
+        div {
+          margin: 5px 0;
         }
-        p{
-            margin: 0 5px;
+      }
+      .item-price {
+        text-align: center;
+        width: 20%;
+        padding: 5px;
+        p {
+          margin: 5px 0;
         }
+        a {
+          display: inline-block;
+          padding: 10px;
+          margin: 5px;
+          text-decoration: none;
+          border-radius: 14px;
+          background-color: red;
+          color: white;
+        }
+      }
     }
-    //中間的部分
-    .search-sitters{
-        width: 45%;
-        height: 100vh;
-        outline:1px solid black;
-        display: flex;
-        flex-wrap: wrap;
-        align-content: flex-start;
-        overflow: scroll;
-        
-        .sitter-item{
-            width: 100%;
-            height: 100px;
-            outline:1px solid black;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-
-            .item-pic{
-                width: 20%;
-                padding: 5px;
-            }
-            .item-sitter-info{
-                width: 60%;
-                div{
-                    margin: 5px 0;
-                }
-            }
-            .item-price{
-                text-align: center;
-                width: 20%;
-                padding: 5px;
-                p{
-                    margin: 5px 0;
-                }
-                a{
-                    display: inline-block;
-                    padding: 10px;
-                    margin: 5px;
-                    text-decoration: none;
-                    border-radius: 14px;
-                    background-color: red;
-                    color:white;
-                }
-            }
-        }
-        //kaminari
-        .pagination{
-            width: 100%;
-            text-align: center;
-            position: relative;
-
-        }
-        
+    //kaminari
+    .pagination {
+      width: 100%;
+      text-align: center;
+      position: relative;
     }
-    //google map
-    .search-map{
-        width: 35%;
-        height: 100vh;
-        outline:1px solid black;
+  }
+  //google map
+  .search-map {
+    width: 40%;
+    height: 100vh;
+    outline: 1px solid black;
 
-        #map{
-            width: 100%; 
-            height: 100%;
-
-        }
+    #map {
+      width: 100%;
+      height: 100%;
     }
-
+  }
 }
-

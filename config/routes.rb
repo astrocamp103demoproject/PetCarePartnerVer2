@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   root 'search#index'
 
-  resource :searches, only: [:index, :show, :create]
+  resource :searches, only: [:index, :show, :update]
 
   resources :users do
     member do
