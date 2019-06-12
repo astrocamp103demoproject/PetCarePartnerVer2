@@ -7,15 +7,15 @@ Rails.application.routes.draw do
 
   resource :searches, only: [:index, :show, :update]
 
-  resources :users do
+  resources :users, only: [:show, :edit, :update] do
     member do
-      resources :orders
+      resources :orders, only: [:index, :show]
     end
   end
 
-  resources :sitter do
+  resources :sitters, only: [:show, :edit, :update] do
     member do
-      resources :order
+      resources :orders, only: [:index, :show, :edit, :update]
     end
   end
 
