@@ -1,116 +1,36 @@
 <div class="search-bar">
-    <form action="">
-        <div class="pet-count">
-            <label for="dog">Dog</label>
-            <select name="dog" id="">
-                <option value="0">0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-            </select>
-            <label for="cat">Cat</label>
-            <select name="cat" id="">
-                <option value="0">0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-            </select>
-        </div>
-
+    <%= form_tag('searches', method: 'post') do %>
+        <%= check_box_tag(:dog) %>
+        <%= label_tag(:dog, "Dog") %>
+        <%= check_box_tag(:cat) %>
+        <%= label_tag(:cat, "Cat") %>
         <div class="city-group">
-            <select name="" id="" class="city-select">
+          <select name="" id="" class="city-select">
             <option value="">縣市</option>
-                <%= options_for_select(TaiwanCity.list) %>
-            </select>
-
-            <select name="" id="" class="city-select">
+            <%= options_for_select(TaiwanCity.list) %>
+          </select>
+          <select name="" id="" class="city-select">
             <option value="">鄉鎮市區</option>
-            </select>
+          </select>
         </div>
-
         <div class="select-date">
           <input type="text" data-provide='datepicker' placeholder="Drop-Off">
           <input type="text" data-provide='datepicker' placeholder="Pick-Up">
         </div>
-
-        <div class="pet-size">
-          <div class="xs-count">
-            <label for="xs">XS (0~10 kg)</label>
-            <select name="xs" id="">
-              <option value="0">0</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-            </select>
-          </div>
-          <div class="s-count">
-            <label for="s">S (10~25 kg)</label>
-            <select name="s" id="">
-              <option value="0">0</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-            </select>
-          </div>
-          <div class="m-count">
-            <label for="m">M (25~40 kg)</label>
-            <select name="m" id="">
-              <option value="0">0</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-            </select>
-          </div>
-          <div class="l-count">
-            <label for="l">L (40 kg up)</label>
-            <select name="l" id="">
-              <option value="0">0</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-            </select>
-          </div>
-        </div>
-        <%= link_to 'Search', searches_path, class: 'btn btn-primary' %>
-    </form>
+        <%= label_tag(:xs_count, "XS (0~10 kg)") %>
+        <%= select_tag(:xs_count, options_for_select([['0', 0], ['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]],6)) %>
+        <%= label_tag(:s_count, "S (11~25 kg)") %>
+        <%= select_tag(:s_count, options_for_select([['0', 0], ['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]],6)) %>
+        <%= label_tag(:m_count, "M (26~40 kg)") %>
+        <%= select_tag(:m_count, options_for_select([['0', 0], ['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]],6)) %>
+        <%= label_tag(:l_count, "L (41 kg up)") %>
+        <%= select_tag(:l_count, options_for_select([['0', 0], ['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]],6)) %>
+        <%= submit_tag("search") %>
+    <% end %>
+       
+      
+      
 </div>
 
 
 
-    

@@ -1,0 +1,17 @@
+<nav class='top-nav'>
+  <ul>
+    <span class="nav-left">
+      <li><%= link_to 'PetCollage', root_path %></li>
+      <li><%= link_to 'Become Sitter', '#' %></li>
+    </span>
+    <span class="nav-right">
+      <% #if user_signed_in? %>
+        <li><%= link_to 'My Profile', '#' %></li>
+        <li><%= link_to 'My Order', '#' %></li>
+      <% #else %>
+        <li><%= link_to 'Login in', '#' %></li>
+        <li><%= link_to 'Sign up', '#' %></li>
+      <% #end %>
+    </span>
+  </ul>
+</nav>

@@ -10,9 +10,10 @@
   </head>
 
   <body>
+
     <%= flash[:notice]%>
-    <div class="container">
-      <%= yield %>
-    </div>
+    <%= render 'shared/nav' %>
+    <%= yield %>
+    
   </body>
 </html>
