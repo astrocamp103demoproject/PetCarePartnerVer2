@@ -13,7 +13,7 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require_tree .
+//= require places
 //= require 'jquery'
 //= require 'taiwan_city/jquery.taiwan_city'
 //= require bootstrap-datepicker
