@@ -1,7 +1,7 @@
 <div class="search-index">
   <h1>Local, Loving Pet Care</h1>
   <h3>Book trusted sitters who'll treat your pets like family.</h3>
-  <%= form_tag('searches', method: 'get') do %>
+  <%= form_tag(searches_path, method: 'get') do %>
     <%= check_box_tag(:dog, 0) %>
     <%= label_tag(:dog, "Dog") %>
     <%= check_box_tag(:cat, 1) %>
