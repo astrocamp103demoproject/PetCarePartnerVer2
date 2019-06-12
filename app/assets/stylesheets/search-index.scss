@@ -1,0 +1,12 @@
+.search-index {
+  margin: auto;
+  max-width: 800px;
+  h1,
+  h3 {
+    text-align: center;
+  }
+}
+.pet-count {
+  display: flex;
+  flex-flow: column wrap;
+}
