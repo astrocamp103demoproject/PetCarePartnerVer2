@@ -5,9 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-5.times { 
+15.times { 
     email = Faker::Internet.email
     name = Faker::Name.unique.name
-        Sitter.create(name: name ,email: email, password: '123456', slogan:'發發發', address:'高雄市大寮區', price:'999')
+    slogan = Faker::Lorem.paragraph(2, true)
+    price = Faker::Number.number(3)
+    
+    Sitter.create(name: name ,email: email, password: '123456', slogan:slogan, address:'高雄市大寮區', price:price)
     
 }

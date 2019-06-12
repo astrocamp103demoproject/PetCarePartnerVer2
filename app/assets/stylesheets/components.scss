@@ -1,10 +1,12 @@
 nav.top-nav {
   background-color: #448aa6;
+  
   ul {
     display: flex;
     justify-content: space-between;
     list-style: none;
     padding: 0 20px;
+    margin: 0;
     li {
       display: inline-block;
       color: #113859;

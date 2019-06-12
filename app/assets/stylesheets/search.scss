@@ -7,20 +7,14 @@
     .search-bar{
         width: 20%;
         height: 100vh;
-        padding: 0 20px;
+        padding: 20px;
         outline: 1px solid black;
         
-        .search-bar-size, .search-pet, .city-group{
-            display: flex;
-            margin: 10px;
-        }
-        p{
-            margin: 0 5px;
-        }
+        
     }
     //中間的部分
     .search-sitters{
-        width: 45%;
+        width: 35%;
         height: 100vh;
         outline:1px solid black;
         display: flex;
@@ -44,6 +38,12 @@
                 width: 60%;
                 div{
                     margin: 5px 0;
+                }
+                .item-sitter-slogan{
+                    overflow: hidden;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 1;
                 }
             }
             .item-price{
@@ -75,7 +75,7 @@
     }
     //google map
     .search-map{
-        width: 35%;
+        width: 45%;
         height: 100vh;
         outline:1px solid black;
 
