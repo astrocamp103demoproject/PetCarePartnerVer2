@@ -1,0 +1,31 @@
+nav.top-nav {
+  background-color: #448aa6;
+  ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0 20px;
+    li {
+      display: inline-block;
+      color: #113859;
+      padding: 20px 10px;
+      margin: 10px, 5px;
+      font-size: 20px;
+      a {
+        text-decoration: none;
+        color: #fff;
+        transition: 0.3s;
+      }
+      a:hover {
+        color: #365359;
+        transition: 0.3s;
+      }
+    }
+  }
+}
+
+.notice,
+.alert {
+  color: #434059;
+  font-size: 20px;
+}
