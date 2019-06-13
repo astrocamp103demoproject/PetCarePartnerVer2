@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_13_062226) do
+ActiveRecord::Schema.define(version: 2019_06_13_145621) do
 
   create_table "booking_dates", force: :cascade do |t|
     t.integer "sitter_id"
-    t.datetime "date"
+    t.date "date"
     t.boolean "available"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
