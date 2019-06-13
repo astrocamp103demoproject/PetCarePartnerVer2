@@ -2,11 +2,13 @@
   <ul>
     <span class="nav-left">
       <li><%= link_to 'PetCollage', root_path %></li>
+      <% #if user_signed_in? %>
       <li><%= link_to 'Become Sitter', '#' %></li>
+      <% #end %>
     </span>
     <span class="nav-right">
       <% if user_signed_in? %>
-        <li><%= link_to 'My Profile', user_path(:id) %></li>
+        <li><%= link_to 'My Profile', user_path(current_user) %></li>
         <li><%= link_to 'My Order', '#' %></li>
         <li><%= link_to "Log out", destroy_user_session_path, method: "delete" %></li>
       <% else %>
