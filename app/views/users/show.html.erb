@@ -1,10 +1,7 @@
 <h1>User Profile</h1>
-<img src="<%= @user.avatar %>" alt="error path">  
-<h3><%= @user.name %></h3>
-<p><%= @user.address %></p>
-<p><%= @user.email %></p>
-<hr>
-<div>
-<h3>圖片集</h3>
-<img src="<%= @user.pic %>" alt="">
+<div class="profile container">
+  
+  <%= render 'shared/profile', profile: @user %>
+  
+  <%= link_to 'Edit', edit_user_path(current_user), class: 'btn btn-edit btn-primary' %>
 </div>
