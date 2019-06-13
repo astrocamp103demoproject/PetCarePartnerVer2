@@ -38,39 +38,50 @@
       display: flex;
       align-items: center;
 
-        .item-pic {
-            width: 20%;
-            padding: 5px;
+      .item-pic {
+        width: 20%;
+        padding: 5px;
+        img {
+          width: 100%;
         }
-        .item-sitter-info {
-            width: 60%;
-            div {
-              margin: 5px 0;
-            }
+      }
+      .item-sitter-info {
+        .item-sitter-slogan {
+          overflow: hidden;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 1;
         }
-        .item-price {
-            text-align: center;
-            width: 20%;
-            padding: 5px;
-            p { margin: 5px 0; }
-            a{
-                display: inline-block;
-                padding: 10px;
-                margin: 5px;
-                text-decoration: none;
-                border-radius: 14px;
-                background-color: red;
-                color:white;
-            }
-        }//item-price   
-    }//sitter-item
+        width: 60%;
+        div {
+          margin: 5px 0;
+        }
+      }
+      .item-price {
+        text-align: center;
+        width: 20%;
+        padding: 5px;
+        p {
+          margin: 5px 0;
+        }
+        a {
+          display: inline-block;
+          padding: 10px;
+          margin: 5px;
+          text-decoration: none;
+          border-radius: 14px;
+          background-color: red;
+          color: white;
+        }
+      } //item-price
+    } //sitter-item
     //kaminari
     .pagination {
       width: 100%;
       text-align: center;
       position: relative;
     }
-  }//search-sitters
+  } //search-sitters
 
   //kaminari
   .pagination {

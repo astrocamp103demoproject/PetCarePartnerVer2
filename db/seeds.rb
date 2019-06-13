@@ -9,10 +9,12 @@
     #sitter
     email = Faker::Internet.email
     name = Faker::Name.unique.name
-    slogan = Faker::Lorem.paragraph(2, true)
+    slogan = Faker::TvShows::GameOfThrones.quote
     price = Faker::Number.number(3)
+    # avatar = "https://api.adorable.io/avatars/285/#{Faker::Alphanumeric.alpha 5}@adorable.io.png"
+
     pet = Faker::Number.number(1)
-    Sitter.create(name: name ,email: email, password: '123456', slogan:slogan, address:'高雄市大寮區', price:price, pet_limit: '3')
+    Sitter.create(avatar: avatar, name: name ,email: email, password: '123456', slogan:slogan, address:'高雄市大寮區', price:price, pet_limit: '3')
     
     #Booking_date
     sitterid = Faker::Number.number(1)
