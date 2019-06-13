@@ -12,7 +12,7 @@
     slogan = Faker::Lorem.paragraph(2, true)
     price = Faker::Number.number(3)
     pet = Faker::Number.number(1)
-    Sitter.create(name: name ,email: email, password: '123456', slogan:slogan, address:'臺北市中正區', price:price, pet_limit: pet)
+    Sitter.create(name: name ,email: email, password: '123456', slogan:slogan, address:'高雄市大寮區', price:price, pet_limit: '3')
     
     #Booking_date
     sitterid = Faker::Number.number(1)
