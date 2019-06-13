@@ -6,14 +6,9 @@
     <%= check_box_tag(:cat, 1) %>
     <%= label_tag(:cat, "Cat") %>
     <div class="city-group">
-        <% select_tag(:city_id, raw("<option value="">縣市</option>"),class:'city-select') %>
-      <select name="" id="" class="city-select">
-        <option value="">縣市</option>
-        <%= options_for_select(TaiwanCity.list) %>
-      </select>
-      <select name="" id="" class="city-select">
-        <option value="">鄉鎮市區</option>
-      </select>
+      <%= select_tag(:city_id, options_for_select(TaiwanCity.list.unshift('縣市')),class:'city-select') %>
+      <%= select_tag(:township_id, raw("<option value="">鄉鎮市區</option>"),class:'city-select') %>
+ 
     </div>
     <div class="select-date">
       <%= text_field_tag 'Drop-Off', nil, :'data-provide' =>'datepicker', placeholder:'Drop-Off'%>
