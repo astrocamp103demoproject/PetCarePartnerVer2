@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :sitters, only: [:show, :edit, :update] do
+  resources :sitters, except: [:destroy] do
     member do
       resources :orders, only: [:index, :show, :edit, :update]
     end
