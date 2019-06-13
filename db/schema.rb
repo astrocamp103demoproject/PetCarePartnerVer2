@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_11_090547) do
+ActiveRecord::Schema.define(version: 2019_06_13_062226) do
 
   create_table "booking_dates", force: :cascade do |t|
     t.integer "sitter_id"
@@ -68,14 +68,20 @@ ActiveRecord::Schema.define(version: 2019_06_11_090547) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
-    t.string "email"
+    t.string "email", default: "", null: false
     t.string "password"
     t.string "address"
-    t.string "pet_count"
+    t.integer "pet_count", default: 0
     t.string "avatar"
     t.string "pic"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end

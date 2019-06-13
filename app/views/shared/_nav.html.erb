@@ -7,17 +7,14 @@
       <% #end %>
     </span>
     <span class="nav-right">
-      <% #if user_signed_in? %>
-        <% #if user.role = 'sitter'? %>
-          <!--<li><%= link_to 'My Profile', '#' %></li>-->
-        <% #else %>
-          <li><%= link_to 'My Profile', user_path(:id) %></li>
-        <% #end %>
+      <% if user_signed_in? %>
+        <li><%= link_to 'My Profile', user_path(:id) %></li>
         <li><%= link_to 'My Order', '#' %></li>
-      <% #else %>
-        <li><%= link_to 'Login in', '#' %></li>
-        <li><%= link_to 'Sign up', '#' %></li>
-      <% #end %>
+        <li><%= link_to "Log out", destroy_user_session_path, method: "delete" %></li>
+      <% else %>
+        <li><%= link_to 'Log in', new_user_session_path %></li>
+        <li><%= link_to 'Sign up', new_user_registration_path %></li>
+      <% end %>
     </span>
   </ul>
 </nav>
