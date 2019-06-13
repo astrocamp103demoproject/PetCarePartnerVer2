@@ -15,11 +15,24 @@ class SittersController < ApplicationController
       render :edit
     end
   end
-
-
+  def new
+    @sitter = Sitter.new
+  end
+  def index
+    @sitter = Sitter.new
+  end
+  def create
+    @sitter = Sitter.new(sitter_params)
+    
+    if @sitter.save
+      redirect_to root_path, notice:'恭喜你成為保母'
+    else
+      render :new
+    end
+  end
   private
   def sitter_params
     params.require(:sitter).permit(:name, :email, :address, :slogan, :avatar, :price, :square_meters, :pet_limit, :pic)
   end
-
+  
 end
