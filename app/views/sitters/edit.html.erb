@@ -1,0 +1,15 @@
+<h1>Edit Profile</h1>
+<%= simple_form_for @sitter do |form| %>
+<%= form.input :avatar, label: '頭貼' %>
+<%= form.input :name %>
+<%= form.input :address %>
+<%= form.input :email %>
+<%= form.input :slogan %>
+<%= form.input :price %>
+<hr>
+<%= form.input :square_meters %>
+<%= form.input :pet_limit %>
+
+<%= form.input :pic, label:'照片' %>
+<%= form.button :submit, class: 'btn-primary' %>
+<% end %>

@@ -5,7 +5,7 @@
     <% else %>
         <% @sitters.each do |sitter|%>
             <div class="sitter-item">
-                <div class="item-pic"><img src="https://picsum.photos/80/80/?random=1"></div>
+                <div class="item-pic"><img src=<%=sitter.avatar%>></div>
                 <div class="item-sitter-info">
                     <div class="item-sitter-name"><%=sitter.name%></div>
                     <div class="item-sitter-address"><%=sitter.address%></div>
@@ -14,7 +14,7 @@
                 <div class="item-price">
                     <p><%=sitter.price%>$</p>
                     <p>per night</p>
-                    <%= link_to 'Choose',root_path(sitter)%>
+                    <%= link_to 'Choose',sitter_path(sitter)%>
                 </div>
             </div>
         <%end%>

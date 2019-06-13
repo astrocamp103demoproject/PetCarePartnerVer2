@@ -8,9 +8,9 @@
 15.times { 
     email = Faker::Internet.email
     name = Faker::Name.unique.name
-    slogan = Faker::Lorem.paragraph(2, true)
+    slogan = Faker::TvShows::GameOfThrones.quote
     price = Faker::Number.number(3)
-    
-    Sitter.create(name: name ,email: email, password: '123456', slogan:slogan, address:'高雄市大寮區', price:price)
+    # avatar = "https://api.adorable.io/avatars/285/#{Faker::Alphanumeric.alpha 5}@adorable.io.png"
+    Sitter.create(avatar: avatar, name: name ,email: email, password: '123456', slogan:slogan, address:'高雄市大寮區', price:price)
     
 }
