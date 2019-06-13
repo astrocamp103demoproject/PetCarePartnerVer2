@@ -1,9 +1,9 @@
 
 <div class="search-sitters">
-    <% if @sitters.empty?%>
+    <% if sitters.empty?%>
         <h1>找不到搜尋結果</h1>
     <% else %>
-        <% @sitters.each do |sitter|%>
+        <% sitters.each do |sitter|%>
             <div class="sitter-item">
                 <div class="item-pic"><img src=<%=sitter.avatar%>></div>
                 <div class="item-sitter-info">
@@ -19,5 +19,5 @@
             </div>
         <%end%>
     <%end%>
-    <%= paginate @sitters, outer_window: 3 %>    
+    <%= paginate sitters, outer_window: 3 %>    
 </div>
