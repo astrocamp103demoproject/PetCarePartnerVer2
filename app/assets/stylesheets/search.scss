@@ -46,6 +46,12 @@
         }
       }
       .item-sitter-info {
+        .item-sitter-slogan {
+          overflow: hidden;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 1;
+        }
         width: 60%;
         div {
           margin: 5px 0;
