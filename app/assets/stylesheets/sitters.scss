@@ -1,3 +1,20 @@
-// Place all the styles related to the sitters controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+input{
+    display: inline-block;
+}
+.sitter-treaty{
+    width: 50%;
+    margin: auto;
+    article{
+       
+        
+        section{
+            margin: 20px 0;
+        }
+        a{
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+        
+    }
+}

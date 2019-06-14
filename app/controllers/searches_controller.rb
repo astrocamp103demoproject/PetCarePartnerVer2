@@ -1,12 +1,13 @@
 class SearchesController < ApplicationController
   def show  
-    @result = Sitter.all.page(params[:page]).per(10)
+    pet_count
+    @result = Sitter.where("pet_limit >= #{@pet_count}").where(address: location_code).page(params[:page]).per(10)
   end
   def update
     #1.用寵物數量找sitter
     # @sitters = Sitter.all.page(params[:page]).per(10)
     pet_count
-    @result = Sitter.where("pet_limit >= #{@pet_count}").where(address: location_code).page(params[:page]).per(10)
+    @result = Sitter.where("pet_limit >= #{@pet_count}").where(address: location_code).page(params[:page]).per(10) 
     
     
     #2.sitter找到後去booking_date
