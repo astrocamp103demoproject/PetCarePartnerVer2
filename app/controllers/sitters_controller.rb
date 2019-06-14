@@ -23,7 +23,7 @@ class SittersController < ApplicationController
   end
   def create
     @sitter = Sitter.new(sitter_params)
-    
+    byebug
     if @sitter.save
       redirect_to root_path, notice:'恭喜你成為保母'
     else
