@@ -23,7 +23,3 @@
     sitterid = Faker::Number.number(1)
     # BookingDate.create(sitter_id:sitterid, date: '24/11/2018', available: false)
 }
-
-5.times{
-
-}

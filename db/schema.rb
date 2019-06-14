@@ -23,11 +23,11 @@ ActiveRecord::Schema.define(version: 2019_06_14_062202) do
 
   create_table "orders", force: :cascade do |t|
     t.integer "user_id"
-    t.datetime "drop_off"
-    t.datetime "pick_up"
+    t.date "drop_off"
+    t.date "pick_up"
     t.text "note"
     t.string "status"
-    t.datetime "checkout_time"
+    t.date "checkout_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "sitter_id"

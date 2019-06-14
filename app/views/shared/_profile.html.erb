@@ -1,9 +1,9 @@
 <div class="avatar">
-  <img src="<%= profile.avatar %>" alt="error path">
+  <img src="<%= profile.avatar %>" alt="" class="avatar-img">
 </div>
 <div class="info">
   <%= content_tag(:h3, profile.name) %>
-  <%= content_tag(:p, profile.address) %>
+  <%= content_tag(:p, profile.address) if profile == @sitter %>
   <%= content_tag(:p, profile.email) %>
   <%= content_tag(:p, profile.slogan) if profile == @sitter %>
   <%= content_tag(:p, "$ #{profile.price} /每晚") if profile == @sitter %>
@@ -20,4 +20,5 @@
 </div>
 <div class="comment">
   <h3>留言板</h3>
+  <%= render 'shared/comment' %>
 </div>

@@ -14,7 +14,7 @@
       <% if user_signed_in? %>
         <li><%= "Hi, #{current_user.name}" %></li>
         <li><%= link_to 'My Profile', user_path(current_user) %></li>
-        <li><%= link_to 'My Order', '#' %></li>
+        <li><%= link_to 'My Order', orders_path(current_user) %></li>
         <li><%= link_to "Log out", destroy_user_session_path, method: "delete" %></li>
       <% else %>
         <li><%= link_to 'Log in', new_user_session_path %></li>

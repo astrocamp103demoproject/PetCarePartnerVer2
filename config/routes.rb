@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     member do
       resources :orders, only: [:index, :show, :edit, :update]
     end
+    get :checkout
   end
 
 end
