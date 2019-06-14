@@ -2,15 +2,22 @@
   <ul>
     <span class="nav-left">
       <li><%= link_to 'PetCollage', root_path %></li>
+<<<<<<< HEAD
       <% if user_signed_in?%>
         <li><%= link_to 'Become Sitter', sitters_path %></li>
       <% else %>
         <li><%= link_to 'Become Sitter', user_session_path %></li>
       <%end%>
+=======
+      <% #if user_signed_in? %>
+      <li><%= link_to 'Become Sitter', '#' %></li>
+      <% #end %>
+>>>>>>> master
     </span>
     <span class="nav-right">
       <% if user_signed_in? %>
-        <li><%= link_to 'My Profile', user_path(:id) %></li>
+        <li><%= "Hi, #{current_user.name}" %></li>
+        <li><%= link_to 'My Profile', user_path(current_user) %></li>
         <li><%= link_to 'My Order', '#' %></li>
         <li><%= link_to "Log out", destroy_user_session_path, method: "delete" %></li>
       <% else %>

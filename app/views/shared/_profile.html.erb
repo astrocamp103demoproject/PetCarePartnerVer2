@@ -1,17 +1,23 @@
-<img src="<%= @sitter.avatar %>" alt="error path">
-<h3><%= @sitter.name %></h3>
-<p><%= @sitter.address %></p>
-<p><%= @sitter.email %></p>
-<p><%= @sitter.slogan %></p>
-<p>$<%= @sitter.price %> /每晚</p>
+<div class="avatar">
+  <img src="<%= profile.avatar %>" alt="error path">
+</div>
+<div class="info">
+  <%= content_tag(:h3, profile.name) %>
+  <%= content_tag(:p, profile.address) %>
+  <%= content_tag(:p, profile.email) %>
+  <%= content_tag(:p, profile.slogan) if profile == @sitter %>
+  <%= content_tag(:p, "$ #{profile.price} /每晚") if profile == @sitter %>
+</div>
 <hr>
-<div>
-  <p>空間坪數： <%= @sitter.square_meters %> 平方公尺</p>
-  <p>最大收容數： <%= @sitter.pet_limit %> 隻</p>
+<div class="pic">
+  <h3>圖片集</h3>
+    <img src="<%= profile.pic %>" alt="">
 </div>
-<div>
-<h3>圖片集</h3>
+<hr>
+<div class="square">
+  <%= content_tag(:p, "空間坪數： #{profile.square_meters} 平方公尺") if profile == @sitter %>
+  <%= content_tag(:p, "最大收容數： #{profile.pet_limit} 隻") if profile == @sitter %>
 </div>
-<div>
-<h3>留言板</h3>
+<div class="comment">
+  <h3>留言板</h3>
 </div>

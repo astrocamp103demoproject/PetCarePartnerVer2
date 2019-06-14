@@ -1,4 +1,5 @@
 class SittersController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   def show
     @sitter = Sitter.find_by(id: params[:id])
   end
