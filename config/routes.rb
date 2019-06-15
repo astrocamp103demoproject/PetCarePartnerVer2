@@ -9,15 +9,16 @@ Rails.application.routes.draw do
   resource :searches, only: [:index, :show, :update]
 
   resources :users, only: [:show, :edit, :update] do
-    member do
-      resources :orders, only: [:index, :show]
+    resources :orders, only: [:index, :show] do
+      collection do
+        get :pending
+        get :finish
+        get :cancel
+      end
     end
   end
 
   resources :sitters, except: [:destroy] do
-    member do
-      resources :orders, only: [:index, :show, :edit, :update]
-    end
     get :checkout
   end
 
