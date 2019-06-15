@@ -1,15 +1,21 @@
 // Place all the styles related to the orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+//index
 .order-type {
   text-align: center;
   li {
     display: inline-block;
   }
 }
+.check-empty {
+  text-align: center;
+  margin: 40px 0;
+}
 .order-info {
   display: flex;
-  margin: auto;
+  margin: 10px auto;
   border: 1px solid #eee;
   width: 100%;
   max-width: 800px;
@@ -18,5 +24,25 @@
   }
   .order-content {
     margin-left: 40px;
+  }
+}
+
+//show
+.order-detail {
+  max-width: 800px;
+  margin: auto;
+  .sitter-avatar,
+  .sitter-info {
+    display: inline-block;
+  }
+  img {
+    width: 80%;
+  }
+  .detail-text p {
+    padding-left: 15%;
+    span {
+      display: inline-block;
+      width: 300px;
+    }
   }
 }
