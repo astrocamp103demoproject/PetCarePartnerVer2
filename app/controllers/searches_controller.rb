@@ -1,5 +1,5 @@
 class SearchesController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :update]
   def show  
     pet_count
     @result = Sitter.where("pet_limit >= #{@pet_count}").where(address: location_code).page(params[:page]).per(10)
