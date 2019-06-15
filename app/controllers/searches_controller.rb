@@ -1,7 +1,8 @@
-require 'date'
 class SearchesController < ApplicationController
+  layout 'search'
+  require 'date'
   before_action :authenticate_user!, except: [:index, :show, :update]
-  def show  
+  def show
     @result = Sitter.where("pet_limit >= ?",pet_count).where(address: location_code).page(params[:page]).per(10)
   end
   def update
