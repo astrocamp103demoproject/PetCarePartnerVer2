@@ -1,0 +1,30 @@
+.sitter-treaty{
+    width: 50%;
+    margin: auto;
+    article{
+        input,p{ display: inline-block; }
+        section{
+            margin: 20px 0;
+            height: 500px;
+            overflow: scroll;
+        }
+        #agree-btn{
+            display: blcok;
+            width: 100%;
+            text-align: center;
+        }
+        
+    }
+}
+
+.new-sitter{
+    display: flex;
+    align-content: center;
+    form{
+        
+        padding: 20px;
+        width: 50%;
+        margin: auto;
+        background-color: #d1d8e0;
+    }
+}

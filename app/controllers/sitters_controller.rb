@@ -23,8 +23,9 @@ class SittersController < ApplicationController
     @sitter = Sitter.new
   end
   def create
+    # @sitter = current_user
     @sitter = Sitter.new(sitter_params)
-    byebug
+    @sitter.email = current_user.email
     if @sitter.save
       redirect_to root_path, notice:'恭喜你成為保母'
     else
@@ -33,7 +34,7 @@ class SittersController < ApplicationController
   end
   private
   def sitter_params
-    params.require(:sitter).permit(:name, :email, :address, :slogan, :avatar, :price, :square_meters, :pet_limit, :pic)
+    params.require(:sitter).permit( :address, :slogan, :price, :square_meters, :pet_limit)
   end
   
 end
