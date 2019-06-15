@@ -1,0 +1,22 @@
+// Place all the styles related to the orders controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.order-type {
+  text-align: center;
+  li {
+    display: inline-block;
+  }
+}
+.order-info {
+  display: flex;
+  margin: auto;
+  border: 1px solid #eee;
+  width: 100%;
+  max-width: 800px;
+  img {
+    width: 80%;
+  }
+  .order-content {
+    margin-left: 40px;
+  }
+}
