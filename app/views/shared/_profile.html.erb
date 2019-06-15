@@ -13,12 +13,12 @@
   <h3>圖片集</h3>
     <img src="<%= profile.pic %>" alt="">
 </div>
-<hr>
 <div class="square">
+<hr>
   <%= content_tag(:p, "空間坪數： #{profile.square_meters} 平方公尺") if profile == @sitter %>
   <%= content_tag(:p, "最大收容數： #{profile.pet_limit} 隻") if profile == @sitter %>
 </div>
 <div class="comment">
-  <h3>留言板</h3>
-  <%= render 'shared/comment' %>
+  <%= content_tag(:h3, '留言板') if profile == @sitter %>
+  <%= render 'shared/comment' if profile == @sitter %>
 </div>
