@@ -19,6 +19,10 @@ Rails.application.routes.draw do
   end
 
   resources :sitters, except: [:destroy] do
+
+    member do
+      resources :orders, only: [:index, :show, :edit, :update]
+    end
     get :checkout
   end
 
