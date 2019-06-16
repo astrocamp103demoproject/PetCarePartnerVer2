@@ -15,6 +15,8 @@
 //= require turbolinks
 //= require places
 //= require 'jquery'
+//= require jquery_ujs
 //= require 'taiwan_city/jquery.taiwan_city'
 //= require bootstrap-datepicker
 //= require become_sitter
+
