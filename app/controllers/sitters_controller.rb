@@ -34,6 +34,12 @@ class SittersController < ApplicationController
       render :new
     end
   end
+  def checkout
+      @sitter = Sitter.find_by(id: params[:id])
+      puts "---------------------"
+      p params
+      puts "---------------------"
+  end
   private
   def sitter_params
     params.require(:sitter).permit( :address, :slogan, :price, :square_meters, :pet_limit)
