@@ -1,9 +1,8 @@
 <h1>Sitter Profile</h1>
-<div class="profile container">
-  
+<div class="profile">
   <%= render 'shared/profile', profile: @sitter %>
-  
   <%= link_to 'Edit', edit_sitter_path(@sitter), class: 'btn btn-edit btn-primary' %>
   
   <%= link_to 'Booking', sitter_checkout_path(@sitter), class: 'btn btn-booking btn-success' %>
+
 </div>

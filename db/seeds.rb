@@ -28,6 +28,7 @@
 
     # User.create(name: name ,email: email, password: '123456')
     # Sitter.create(name: "rich1",email: "rich@123", password: '123456' )
+
     #Booking_date
     sitterid = Faker::Number.number(1)
     # BookingDate.create(sitter_id:sitterid, date: '24/11/2018', available: false)
