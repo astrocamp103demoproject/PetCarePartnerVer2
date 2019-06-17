@@ -1,7 +1,9 @@
 class SearchesController < ApplicationController
-  skip_before_action :verify_authenticity_token
+
   layout 'search'
   require 'date'
+  skip_before_action :verify_authenticity_token
+
   before_action :authenticate_user!, except: [:index, :show, :update]
   def show
     @result = Sitter.where("pet_limit >= ?",pet_count).where(address: location_code).page(params[:page]).per(10)
