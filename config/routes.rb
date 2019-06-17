@@ -18,6 +18,8 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :sitters, except: [:destroy]
+  resources :sitters, except: [:destroy] do
+    resource :booking_date, only: [:create]
+  end
 
 end
