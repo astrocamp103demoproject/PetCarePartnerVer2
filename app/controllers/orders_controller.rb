@@ -3,10 +3,26 @@ class OrdersController < ApplicationController
   def index
     @orders = current_user.orders.all
   end
+
+  def new
+    @order = Order.new
+    @sitter = session[:current_sitter].to_h
+    @drop = Date.strptime(session[:drop_off], '%m/%d/%Y')
+    @pick = Date.strptime(session[:pick_up], '%m/%d/%Y')
+    @total = (@pick - @drop).to_i * @sitter['price']
+  end
   
+  def create
+    @order = Order.new(order_params)
+    if @order.save
+      redirect_to user_orders_path, notice:'成功下訂！'
+    else
+      render :new
+    end
+  end
+
   def show
     @order = current_user.orders.find_by(id: params[:id])
-    @total_price = @order.sitter.price * days_between(@order.drop_off, @order.pick_up)
   end
   
   def pending
@@ -22,10 +38,7 @@ class OrdersController < ApplicationController
   end
 
   private
-  def days_between(drop_off, pick_up)
-    # d1 = Date.parse(drop_off)
-    # d2 = Date.parse(pick_up)
-    # (d2 - d1).to_i
-    (pick_up - drop_off).to_i
+  def order_params
+    params.require(:order).permit(:user_id, :sitter_id, :drop_off, :pick_up, :status, :note)
   end
 end

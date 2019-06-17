@@ -2,6 +2,7 @@ class SittersController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   def show
     @sitter = Sitter.find_by(id: params[:id])
+    session[:current_sitter] = @sitter
   end
   def edit
     @sitter = Sitter.find_by(id: params[:id])
@@ -27,18 +28,15 @@ class SittersController < ApplicationController
     @sitter = Sitter.new(sitter_params)
     @sitter.email = current_user.email
     @sitter.name = current_user.name
+
+    User.update(role:'sitter')
     if @sitter.save
       redirect_to root_path, notice:'恭喜你成為保母'
     else
       render :new
     end
   end
-  def checkout
-      @sitter = Sitter.find_by(id: params[:id])
-      puts "---------------------"
-      p params
-      puts "---------------------"
-  end
+ 
   private
   def sitter_params
     params.require(:sitter).permit( :address, :slogan, :price, :square_meters, :pet_limit)

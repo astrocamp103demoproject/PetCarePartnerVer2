@@ -6,10 +6,10 @@ Rails.application.routes.draw do
 
   root 'search#index'
 
-  resource :searches, only: [:index, :show, :update]
+  resource :searches, only: [:index, :show, :update, :create]
 
   resources :users, only: [:show, :edit, :update] do
-    resources :orders, only: [:index, :show] do
+    resources :orders, only: [:new, :create, :index, :show] do
       collection do
         get :pending
         get :finish
@@ -18,12 +18,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :sitters, except: [:destroy] do
-
-    member do
-      resources :orders, only: [:index, :show, :edit, :update]
-    end
-    get :checkout
-  end
+  resources :sitters, except: [:destroy]
 
 end
