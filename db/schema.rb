@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_14_080256) do
+ActiveRecord::Schema.define(version: 2019_06_17_080042) do
 
   create_table "booking_dates", force: :cascade do |t|
     t.integer "sitter_id"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2019_06_14_080256) do
     t.date "drop_off"
     t.date "pick_up"
     t.text "note"
-    t.string "status"
+    t.string "state", default: "pending"
     t.date "checkout_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
