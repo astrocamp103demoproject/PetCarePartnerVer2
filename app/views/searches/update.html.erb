@@ -1,6 +1,9 @@
 <div class="search-wrap">
     <%= render 'search-bar'%>
     <%= render 'search-sitters',sitters: @result%>
-    <div class="search-map"></div>
+    <%= render 'search-map'%>
     
+  <script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLqAplVGeedtNq4tRidi9gFbwN-vAG7I4&callback=goStart">
+</script>
 </div>

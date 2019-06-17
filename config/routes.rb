@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   root 'search#index'
 
-  resource :searches, only: [:index, :show, :update]
+  resource :searches, only: [:index, :show, :update, :create]
 
   resources :users, only: [:show, :edit, :update] do
     resources :orders, only: [:new, :create, :index, :show] do

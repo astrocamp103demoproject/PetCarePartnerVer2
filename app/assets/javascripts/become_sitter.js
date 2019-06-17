@@ -9,4 +9,19 @@ $(document).on("turbolinks:load",function(){
         }
     })
     
+    // $('#search-sitters').click( function(e){
+    //     e.preventDefault();
+    //     var url =  $(this).attr("href");
+        
+        
+    //     $.ajax(url, {
+    //       success: function(response) {
+    //         console.log("url in ajax"+response);
+    //         $("#sitters-content").html(response);
+    //       }
+    //     });
+    // });
+
+
+
 });
