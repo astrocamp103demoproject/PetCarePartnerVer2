@@ -16,7 +16,7 @@
     pic = "https://picsum.photos/300/300"
 
     pet = Faker::Number.number(1)
-    Sitter.create(avatar: avatar, name: name ,email: email, password: '123456', slogan:slogan, address:'高雄市大寮區', price:price, pet_limit: '3', pic: pic)
+    User.create(avatar: avatar, name: name ,email: email, password: '123456', address:'高雄市大寮區')
 
     
     # Sitter.create(avatar: avatar, name: name ,email: email, password: '123456', slogan:slogan, address:'高雄市大寮區', price:price, pet_limit: '3', pic: pic)

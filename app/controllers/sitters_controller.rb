@@ -26,6 +26,7 @@ class SittersController < ApplicationController
     # @sitter = current_user
     @sitter = Sitter.new(sitter_params)
     @sitter.email = current_user.email
+    @sitter.name = current_user.name
     if @sitter.save
       redirect_to root_path, notice:'恭喜你成為保母'
     else
