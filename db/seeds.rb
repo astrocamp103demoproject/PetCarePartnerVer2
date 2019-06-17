@@ -17,10 +17,12 @@ township_array =  ["台北市士林區","台北市北投區","台北市內湖區
     avatar = "https://api.adorable.io/avatars/285/#{Faker::Alphanumeric.alpha 5}@adorable.io.png"
     pic = "https://picsum.photos/300/300"
 
+
     number = rand(0..9)
-    puts "#{{avatar: avatar, name: name ,email: email, password: '123456', slogan:slogan, address:township_array[number], price:price, pet_limit: '3', pic: pic} }"
     Sitter.create(avatar: avatar, name: name ,email: email, password: '123456', slogan:slogan, address:township_array[number], price:price, pet_limit: '3', pic: pic)
-    
+    User.create(avatar: avatar, name: name ,email: email, password: '123456', address:'高雄市大寮區')
+
+
     
     # Sitter.create(avatar: avatar, name: name ,email: email, password: '123456', slogan:slogan, address:'高雄市大寮區', price:price, pet_limit: '3', pic: pic)
     # User.create(name: name ,email: email, password: '123456')

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resource :searches, only: [:index, :show, :update, :create]
 
   resources :users, only: [:show, :edit, :update] do
-    resources :orders, only: [:index, :show] do
+    resources :orders, only: [:new, :create, :index, :show] do
       collection do
         get :pending
         get :finish
@@ -19,11 +19,7 @@ Rails.application.routes.draw do
   end
 
   resources :sitters, except: [:destroy] do
-
-    member do
-      resources :orders, only: [:index, :show, :edit, :update]
-    end
-    get :checkout
+    resource :booking_date, only: [:create]
   end
 
 end

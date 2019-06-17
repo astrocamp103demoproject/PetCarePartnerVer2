@@ -1,0 +1,25 @@
+<div class="sitter-checkout">
+    <div class="sitter-checkout-container">
+        <div class="item-payment">
+            <h3>付款設定</h3>
+        </div>
+        <div class="item-sitter-profile">
+            <%= simple_form_for([current_user, @order]) do |f| %> 
+                <%= f.input :sitter_id, as: :hidden, input_html: { value: @sitter['id']} %>
+                <%= content_tag(:p, "保母： #{@sitter['name']}") %>
+                <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id} %>
+                <%= content_tag(:p, "下訂者： #{current_user.name}") %>
+                <%= f.input :drop_off, as: :hidden, input_html: { value: @drop} %>
+                <%= content_tag(:p, "Drop_Off： #{@drop}") %>
+                <%= f.input :pick_up, as: :hidden, input_html: { value: @pick} %>
+                <%= content_tag(:p, "Pick_Up： #{@pick}") %>
+                <%= f.input :status, as: :hidden, input_html: { value: 'pending'} %>
+                <%= content_tag(:p, "總金額： #{@total} 元") %>
+                
+                <%= f.input :note %>
+            
+                <%= f.submit '送出', class: 'btn btn-success'%>
+            <% end %>
+        </div>
+    </div>
+</div>    

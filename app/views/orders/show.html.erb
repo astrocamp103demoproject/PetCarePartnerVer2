@@ -11,7 +11,7 @@
   <hr>
   <div class="detail-text">
     <p><span>訂單號：</span> <span><%= @order.id %></span></p>
-    <p><span>訂單狀態：</span> <span><%= @order.status %></span></p>
+    <p><span>訂單狀態：</span> <span><%= @order.state %></span></p>
     <hr>
     <p><span>Drop-Off:</span> <span><%= @order.drop_off %></span></p>
     <p><span>Pick-Up:</span> <span><%= @order.pick_up %></span></p>
@@ -23,7 +23,7 @@
     <p><span>備註：</span> <span><%= @order.note %></span></p>
     <hr>
     <p><span>每晚金額：</span> <span><%= @order.sitter.price %> 元</span></p>
-    <p><span>總金額：</span> <span><%= @total_price %> 元</span></p>
+    <p><span>總金額：</span> <span><%= (@order.pick_up - @order.drop_off).to_i * @order.sitter.price %> 元</span></p>
     <p><span>付款日期：</span> <span><%= @order.checkout_time %></span></p>
     <hr>
     <p><span>付款方式：</span> <span>credit card</span></p>
