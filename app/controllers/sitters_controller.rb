@@ -2,6 +2,7 @@ class SittersController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   def show
     @sitter = Sitter.find_by(id: params[:id])
+    session[:current_sitter] = @sitter
   end
   def edit
     @sitter = Sitter.find_by(id: params[:id])
@@ -34,12 +35,7 @@ class SittersController < ApplicationController
       render :new
     end
   end
-  def checkout
-      @sitter = Sitter.find_by(id: params[:id])
-      puts "---------------------"
-      p params
-      puts "---------------------"
-  end
+ 
   private
   def sitter_params
     params.require(:sitter).permit( :address, :slogan, :price, :square_meters, :pet_limit)

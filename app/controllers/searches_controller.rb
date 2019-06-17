@@ -9,14 +9,24 @@ class SearchesController < ApplicationController
   def update
     # if(params[:Drop_Off]=="") && (params[:Pick_Up]=="")
     
-      @result = Sitter.where("pet_limit >= ?",pet_count).where("address LIKE ?",location_code).page(params[:page]).per(10) 
+    @result = Sitter.where("pet_limit >= ?",pet_count).where("address LIKE ?",location_code).page(params[:page]).per(10) 
     # else 
     #   @result = Sitter.joins(:booking_dates).where(date: date_change(params[:Drop_Off])..date_change(params[:Pick_Up])).page(params[:page]).per(10)
-      @date_count = BookingDate.where(date: date_change(params[:Drop_Off])..date_change(params[:Pick_Up])).pluck(:sitter_id)
+
+    # @a = BookingDate.group(:sitter_id).having(date: date_change(params[:Drop_Off])..date_change(params[:Pick_Up])) 
+    # end
+    session[:drop_off] = params[:Drop_Off]
+    session[:pick_up] = params[:Pick_Up]
+    
+    # byebug
+    
+    #2.sitter找到後去booking_date
+    @date_count = BookingDate.where(date: date_change(params[:Drop_Off])..date_change(params[:Pick_Up])).pluck(:sitter_id)
       
-      # 總天數
-      # 決定and多少次
-    # end  
+    # 總天數
+    # 決定and多少次
+  # end     
+
   end
 
   private 
