@@ -19,4 +19,7 @@
 //= require 'taiwan_city/jquery.taiwan_city'
 //= require bootstrap-datepicker
 //= require become_sitter
-
+//
+//google map
+//= require underscore-min
+//= require gmaps/google

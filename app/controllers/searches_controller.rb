@@ -1,23 +1,19 @@
 class SearchesController < ApplicationController
-  skip_before_action :verify_authenticity_token
-  layout 'search'
   require 'date'
+  layout 'search'
+  skip_before_action :verify_authenticity_token
   before_action :authenticate_user!, except: [:index, :show, :update]
+
   def show
     @result = Sitter.where("pet_limit >= ?",pet_count).where("address LIKE ?",location_code).page(params[:page]).per(10) 
   end
   def update
-    # if(params[:Drop_Off]=="") && (params[:Pick_Up]=="")
-    
       @result = Sitter.where("pet_limit >= ?",pet_count).where("address LIKE ?",location_code).page(params[:page]).per(10) 
-    # else 
-    #   @result = Sitter.joins(:booking_dates).where(date: date_change(params[:Drop_Off])..date_change(params[:Pick_Up])).page(params[:page]).per(10)
-      @date_count = BookingDate.where(date: date_change(params[:Drop_Off])..date_change(params[:Pick_Up])).pluck(:sitter_id)
-    
-
-      # 總天數
-      # 決定and多少次
-    # end  
+      @date_count = BookingDate.where(date: date_change(params[:Drop_Off])..date_change(params[:Pick_Up])).where(sitter_id: 220).count
+      
+      g_map
+      
+      
   end
 
   private 
@@ -48,5 +44,15 @@ class SearchesController < ApplicationController
         daysplit = day.split("/")
         "#{daysplit[2]}-#{daysplit[0]}-#{daysplit[1]}"
       end
+  end
+
+  def g_map
+    # google map
+    @gmaps = Sitter.where("pet_limit >= ?",pet_count).where("address LIKE ?",location_code)
+    @hash = Gmaps4rails.build_markers(@gmaps) do |gmap, marker|
+      marker.lat gmap.latitude
+      marker.lng gmap.longitude
+      marker.infowindow gmap.address
+    end
   end
 end

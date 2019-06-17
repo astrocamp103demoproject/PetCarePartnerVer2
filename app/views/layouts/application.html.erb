@@ -4,7 +4,7 @@
     <title>PetCollage</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -16,5 +16,9 @@
       <%= flash[:notice] %>
       <%= yield %>
     </div>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAmGUpsRg67eNn8B_6-JWwLAdP14bjWU8&callback=initialize"></script>
+    <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
+    <script src='//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js' type='text/javascript'></script> <!-- only if you need custom infoboxes -->
+    
   </body>
 </html>
