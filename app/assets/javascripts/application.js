@@ -18,5 +18,6 @@
 //= require jquery_ujs
 //= require 'taiwan_city/jquery.taiwan_city'
 //= require bootstrap-datepicker
+//= require bootstrap-sprockets
 //= require become_sitter
 
