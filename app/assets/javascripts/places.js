@@ -28,7 +28,7 @@ function getLocationData(data) {
   for (var j = 0; j < array.length; j++) {
     locations.push([array[j].infowindow, array[j].lat, array[j].lng])
   }
-
+  console.log("ingetlocation"+data)
   return locations;
 }
 
@@ -65,7 +65,7 @@ function setMapStyle(data) {
   
     window.googleMapConfig.map = new google.maps.Map(document.getElementById('map'), {
       zoom: 11,
-      center: { lat:data[1][1], lng:data[1][2]  },
+      center: { lat:data[0][1], lng:data[0][2]  },
       styles: [
         { elementType: 'geometry', stylers: [{ color: '#242f3e' }] },
         { elementType: 'labels.text.stroke', stylers: [{ color: '#242f3e' }] },

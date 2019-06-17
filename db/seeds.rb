@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-township_array =  ["台北市士林區","台北市北投區","台北市內湖區","台北市南港區","台北市景美區","台北市文山區","台北市中正區","台北市萬華區","台北市中山區","台北市大同區"]
+township_array =  ["臺北市士林區","臺北市北投區","臺北市內湖區","臺北市南港區","臺北市景美區","臺北市文山區","臺北市中正區","臺北市萬華區","臺北市中山區","臺北市大同區"]
 20.times { 
     #sitter
     email = Faker::Internet.email
@@ -16,11 +16,11 @@ township_array =  ["台北市士林區","台北市北投區","台北市內湖區
     price = Faker::Number.number(3)
     avatar = "https://api.adorable.io/avatars/285/#{Faker::Alphanumeric.alpha 5}@adorable.io.png"
     pic = "https://picsum.photos/300/300"
-
-
     number = rand(0..9)
+
+
     Sitter.create(avatar: avatar, name: name ,email: email, password: '123456', slogan:slogan, address:township_array[number], price:price, pet_limit: '3', pic: pic)
-    User.create(avatar: avatar, name: name ,email: email, password: '123456', address:'高雄市大寮區')
+    User.create(avatar: avatar, name: name ,email: email, password: '123456', address:township_array[number])
 
 
     

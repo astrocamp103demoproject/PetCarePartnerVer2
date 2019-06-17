@@ -9,7 +9,11 @@
         
         <script type="text/javascript">
           function initialize(){
+                var hashes = '<%= raw hash.to_json %>';
                 bulidMap();
+                setMapStyle(
+                  getLocationData(hashes)
+                );
           }
           
           function bulidMap(){
@@ -18,9 +22,7 @@
                 handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
                   initMapMarker(hashes);
                 });
-                setMapStyle(
-                  getLocationData(hashes)
-                );
+                
           }
         </script>
        

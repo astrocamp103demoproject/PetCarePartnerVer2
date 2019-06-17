@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2019_06_16_102520) do
-
+ActiveRecord::Schema.define(version: 2019_06_17_080042) do
 
   create_table "booking_dates", force: :cascade do |t|
     t.integer "sitter_id"
