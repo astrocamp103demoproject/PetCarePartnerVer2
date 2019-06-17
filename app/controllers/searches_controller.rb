@@ -15,8 +15,6 @@ class SearchesController < ApplicationController
       session[:pick_up] = params[:Pick_Up]
       g_map
       
-      
-
   end
 
   private 
