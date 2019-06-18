@@ -14,11 +14,16 @@
     <img src="<%= profile.pic %>" alt="">
 </div>
 <hr>
+<% if profile == @sitter %>
 <div class="square">
-  <%= content_tag(:p, "空間坪數： #{profile.square_meters} 平方公尺") if profile == @sitter %>
-  <%= content_tag(:p, "最大收容數： #{profile.pet_limit} 隻") if profile == @sitter %>
+  <%= content_tag(:p, "空間坪數： #{profile.square_meters} 平方公尺") %>
+  <%= content_tag(:p, "最大收容數： #{profile.pet_limit} 隻") %>
+  <%= month_calendar(attribute: :date) do |date| %>
+    <%= date.day %>
+  <% end %>
 </div>
 <div class="comment">
-  <%= content_tag(:h3, '留言板') if profile == @sitter %>
-  <%= render 'shared/comment' if profile == @sitter %>
+  <%= content_tag(:h3, '留言板') %>
+  <%= render 'shared/comment' %>
 </div>
+<% end %>
