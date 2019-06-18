@@ -20,4 +20,7 @@
 //= require bootstrap-datepicker
 //= require bootstrap-sprockets
 //= require become_sitter
-
+//
+//google map
+//= require underscore-min
+//= require gmaps/google
