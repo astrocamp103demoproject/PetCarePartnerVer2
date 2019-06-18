@@ -1,6 +1,17 @@
-nav.top-nav {
-  background-color: #448aa6;
+
+
+.container-fluid {
+  background-color: #e3f2fd;
   
+  .navbar-header{
+    img{
+        // background: #fff;
+        height: 50px;
+        // border-radius:50px;
+        margin-right:20px ;
+    }
+  }
+
   ul {
     display: flex;
     justify-content: space-between;
@@ -11,10 +22,16 @@ nav.top-nav {
     li {
       display: inline-block;
       color: #113859;
-      padding: 20px 10px;
+      padding: 10px 10px;
       margin: 10px, 5px;
       font-size: 20px;
+      img{
+        height: 50px;
+        border-radius:50px;
+      }
       a {
+        display: block;
+
         text-decoration: none;
         color: #365359;
         transition: 0.3s;

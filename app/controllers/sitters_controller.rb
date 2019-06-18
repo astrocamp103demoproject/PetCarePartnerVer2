@@ -3,6 +3,8 @@ class SittersController < ApplicationController
   def show
     @sitter = Sitter.find_by(id: params[:id])
     session[:current_sitter] = @sitter
+    # byebug
+    @booking_dates = @sitter.booking_dates.all
   end
   def edit
     @sitter = Sitter.find_by(id: params[:id])
@@ -24,11 +26,11 @@ class SittersController < ApplicationController
     @sitter = Sitter.new
   end
   def create
-    # @sitter = current_user
+    
     @sitter = Sitter.new(sitter_params)
     @sitter.email = current_user.email
     @sitter.name = current_user.name
-
+    
     User.update(role:'sitter')
     if @sitter.save
       redirect_to root_path, notice:'恭喜你成為保母'

@@ -18,7 +18,7 @@
 <div class="square">
   <%= content_tag(:p, "空間坪數： #{profile.square_meters} 平方公尺") %>
   <%= content_tag(:p, "最大收容數： #{profile.pet_limit} 隻") %>
-  <%= month_calendar(attribute: :date) do |date| %>
+  <%= month_calendar events: @booking_dates do |date, booking_date| %>
     <%= date.day %>
   <% end %>
 </div>
