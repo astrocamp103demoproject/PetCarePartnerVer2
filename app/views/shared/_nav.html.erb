@@ -1,38 +1,42 @@
-<nav class='top-nav'>
-  <ul>
-    <span class="nav-left">
-      <li><%= link_to 'PetCollage', root_path %></li>
-
-      <% if user_signed_in?%>
-        <li><%= link_to 'Become Sitter', sitters_path %></li>
-      <% else %>
-        <li><%= link_to 'Become Sitter', user_session_path %></li>
-      <%end%>
-
-    </span>
-
-<span class="nav-right">
-    <span class="dropdown">
-    <% if user_signed_in?   %>
-      <div class="dropbtn" >
-        <%= "Hi, #{current_user.name}" %>
-        <img src="<%= current_user.avatar %>" alt="" class="avatar-img">
-      </div>
-        </button>
-        <div class="dropdown-content">
-        <li><%= link_to 'My Profile', user_path(current_user) %></li>
-        <li><%= link_to 'My Order', user_orders_path(current_user) %></li>
-        <li><%= link_to "Log out", destroy_user_session_path, method: "delete" %></li>
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <ul>
+            <%= image_tag("animals.png") %>
+            <li><%= link_to 'PetCollage', root_path %></li>  
+            <% if user_signed_in?%>
+                <li><%= link_to 'Become Sitter', sitters_path %></li>
+            <% else %>
+                <li><%= link_to 'Become Sitter', user_session_path %></li>
+            <%end%>   
+            </ul>
         </div>
-    <% else %>
-        <li><%= link_to 'Log in', new_user_session_path %></li>
-        <li><%= link_to 'Sign up', new_user_registration_path %></li>
-    <% end %>
-    
-    </span>
-</span>
-  
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
 
-    
-  </ul>
+                <li class="nav-item dropdown">
+                    <% if user_signed_in?   %>
+                    <span class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <%= "Hi, #{current_user.name}" %>
+                    <img src="<%= current_user.avatar %>" alt="" class="avatar-img">
+                    </span>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                              <a class="dropdown-item"><%= link_to 'My Profile', user_path(current_user) %></a>
+                              <a class="dropdown-item"><%= link_to 'My Order', user_orders_path(current_user) %></a>
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item"><%= link_to "Log out", destroy_user_session_path, method: "delete" %></a>
+                          </div>
+                    <% else %>
+                    <li><%= link_to 'Log in', new_user_session_path %></li>
+                    <li><%= link_to 'Sign up', new_user_registration_path %></li>
+                    <% end %>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
 </nav>
+	
