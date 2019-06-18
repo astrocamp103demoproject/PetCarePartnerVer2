@@ -10,7 +10,7 @@ class SearchesController < ApplicationController
   def update
 
       @result = Sitter.where("pet_limit >= ?",pet_count).where("address LIKE ?",location_code).page(params[:page]).per(10) 
-      @date_count = BookingDate.where(date: date_change(params[:Drop_Off])..date_change(params[:Pick_Up])).where(sitter_id: 220).count
+      # @date_count = BookingDate.where(date: date_change(params[:Drop_Off])..date_change(params[:Pick_Up])).where(sitter_id: 220).count
       session[:drop_off] = params[:Drop_Off]
       session[:pick_up] = params[:Pick_Up]
       g_map
