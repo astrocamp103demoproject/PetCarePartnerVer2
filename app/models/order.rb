@@ -6,30 +6,30 @@ class Order < ApplicationRecord
 
   include AASM
 
-aasm column: 'state' do
-  state :pending, initial: true
-  # state :paid, :prepare, :delivered, :refunded, :cancelled
-  state :paid, :cancelled
+  aasm column: 'state' do
+    state :pending, initial: true
+    # state :paid, :prepare, :delivered, :refunded, :cancelled
+    state :paid, :cancelled
 
-  event :cancel do
-    transitions from: :pending, to: :cancelled
+    event :cancel do
+      transitions from: :pending, to: :cancelled
+    end
+
+    event :pay do
+      transitions from: :pending, to: :paid
+    end
+
+    # event :prepare do
+    #   transitions from: :paid, to: :prepared
+    # end
+
+    # event :deliver do
+    #   transitions from: :prepared, to: :delivered
+    # end
+
+    # event :refund do
+    #   transitions from: [:paid, :prepared, :delivered], to: :refunded
+    # end
   end
-
-  event :pay do
-    transitions from: :pending, to: :paid
-  end
-
-  # event :prepare do
-  #   transitions from: :paid, to: :prepared
-  # end
-
-  # event :deliver do
-  #   transitions from: :prepared, to: :delivered
-  # end
-
-  # event :refund do
-  #   transitions from: [:paid, :prepared, :delivered], to: :refunded
-  # end
-end
 
 end

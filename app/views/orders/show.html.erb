@@ -7,6 +7,7 @@
     <h3>保母： <%= @order.sitter.name %></h3>
     <p>地址： <%= @order.sitter.address %></p>
     <p>email: <%= @order.sitter.email %></p>
+    <%= link_to '保母專頁', sitter_path(@order.sitter), class: 'btn btn-primary' %>
   </div>
   <hr>
   <div class="detail-text">
