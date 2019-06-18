@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-township_array =  ["臺北市士林區","臺北市北投區","臺北市內湖區","臺北市南港區","臺北市景美區","臺北市文山區","臺北市中正區","臺北市萬華區","臺北市中山區","臺北市大同區"]
+township_array =  ["臺北市中正區","臺北市大同區","臺北市中山區","臺北市松山區","臺北市大安區","臺北市萬華區","臺北市信義區","臺北市士林區","臺北市北投區","臺北市內湖區"]
 20.times { 
     #sitter
     email = Faker::Internet.email
