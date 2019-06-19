@@ -1,0 +1,19 @@
+  <h3>我的寵物</h3>
+<% @pets.each do |pet| %>
+<div class='my-pet'>
+  <img src="<%= pet.pic %>" alt="" class='pet-pic'>
+  <div class="pet-info">
+    <p><%= pet.pet_type %></p>
+    <p>名字： <%= pet.name %></p>
+    <p>年齡： <%= pet.age %> 歲</p>
+    <p>體重： <%= pet.size %> 公斤</p>
+    <p>性別： <%= pet.sex %></p>
+    <%= link_to 'view', user_pet_path(current_user, pet) %>
+    <%= link_to 'edit', edit_user_pet_path(current_user, pet) %>
+    <%= link_to 'delete', user_pet_path(current_user, pet), method: 'delete', data: {confirm: '確定要刪除？'} %>
+  </div>
+</div>
+<% end %>
+<div class="add-pet">
+  <%= link_to '＋', new_user_pet_path(current_user), class: 'add-symbol' %>
+</div>

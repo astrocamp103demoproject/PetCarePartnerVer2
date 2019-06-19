@@ -3,8 +3,8 @@
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
             <ul>
-            <%= image_tag("animals.png") %>
-            <li><%= link_to 'PetCollage', root_path %></li>  
+            <li><%= link_to image_tag("animals.png"), root_path %>
+            <%= link_to 'PetCollage', root_path %></li>  
             <% if user_signed_in?%>
                 <li><%= link_to 'Become Sitter', sitters_path %></li>
             <% else %>

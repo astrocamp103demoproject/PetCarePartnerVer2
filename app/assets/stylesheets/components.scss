@@ -1,37 +1,33 @@
-
-
 .container-fluid {
   background-color: #e3f2fd;
-  
-  .navbar-header{
-    img{
-        // background: #fff;
-        height: 50px;
-        // border-radius:50px;
-        margin-right:20px ;
+
+  .navbar-header {
+    img {
+      height: 50px;
+      margin: 0 10px;
     }
   }
 
   ul {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     list-style: none;
     padding: 0 20px;
     margin: 0;
 
     li {
-      display: inline-block;
+      vertical-align: middle;
       color: #113859;
       padding: 10px 10px;
       margin: 10px, 5px;
       font-size: 20px;
-      img{
+      .avatar-img {
         height: 50px;
-        border-radius:50px;
+        border-radius: 50px;
+        margin: 0 10px;
       }
       a {
-        display: block;
-
         text-decoration: none;
         color: #365359;
         transition: 0.3s;

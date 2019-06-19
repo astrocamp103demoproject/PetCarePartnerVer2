@@ -16,6 +16,7 @@
   .avatar-img {
     border-radius: 50%;
     max-width: 250px;
+    vertical-align: middle;
   }
   .info {
     margin-left: 40px;
@@ -31,4 +32,12 @@
 .square,
 .comment {
   display: inline-block;
+}
+.avatar,
+.info {
+  vertical-align: middle;
+}
+.square,
+.comment {
+  vertical-align: top;
 }

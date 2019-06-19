@@ -19,17 +19,24 @@ class OrdersController < ApplicationController
     @drop = Date.strptime(session[:drop_off], '%m/%d/%Y')
     @pick = Date.strptime(session[:pick_up], '%m/%d/%Y')
     
-    # @booking_date = BookingDate.new
-    @booking_date_drop = BookingDate.new
-    @booking_date_pick = BookingDate.new
-    #@pick - @drop 剩餘天數
-    #迴圈跑剩餘天數
-    #[].push {date: @drop+1}
+    @booking_date = BookingDate.new
+    # @booking_date_drop = BookingDate.new
+    # @booking_date_pick = BookingDate.new
+    # create.where book.date.date ? between ? 
+    # find_or_create_by (create)
+    # find_or_initialize_by (new)
 
+    #多筆操作 用transaction包
+    
     if @order.save
+      (@drop .. @pick).to_a.each do |day|
+        @booking_date.find_or_create_by(sitter_id: @sitter['id'], date: day, available: false)
+      end
+      
+      
       # @booking_date.update(sitter_id: @sitter['id'])
-      @booking_date_drop.update(sitter_id: @sitter['id'], date: @drop, available: false)
-      @booking_date_pick.update(sitter_id: @sitter['id'], date: @pick, available: false)
+      # @booking_date_drop.update(sitter_id: @sitter['id'], date: @drop, available: false)
+      # @booking_date_pick.update(sitter_id: @sitter['id'], date: @pick, available: false)
       
       # BookingDate.where(sitter_id: @sitter['id']).update(date: @drop..@pick, :available => false)
       redirect_to user_orders_path, notice:'成功下訂！'
