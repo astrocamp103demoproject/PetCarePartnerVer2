@@ -1,5 +1,5 @@
-<nav class="navbar navbar-default" role="navigation">
-    <div class="container-fluid search">
+<nav class="navbar bg-transparent" role="navigation">
+    <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
             <ul>
@@ -19,6 +19,7 @@
                 <li class="nav-item dropdown">
                     <% if user_signed_in?   %>
                     <span class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    
                     <p><%= "Hi, #{current_user.name}" %></p>
                     <img src="<%= current_user.avatar %>" alt="" class="avatar-img">
                     </span>
