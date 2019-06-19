@@ -39,7 +39,7 @@ function initMapMarker(data) {
   2.將12區地址轉經緯度後放進陣列後下marker
   3.12區細節資料塞到marker info內
   */
-  let locations = getLocationData(data);
+  let locations = data;
   let marker, i;
   
   for (i = 0; i < locations.length; i++) {
@@ -217,3 +217,4 @@ function setMapStyle(data) {
 
 
 // window.onload = goStart();
+

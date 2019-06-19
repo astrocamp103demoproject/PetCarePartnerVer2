@@ -1,10 +1,28 @@
-<div class="new-sitter">
-    <%= simple_form_for @sitter do |f| %> 
-        <p>地址：<%= f.input :address, label: false, placeholder: '請輸入地址'%></p>
-        <p>坪數：<%= f.input :square_meters, label: false, placeholder: '請輸入房間坪數'%></p>
-        <p> 最多可接受寵物數：<%= f.input :pet_limit, label: false, placeholder: '請輸入最多可接受寵物數'%></p>
-        <p>每晚房價：<%= f.input :price, label: false, placeholder: '請輸入價錢', min:'0'%></p>
-        <p>房間描述：<%= f.input :slogan, label: false, placeholder: '讓使用者搜尋可以更快速了解'%></p>
-        <%= f.submit%>
-    <% end %>
+<div class="become-sitter-wrap">
+        
+    <div class="new-sitter">
+        <%= simple_form_for @sitter do |f| %> 
+            <% if f.error_notification %>
+                <div class="alert alert-error fade in">
+                  <a class="close" data-dismiss="alert" href="#">&times;</a>
+                    <%= f.error_notification %>
+                </div>
+            <% end %>
+
+
+           
+            
+            
+           
+  
+
+            
+            <p>坪數：<%= f.input :square_meters, label: false, placeholder: '請輸入房間坪數'%></p>
+            <p> 最多可接受寵物數：<%= f.input :pet_limit, label: false, placeholder: '請輸入最多可接受寵物數'%></p>
+            <p>每晚房價：<%= f.input :price, label: false, placeholder: '請輸入價錢', min:'0'%></p>
+            <p>房間描述：<%= f.input :slogan, label: false, placeholder: '讓使用者搜尋可以更快速了解'%></p>
+            <%= f.submit%>
+        <% end %>
+    </div>
 </div>
+
