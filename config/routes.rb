@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resource :searches, only: [:index, :show, :update, :create]
 
   resources :users, only: [:show, :edit, :update] do
+    resources :pets, except: [:index]
     resources :orders, only: [:new, :create, :index, :show] do
       collection do
         get :pending

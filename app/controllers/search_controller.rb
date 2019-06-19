@@ -1,5 +1,5 @@
 class SearchController < ApplicationController
-  layout 'application'
+  layout 'index'
   def index
   end
   

@@ -35,3 +35,6 @@
   <%= render 'shared/comment' %>
 </div>
 <% end %>
+<% if profile == @user %>
+  <%= render 'shared/petcard' %>
+<% end %>

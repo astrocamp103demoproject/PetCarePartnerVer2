@@ -1,0 +1,41 @@
+// Place all the styles related to the pets controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+//_petcard
+.my-pet,
+.add-pet {
+  width: 300px;
+  height: 200px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  display: inline-block;
+  padding: 10px;
+  vertical-align: middle;
+}
+.my-pet {
+  .pet-info {
+    margin-left: 20px;
+    display: inline-block;
+    vertical-align: top;
+  }
+  .pet-pic {
+    max-width: 100px;
+  }
+}
+.add-pet {
+  text-align: center;
+  .add-symbol {
+    font-size: 87px;
+    display: inline-block;
+    text-decoration: none;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+//pet.show
+.pet-show-pic {
+  max-width: 400px;
+}

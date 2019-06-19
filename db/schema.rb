@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_17_080042) do
+ActiveRecord::Schema.define(version: 2019_06_19_032540) do
 
   create_table "booking_dates", force: :cascade do |t|
     t.integer "sitter_id"
@@ -48,6 +48,13 @@ ActiveRecord::Schema.define(version: 2019_06_17_080042) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "pet_type"
+    t.string "name"
+    t.string "breed"
+    t.integer "age"
+    t.string "sex"
+    t.text "note"
+    t.string "pic"
     t.index ["user_id"], name: "index_pets_on_user_id"
   end
 

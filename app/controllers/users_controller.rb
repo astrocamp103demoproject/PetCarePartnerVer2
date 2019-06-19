@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   def show
     @user = current_user
+    @pets = current_user.pets.all
   end
 
   def update
