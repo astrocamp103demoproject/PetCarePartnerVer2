@@ -43,20 +43,20 @@ class OrdersController < ApplicationController
   end
   
   def pending
-    @orders = current_user.orders.where(status: 'pending')
+    @orders = current_user.orders.where(state: 'pending')
   end
   
   def finish
-    @orders = current_user.orders.where(status: 'paid')
+    @orders = current_user.orders.where(state: 'paid')
   end
   
   def cancel
-    @orders = current_user.orders.where(status: 'cancel')
+    @orders = current_user.orders.where(state: 'cancel')
   end
 
   private
   def order_params
-    params.require(:order).permit(:user_id, :sitter_id, :drop_off, :pick_up, :status, :note)
+    params.require(:order).permit(:user_id, :sitter_id, :drop_off, :pick_up, :state, :note)
   end
   # def booking_date_params
   #   params.require(:booking_date).permit(:sitter_id, :date, :avaliable)

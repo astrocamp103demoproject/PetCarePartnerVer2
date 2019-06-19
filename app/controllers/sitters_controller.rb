@@ -3,6 +3,8 @@ class SittersController < ApplicationController
   def show
     @sitter = Sitter.find_by(id: params[:id])
     session[:current_sitter] = @sitter
+    
+    @booking_dates = @sitter.booking_dates.all
   end
   def edit
     @sitter = Sitter.find_by(id: params[:id])
