@@ -4,9 +4,9 @@ module Payable
     def gateway
        @gateway ||= Braintree::Gateway.new(
           :environment => :sandbox,
-          :merchant_id => 'xcd64x8k6qqq27ry',
-          :public_key => 'js3wz8tk635wtdbn',
-          :private_key => '8c0eb31cba7e5812079090ce8ac4b906',
+          :merchant_id => '8x2h6y6rh59ccsw3',
+          :public_key => 'dnnfsypt2kfxmyxj',
+          :private_key => 'fae8c26052dfc427e816b3619f83e9b7',
         )
     end
 
