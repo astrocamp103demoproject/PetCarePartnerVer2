@@ -9,22 +9,25 @@
             overflow: scroll;
         }
         #agree-btn{
-            display: blcok;
+            display: block;
             width: 100%;
             text-align: center;
         }
         
     }
 }
-
-.new-sitter{
-    display: flex;
-    align-content: center;
-    form{
-        
-        padding: 20px;
-        width: 50%;
-        margin: auto;
-        background-color: #d1d8e0;
+.become-sitter-wrap{
+    .new-sitter{
+        display: flex;
+        align-content: center;
+        form{
+            padding: 20px;
+            width: 50%;
+            margin: auto;
+            background-color: #d1d8e0;
+        }
+        .invalid-feedback{
+            color: red;
+        }
     }
 }

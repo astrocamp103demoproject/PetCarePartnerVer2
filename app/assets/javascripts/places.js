@@ -37,9 +37,15 @@ function initMapMarker(data) {
   2.將12區地址轉經緯度後放進陣列後下marker
   3.12區細節資料塞到marker info內
   */
+<<<<<<< HEAD
+  let locations = data;
+  let marker, i;
+  
+=======
   let locations = getLocationData(data)
   let marker, i
 
+>>>>>>> master
   for (i = 0; i < locations.length; i++) {
     marker = new google.maps.Marker({
       position: new google.maps.LatLng(locations[i][1], locations[i][2]),
@@ -211,4 +217,10 @@ function setMapStyle(data) {
 // //   getHttpData();
 // }
 
+<<<<<<< HEAD
+
 // window.onload = goStart();
+
+=======
+// window.onload = goStart();
+>>>>>>> master
