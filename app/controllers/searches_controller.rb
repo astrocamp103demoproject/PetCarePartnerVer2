@@ -8,9 +8,9 @@ class SearchesController < ApplicationController
     @result = Sitter.joins(:booking_dates).having(booking_dates: {date: subTraction(params[:Drop_Off],params[:Pick_Up]),available:true}).group(:sitter_id).where("pet_limit >= ?",pet_count).where("address LIKE ?",location_code).page(params[:page]).per(10) 
   end
   def update
-    # Sitter.joins(:booking_dates).having(booking_dates: {date: ["2019-06-20","2019-06-21"],available:true}).group("booking_dates(sitter_id)").where("pet_limit >= ?",0).where("address LIKE ?","%%")
+    # @result = Sitter.where("pet_limit >= ?",pet_count).where("address LIKE ?",location_code).page(params[:page]).per(10) 
     @result = Sitter.joins(:booking_dates).having(booking_dates: {date: subTraction(params[:Drop_Off],params[:Pick_Up]),available:true}).group(:sitter_id).where("pet_limit >= ?",pet_count).where("address LIKE ?",location_code).page(params[:page]).per(10) 
-    byebug
+    # byebug
     session[:drop_off] = params[:Drop_Off]
     session[:pick_up] = params[:Pick_Up]
     g_map
@@ -84,5 +84,6 @@ class SearchesController < ApplicationController
       marker.lng gmap.longitude
       marker.infowindow gmap.address
     end
+    
   end
 end
