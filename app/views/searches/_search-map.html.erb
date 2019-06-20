@@ -10,17 +10,15 @@
         <script type="text/javascript">
           function initialize(){
                 var hashes = '<%= raw hash.to_json %>';
-                bulidMap();
-                setMapStyle(
-                  getLocationData(hashes)
-                );
+                var getlocation = getLocationData(hashes);
+                bulidMap(getlocation);
+                setMapStyle(getlocation);
           }
           
-          function bulidMap(){
-                var hashes = '<%= raw hash.to_json %>';
+          function bulidMap(data){
                 handler = Gmaps.build('Google');
                 handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-                  initMapMarker(hashes);
+                  initMapMarker(data);
                 });
                 
           }
