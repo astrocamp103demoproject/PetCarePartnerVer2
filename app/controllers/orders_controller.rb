@@ -24,8 +24,8 @@ class OrdersController < ApplicationController
     @pick = Date.strptime(session[:pick_up], '%m/%d/%Y')
     
     @booking_date = BookingDate.new
-    @booking_date_drop = BookingDate.new
-    @booking_date_pick = BookingDate.new
+    # @booking_date_drop = BookingDate.new
+    # @booking_date_pick = BookingDate.new
     # create.where book.date.date ? between ? 
     # find_or_create_by (create)
     # find_or_initialize_by (new)
@@ -35,12 +35,11 @@ class OrdersController < ApplicationController
     #多筆操作 用transaction包
     
     if @order.save
-      # (@drop .. @pick).to_a.each do |day|
-      #   @booking_date.find_or_create_by(sitter_id: @sitter['id'], date: day, available: false)
-      # end
+      (@drop .. @pick).to_a.each do |day|
+        @booking_date.find_or_create_by(sitter_id: @sitter['id'], date: day, available: false)
+      end
       
-      @booking_date_drop.update(sitter_id: @sitter['id'], date: @drop, available: false)
-      @booking_date_pick.update(sitter_id: @sitter['id'], date: @pick, available: false)
+      # @booking_date_drop.update(sitter_id: @sitter['id'], date: @drop, available: false)
       
 
       nonce = params[:payment_method_nonce]
@@ -68,7 +67,7 @@ class OrdersController < ApplicationController
   end
   
   def finish
-    @pick = Date.strptime(session[:pick_up], '%m/%d/%Y')
+    # @pick = Date.strptime(session[:pick_up], '%m/%d/%Y')
     @orders = current_user.orders.where(state: 'paid' )
   end
   
