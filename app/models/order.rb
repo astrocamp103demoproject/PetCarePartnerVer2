@@ -3,6 +3,7 @@ class Order < ApplicationRecord
   belongs_to :sitter
   has_one :payment
 
+  max_paginates_per 10
 
   include AASM
 
