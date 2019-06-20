@@ -20,9 +20,10 @@ window.googleMapConfig = {} //GLOBAL MAP SETTING
 // // }
 
 function getLocationData(data) {
-  var array = JSON.parse(data)
+  console.log("ingetlocation"+data)
+  var array = data
   let locations = []
-  // console.log(typeof array)
+  console.log(array)
   // console.log(array[0])
   for (var j = 0; j < array.length; j++) {
     locations.push([array[j].infowindow, array[j].lat, array[j].lng])
@@ -37,15 +38,12 @@ function initMapMarker(data) {
   2.將12區地址轉經緯度後放進陣列後下marker
   3.12區細節資料塞到marker info內
   */
-<<<<<<< HEAD
-  let locations = data;
-  let marker, i;
-  
-=======
-  let locations = getLocationData(data)
+
+  let locations = data
+  console.log("inmapmaker"+locations)
   let marker, i
 
->>>>>>> master
+
   for (i = 0; i < locations.length; i++) {
     marker = new google.maps.Marker({
       position: new google.maps.LatLng(locations[i][1], locations[i][2]),
@@ -67,6 +65,7 @@ function initMapMarker(data) {
 }
 
 function setMapStyle(data) {
+  console.log("set"+data[0][1]+data[0][2] )
   window.googleMapConfig.infowindow = new google.maps.InfoWindow()
 
   window.googleMapConfig.map = new google.maps.Map(document.getElementById('map'), {
@@ -217,10 +216,6 @@ function setMapStyle(data) {
 // //   getHttpData();
 // }
 
-<<<<<<< HEAD
+
 
 // window.onload = goStart();
-
-=======
-// window.onload = goStart();
->>>>>>> master
