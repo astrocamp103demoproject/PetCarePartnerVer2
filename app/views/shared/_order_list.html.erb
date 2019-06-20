@@ -27,4 +27,5 @@
     <%= link_to '查看細節', user_order_path(current_user, order) %>
   </div>
   <% end %>
+  <%= paginate @orders, outer_window: 3 %> 
 </div>

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update] do
     resources :pets, except: [:index]
     resources :orders, only: [:new, :create, :index, :show] do
+      resource :booking_date, only: [:create]
       collection do
         get :pending
         get :finish
@@ -19,8 +20,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :sitters, except: [:destroy] do
-    # resource :booking_date, only: [:create]
-  end
+  resources :sitters, except: [:destroy]
 
 end
