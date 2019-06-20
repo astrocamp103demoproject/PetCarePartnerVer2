@@ -3,10 +3,10 @@ module Payable
     
     def gateway
        @gateway ||= Braintree::Gateway.new(
-          :environment => :sandbox,
-          :merchant_id => 'xcd64x8k6qqq27ry',
-          :public_key => 'js3wz8tk635wtdbn',
-          :private_key => '8c0eb31cba7e5812079090ce8ac4b906',
+          :environment => ENV['paypal_environment'].to_sym,
+          :merchant_id => ENV['paypal_merchant_id'],
+          :public_key => ENV['paypal_public_key'],
+          :private_key => ENV['paypal_private_key']
         )
     end
 

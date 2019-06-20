@@ -52,7 +52,7 @@ class OrdersController < ApplicationController
           submit_for_settlement: true
         }
       )
-  
+      @order.pay!
       redirect_to user_orders_path, notice:'成功下訂！'
     else
       render :new
