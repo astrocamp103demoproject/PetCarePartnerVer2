@@ -1,12 +1,35 @@
 .search-index {
   margin: auto;
   max-width: 800px;
-  h1,
-  h3 {
+  .jumbotron {
+    // background-color: #0ae;
+    background: rgba(247, 245, 245, 0.0); 
+
+  }
+  .slogan-h1,.slogan-h3{
+    
+    font-weight:bold;
+    color: rgb(243, 243, 240);
+    text-shadow:3px 3px black;
     text-align: center;
+
   }
 }
+
+form{
+background: rgba(247, 245, 245, 0.3); 
+padding: 30px;
+border-radius:10px;
+
+
+  div{
+    margin: 5%;
+  }
+
+}
+
 .pet-count {
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: row wrap;
+  // background-color: #000;
 }

@@ -1,6 +1,4 @@
-
-window.googleMapConfig = {}//GLOBAL MAP SETTING
-
+window.googleMapConfig = {} //GLOBAL MAP SETTING
 
 // // function getHttpData() {
 // //   let url = 'https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-061?Authorization=CWB-087E3910-726F-4E71-9EBC-12CE90A48A57&limit=12&offset=1&locationName=%E5%8C%97%E6%8A%95%E5%8D%80,%E5%A3%AB%E6%9E%97%E5%8D%80,%E5%85%A7%E6%B9%96%E5%8D%80,%E4%B8%AD%E5%B1%B1%E5%8D%80,%E5%A4%A7%E5%90%8C%E5%8D%80,%E6%9D%BE%E5%B1%B1%E5%8D%80,%E5%8D%97%E6%B8%AF%E5%8D%80,%E4%B8%AD%E6%AD%A3%E5%8D%80,%E8%90%AC%E8%8F%AF%E5%8D%80,%E4%BF%A1%E7%BE%A9%E5%8D%80,%E5%A4%A7%E5%AE%89%E5%8D%80,%E6%96%87%E5%B1%B1%E5%8D%80'
@@ -22,16 +20,16 @@ window.googleMapConfig = {}//GLOBAL MAP SETTING
 // // }
 
 function getLocationData(data) {
-  var array = JSON.parse(data);
-  let locations = [];
-  console.log(typeof(array));
+  var array = JSON.parse(data)
+  let locations = []
+  // console.log(typeof array)
+  // console.log(array[0])
   for (var j = 0; j < array.length; j++) {
     locations.push([array[j].infowindow, array[j].lat, array[j].lng])
   }
-  console.log("ingetlocation"+data)
-  return locations;
+  console.log('ingetlocation' + data)
+  return locations
 }
-
 
 function initMapMarker(data) {
   /*
@@ -39,117 +37,123 @@ function initMapMarker(data) {
   2.將12區地址轉經緯度後放進陣列後下marker
   3.12區細節資料塞到marker info內
   */
+<<<<<<< HEAD
   let locations = data;
   let marker, i;
   
+=======
+  let locations = getLocationData(data)
+  let marker, i
+
+>>>>>>> master
   for (i = 0; i < locations.length; i++) {
     marker = new google.maps.Marker({
       position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-      map: window.googleMapConfig.map
-    });
-    
-    google.maps.event.addListener(marker, 'click', (function (marker, i) {
-      return function () {
-        contentString = setHTMLmethod(parseWeather(locations[i][3]), locations[i][0])
-        window.googleMapConfig.infowindow.setContent(contentString);
-        window.googleMapConfig.infowindow.open(map, marker);
-      }
-    })(marker, i));
+      map: window.googleMapConfig.map,
+    })
+
+    google.maps.event.addListener(
+      marker,
+      'click',
+      (function(marker, i) {
+        return function() {
+          contentString = setHTMLmethod(parseWeather(locations[i][3]), locations[i][0])
+          window.googleMapConfig.infowindow.setContent(contentString)
+          window.googleMapConfig.infowindow.open(map, marker)
+        }
+      })(marker, i)
+    )
   }
-  
 }
 
 function setMapStyle(data) {
-    
-    window.googleMapConfig.infowindow = new google.maps.InfoWindow();
-  
-    window.googleMapConfig.map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 11,
-      center: { lat:data[0][1], lng:data[0][2]  },
-      styles: [
-        { elementType: 'geometry', stylers: [{ color: '#242f3e' }] },
-        { elementType: 'labels.text.stroke', stylers: [{ color: '#242f3e' }] },
-        { elementType: 'labels.text.fill', stylers: [{ color: '#746855' }] },
-        {
-          featureType: 'administrative.locality',
-          elementType: 'labels.text.fill',
-          stylers: [{ color: '#d59563' }]
-        },
-        {
-          featureType: 'poi',
-          elementType: 'labels.text.fill',
-          stylers: [{ color: '#d59563' }]
-        },
-        {
-          featureType: 'poi.park',
-          elementType: 'geometry',
-          stylers: [{ color: '#263c3f' }]
-        },
-        {
-          featureType: 'poi.park',
-          elementType: 'labels.text.fill',
-          stylers: [{ color: '#6b9a76' }]
-        },
-        {
-          featureType: 'road',
-          elementType: 'geometry',
-          stylers: [{ color: '#38414e' }]
-        },
-        {
-          featureType: 'road',
-          elementType: 'geometry.stroke',
-          stylers: [{ color: '#212a37' }]
-        },
-        {
-          featureType: 'road',
-          elementType: 'labels.text.fill',
-          stylers: [{ color: '#9ca5b3' }]
-        },
-        {
-          featureType: 'road.highway',
-          elementType: 'geometry',
-          stylers: [{ color: '#746855' }]
-        },
-        {
-          featureType: 'road.highway',
-          elementType: 'geometry.stroke',
-          stylers: [{ color: '#1f2835' }]
-        },
-        {
-          featureType: 'road.highway',
-          elementType: 'labels.text.fill',
-          stylers: [{ color: '#f3d19c' }]
-        },
-        {
-          featureType: 'transit',
-          elementType: 'geometry',
-          stylers: [{ color: '#2f3948' }]
-        },
-        {
-          featureType: 'transit.station',
-          elementType: 'labels.text.fill',
-          stylers: [{ color: '#d59563' }]
-        },
-        {
-          featureType: 'water',
-          elementType: 'geometry',
-          stylers: [{ color: '#17263c' }]
-        },
-        {
-          featureType: 'water',
-          elementType: 'labels.text.fill',
-          stylers: [{ color: '#515c6d' }]
-        },
-        {
-          featureType: 'water',
-          elementType: 'labels.text.stroke',
-          stylers: [{ color: '#17263c' }]
-        }
-      ]
-  
-    });
-  }
+  window.googleMapConfig.infowindow = new google.maps.InfoWindow()
 
+  window.googleMapConfig.map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 11,
+    center: { lat: data[0][1], lng: data[0][2] },
+    styles: [
+      { elementType: 'geometry', stylers: [{ color: '#242f3e' }] },
+      { elementType: 'labels.text.stroke', stylers: [{ color: '#242f3e' }] },
+      { elementType: 'labels.text.fill', stylers: [{ color: '#746855' }] },
+      {
+        featureType: 'administrative.locality',
+        elementType: 'labels.text.fill',
+        stylers: [{ color: '#d59563' }],
+      },
+      {
+        featureType: 'poi',
+        elementType: 'labels.text.fill',
+        stylers: [{ color: '#d59563' }],
+      },
+      {
+        featureType: 'poi.park',
+        elementType: 'geometry',
+        stylers: [{ color: '#263c3f' }],
+      },
+      {
+        featureType: 'poi.park',
+        elementType: 'labels.text.fill',
+        stylers: [{ color: '#6b9a76' }],
+      },
+      {
+        featureType: 'road',
+        elementType: 'geometry',
+        stylers: [{ color: '#38414e' }],
+      },
+      {
+        featureType: 'road',
+        elementType: 'geometry.stroke',
+        stylers: [{ color: '#212a37' }],
+      },
+      {
+        featureType: 'road',
+        elementType: 'labels.text.fill',
+        stylers: [{ color: '#9ca5b3' }],
+      },
+      {
+        featureType: 'road.highway',
+        elementType: 'geometry',
+        stylers: [{ color: '#746855' }],
+      },
+      {
+        featureType: 'road.highway',
+        elementType: 'geometry.stroke',
+        stylers: [{ color: '#1f2835' }],
+      },
+      {
+        featureType: 'road.highway',
+        elementType: 'labels.text.fill',
+        stylers: [{ color: '#f3d19c' }],
+      },
+      {
+        featureType: 'transit',
+        elementType: 'geometry',
+        stylers: [{ color: '#2f3948' }],
+      },
+      {
+        featureType: 'transit.station',
+        elementType: 'labels.text.fill',
+        stylers: [{ color: '#d59563' }],
+      },
+      {
+        featureType: 'water',
+        elementType: 'geometry',
+        stylers: [{ color: '#17263c' }],
+      },
+      {
+        featureType: 'water',
+        elementType: 'labels.text.fill',
+        stylers: [{ color: '#515c6d' }],
+      },
+      {
+        featureType: 'water',
+        elementType: 'labels.text.stroke',
+        stylers: [{ color: '#17263c' }],
+      },
+    ],
+  })
+}
 
 // // function setHTMLmethod(str, title) {
 // //   let contentString = '<div id="content">' +
@@ -208,13 +212,15 @@ function setMapStyle(data) {
 // // //   return str;
 // // // }
 
-
-
 // function goStart() {
 //   setMapStyle();
 // //   getHttpData();
 // }
 
+<<<<<<< HEAD
 
 // window.onload = goStart();
 
+=======
+// window.onload = goStart();
+>>>>>>> master

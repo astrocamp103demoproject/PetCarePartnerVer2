@@ -7,6 +7,7 @@
     <h3>保母： <%= @order.sitter.name %></h3>
     <p>地址： <%= @order.sitter.address %></p>
     <p>email: <%= @order.sitter.email %></p>
+    <%= link_to '保母專頁', sitter_path(@order.sitter), class: 'btn btn-primary' %>
   </div>
   <hr>
   <div class="detail-text">
@@ -18,8 +19,8 @@
     <p><span>寵物主人:</span> <span><%= @order.user.name %></span></p>
     <p><span>寵物主人email:</span> <span><%= @order.user.email %></span></p>
     <hr>
-    <p><span>寵物數量：</span> <span><%= @order.user.pets.count %></span></p>
-    <p><span>寵物體型：</span> <span><%= @order.user.pets.size %></span></p>
+    <p><span>寵物數量：</span> <span><%= @order.user.pets.count %> 隻</span></p>
+    <p><span>寵物體型：</span> <span><%= @order.user.pets.size %> 公斤</span></p>
     <p><span>備註：</span> <span><%= @order.note %></span></p>
     <hr>
     <p><span>每晚金額：</span> <span><%= @order.sitter.price %> 元</span></p>

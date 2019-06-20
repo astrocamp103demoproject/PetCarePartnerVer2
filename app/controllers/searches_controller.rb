@@ -5,15 +5,15 @@ class SearchesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show, :update]
 
   def show
-    @result = Sitter.where("pet_limit >= ?",pet_count).where("address LIKE ?",location_code).page(params[:page]).per(10) 
+    @result = Sitter.joins(:booking_dates).having(booking_dates: {date: subTraction(params[:Drop_Off],params[:Pick_Up]),available:true}).group(:sitter_id).where("pet_limit >= ?",pet_count).where("address LIKE ?",location_code).page(params[:page]).per(10) 
   end
   def update
-
-      @result = Sitter.joins(:booking_dates).having(booking_dates: {date: subTraction(params[:Drop_Off],params[:Pick_Up]),available:true}).group(:sitter_id).where("pet_limit >= ?",pet_count).where("address LIKE ?",location_code).page(params[:page]).per(10) 
-      # byebug
-      session[:drop_off] = params[:Drop_Off]
-      session[:pick_up] = params[:Pick_Up]
-      g_map
+    # Sitter.joins(:booking_dates).having(booking_dates: {date: ["2019-06-20","2019-06-21"],available:true}).group("booking_dates(sitter_id)").where("pet_limit >= ?",0).where("address LIKE ?","%%")
+    @result = Sitter.joins(:booking_dates).having(booking_dates: {date: subTraction(params[:Drop_Off],params[:Pick_Up]),available:true}).group(:sitter_id).where("pet_limit >= ?",pet_count).where("address LIKE ?",location_code).page(params[:page]).per(10) 
+    byebug
+    session[:drop_off] = params[:Drop_Off]
+    session[:pick_up] = params[:Pick_Up]
+    g_map
       
       
   end
@@ -42,38 +42,35 @@ class SearchesController < ApplicationController
   #組成sql語法
   def dateSearch(sd,ed,sub)
     search = []
-    #小於0就搜尋開始日
-    if sub <= 0
+    #少一個日期sub=0
+    if sub == 0
       search << sd.to_s
     else
       0.upto(sub) do |i|
-        #兩天相減＝0則是同天
-        if sub == 0
-          search = sd.to_s
-        else
-          search << (sd+i).to_s
-        end
+        search << (sd+i).to_s
       end
     end
-    search
+     search
   end
 
   def subTraction(drop,pick)
     #轉date相減後回傳,startdate,enddate,count
-    if(drop=="" && pick=="")
-      dateSearch("","",0)
+    if(drop=="" && pick=="")||(drop.nil? || pick.nil?)
+      #都沒有就抓今天日期搜尋
+      [""]
+      # ["%"]
     elsif(drop=="")
-      endDate =  Date.strptime(pick, '%m/%d/%Y').to_date
-      dateSearch(endDate,"",0)
+     endDate =  Date.strptime(pick, '%m/%d/%Y').to_date
+     dateSearch(endDate,"",0)
     elsif (pick=="")
-      startDate = Date.strptime(drop, '%m/%d/%Y').to_date
-      dateSearch(startDate,"",0)
+     startDate = Date.strptime(drop, '%m/%d/%Y').to_date
+     dateSearch(startDate,"",0)
     else
-      startDate = Date.strptime(drop, '%m/%d/%Y').to_date
-      endDate =  Date.strptime(pick, '%m/%d/%Y').to_date
-      counted = (endDate - startDate).to_i
-  
-      dateSearch(startDate,endDate,counted)
+     startDate = Date.strptime(drop, '%m/%d/%Y').to_date
+     endDate =  Date.strptime(pick, '%m/%d/%Y').to_date
+     counted = (endDate - startDate).to_i
+ 
+     dateSearch(startDate,endDate,counted)
     end
       
   end

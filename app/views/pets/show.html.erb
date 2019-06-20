@@ -1,0 +1,12 @@
+<h1>About <%= @pet.name %></h1>
+<img src="<%= @pet.pic %>" alt="" class="pet-show-pic">
+<p>我是 <%= @pet.pet_type %></p>
+<p>性別： <%= @pet.sex %></p>
+<p>年齡： <%= @pet.age %> 歲</p>
+<p>體重： <%= @pet.size %> 公斤</p>
+<p>年齡： <%= @pet.age %> 歲</p>
+<p>品種： <%= @pet.breed %></p>
+<p>簡介： <%= @pet.note %></p>
+<hr>
+<p>主人： <%= current_user.name %></p>
+<%= link_to '找保母', searches_path, class: 'btn btn-primary' %>

@@ -1,0 +1,18 @@
+<h1>新增寵物</h1>
+  <%= simple_form_for([current_user, @pet]) do |f| %> 
+      <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id} %>
+      <%= label_tag(:pet_type, '種類：') %>
+      <%= f.select(:pet_type, options_for_select([['Dog', 'Dog'],['Cat', 'Cat']])) %>
+      <%= label_tag(:sex, '性別：') %>
+      <%= f.select(:sex, options_for_select([['Male', 'Male'],['Female', 'Female']])) %>
+      <%= f.input :pic %>
+      <%= f.input :name, label: '寵物名' %>
+      <%= f.input :size, label: '體重', placeholder: '公斤' %>
+      <%= f.input :age, label: '年齡', placeholder: '歲' %>
+      
+      <%= f.input :breed, label: '品種' %>
+      
+      <%= f.input :note %>
+  
+      <%= f.submit '新增', class: 'btn btn-success'%>
+  <% end %>

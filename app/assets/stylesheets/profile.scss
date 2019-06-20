@@ -1,21 +1,30 @@
 .profile {
-  position: relative;
+  // position: relative;
   .btn-edit {
-    position: absolute;
-    top: 40px;
-    right: 35%;
+    margin-left: 100px;
+    display: inline-block;
+    vertical-align: middle;
+    // position: absolute;
+    // top: 40px;
+    // right: 35%;
   }
-  .btn-booking {
-    position: absolute;
-    top: 200px;
-    right: 35%;
-  }
+  // .btn-booking {
+  //   position: absolute;
+  //   top: 200px;
+  //   right: 35%;
+  // }
   .avatar-img {
     border-radius: 50%;
     max-width: 250px;
+    vertical-align: middle;
   }
   .info {
     margin-left: 40px;
+    h3 {
+      margin: 20px 0;
+      display: inline-block;
+      vertical-align: middle;
+    }
   }
 }
 .avatar,
@@ -23,4 +32,12 @@
 .square,
 .comment {
   display: inline-block;
+}
+.avatar,
+.info {
+  vertical-align: middle;
+}
+.square,
+.comment {
+  vertical-align: top;
 }
