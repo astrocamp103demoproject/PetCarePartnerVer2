@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @orders = current_user.orders.all
+    @orders = current_user.orders.all.page(params[:page]).per(5) 
   end
 
   def new
@@ -36,12 +36,11 @@ class OrdersController < ApplicationController
     
     if @order.save
       (@drop .. @pick).to_a.each do |day|
-        @booking_date.find_or_create_by(sitter_id: @sitter['id'], date: day, available: false)
+        BookingDate.find_or_initialize_by(sitter_id: @sitter['id'], date: day, available: false) do |booking_date|
+          booking_date.save
+        end
       end
       
-      # @booking_date_drop.update(sitter_id: @sitter['id'], date: @drop, available: false)
-      
-
       nonce = params[:payment_method_nonce]
       result = gateway.transaction.sale(
         amount: @total,
@@ -63,16 +62,17 @@ class OrdersController < ApplicationController
   end
   
   def pending
-    @orders = current_user.orders.where(state: 'pending' || 'paid')
+    
+    # Time.now.strftime('%Y-%m-%d').to_s
+    @orders = current_user.orders.where("pick_up > '2019-06-20'").page(params[:page]).per(5) 
   end
   
   def finish
-    # @pick = Date.strptime(session[:pick_up], '%m/%d/%Y')
-    @orders = current_user.orders.where(state: 'paid' )
+    @orders = current_user.orders.where("pick_up < '2019-06-20'").where(state: 'paid').page(params[:page]).per(5) 
   end
   
   def cancel
-    @orders = current_user.orders.where(state: 'cancel')
+    @orders = current_user.orders.where(state: 'cancel').page(params[:page]).per(5) 
   end
 
   private
