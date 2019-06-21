@@ -22,6 +22,7 @@
 //= require become_sitter
 //= require calendar_color
 //= require kaminari_align
+//= require kaminari
 //
 //google map
 //= require underscore-min
