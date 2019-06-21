@@ -20,6 +20,8 @@
 //= require bootstrap-datepicker
 //= require bootstrap-sprockets
 //= require become_sitter
+//= require calendar_color
+//= require kaminari_align
 //= require kaminari
 //
 //google map
