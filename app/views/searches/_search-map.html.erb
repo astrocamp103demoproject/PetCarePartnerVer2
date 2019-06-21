@@ -9,7 +9,8 @@
         
         <script type="text/javascript">
           function initialize(){
-                var hashes = '<%= raw hash.to_json %>';
+            var hashes = '<%= raw hash.to_json %>';
+            console.log("result in initialize"+hashes)
                 data = JSON.parse(hashes);
                 console.log("ininit"+data)
                 var getlocation = getLocationData(data);

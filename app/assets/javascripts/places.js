@@ -20,15 +20,15 @@ window.googleMapConfig = {} //GLOBAL MAP SETTING
 // // }
 
 function getLocationData(data) {
-  console.log("ingetlocation"+data)
+  console.log("result"+data)
   var array = data
   let locations = []
-  console.log(array)
+  
   // console.log(array[0])
   for (var j = 0; j < array.length; j++) {
     locations.push([array[j].infowindow, array[j].lat, array[j].lng])
   }
-  console.log('ingetlocation' + data)
+  
   return locations
 }
 
@@ -40,7 +40,7 @@ function initMapMarker(data) {
   */
 
   let locations = data
-  console.log("inmapmaker"+locations)
+  
   let marker, i
 
 
@@ -65,7 +65,7 @@ function initMapMarker(data) {
 }
 
 function setMapStyle(data) {
-  console.log("set"+data[0][1]+data[0][2] )
+  
   window.googleMapConfig.infowindow = new google.maps.InfoWindow()
 
   window.googleMapConfig.map = new google.maps.Map(document.getElementById('map'), {
