@@ -30,6 +30,7 @@
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
+    justify-content: center;
     overflow: scroll;
 
     .sitter-item {
@@ -77,12 +78,6 @@
         }
       } //item-price
     } //sitter-item
-    //kaminari
-    .pagination {
-      // width: 100%;
-      text-align: center;
-      position: relative;
-    }
   } //search-sitters
 
   //kaminari
