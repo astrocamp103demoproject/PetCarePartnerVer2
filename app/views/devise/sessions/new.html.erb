@@ -8,12 +8,13 @@
                 input_html: { autocomplete: "email" } %>
     <%= f.input :password,
                 required: false,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+                input_html: { autocomplete: "current-password" },
+                label: '密碼' %>
+    <%= f.input :remember_me, as: :boolean, label: '記住我' if devise_mapping.rememberable? %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Log in", class: 'btn btn-primary' %>
+    <%= f.button :submit, "登入", class: 'btn btn-primary' %>
   </div>
 <% end %>
 

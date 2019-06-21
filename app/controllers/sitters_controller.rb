@@ -5,7 +5,10 @@ class SittersController < ApplicationController
     session[:current_sitter] = @sitter
     
     @booking_dates = @sitter.booking_dates.all
+    
+    # @current_sitter = Sitter.find_by("name == '#{current_user.name}'")
   end
+
   def edit
     @sitter = Sitter.find_by(id: params[:id])
   end
@@ -30,10 +33,13 @@ class SittersController < ApplicationController
     @sitter = Sitter.new(sitter_params)
     @sitter.email = current_user.email
     @sitter.name = current_user.name
+    @sitter.avatar = current_user.avatar
+    
     
     User.update(role:'sitter')
     if @sitter.save
-      redirect_to root_path, notice:'恭喜你成為保母'
+      @current_sitter = Sitter.find_by("name == '#{current_user.name}'")
+      redirect_to sitter_path(@current_sitter.id), notice:'恭喜你成為保母'
     else
       render :new
     end

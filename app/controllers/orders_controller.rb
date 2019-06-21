@@ -13,6 +13,7 @@ class OrdersController < ApplicationController
     @drop = Date.strptime(session[:drop_off], '%m/%d/%Y')
     @pick = Date.strptime(session[:pick_up], '%m/%d/%Y')
     @total = (@pick - @drop).to_i * @sitter['price']
+    
     @token = gateway.client_token.generate
     
   end

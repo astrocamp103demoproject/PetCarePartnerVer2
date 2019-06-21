@@ -5,11 +5,13 @@
             <ul>
             <li><%= link_to image_tag("animals.png"), root_path, class: 'nav-logo' %>
             <%= link_to 'PetCollage', root_path, class: 'nav-st' %></li>  
-            <% if user_signed_in?%>
-                <li><%= link_to 'Become Sitter', sitters_path %></li>
+            <% if user_signed_in? && current_user.role == 'user' %>
+                <li><%= link_to '成為保母', sitters_path %></li>
+            <% elsif user_signed_in? && current_user.role == 'sitter' %>
+                <li></li>
             <% else %>
-                <li><%= link_to 'Become Sitter', user_session_path %></li>
-            <%end%>   
+                <li><%= link_to '成為保母', user_session_path %></li>
+            <% end %>   
             </ul>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -17,20 +19,26 @@
             <ul class="nav navbar-nav navbar-right">
 
                 <li class="nav-item dropdown">
-                    <% if user_signed_in?   %>
+                    <% if user_signed_in? %>
+                    <% current_user.role %>
+                    <% @current_sitter = Sitter.find_by("name == '#{current_user.name}'") %>
                     <span class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <p class="hi-user"><%= "Hi, #{current_user.name}" %></p>
                     <img src="<%= current_user.avatar %>" alt="" class="avatar-img">
                     </span>
-                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                              <a class="dropdown-item"><%= link_to 'My Profile', user_path(current_user) %></a>
-                              <a class="dropdown-item"><%= link_to 'My Order', user_orders_path(current_user) %></a>
-                              <div class="dropdown-divider"></div>
-                              <a class="dropdown-item"><%= link_to "Log out", destroy_user_session_path, method: "delete" %></a>
-                          </div>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <% if current_user.role == "sitter" %>
+                            <a class="dropdown-item"><%= link_to '個人資料', sitter_path(@current_sitter.id) %></a>
+                            <% else %>
+                            <a class="dropdown-item"><%= link_to '個人資料', user_path(current_user) %></a>
+                            <% end %>
+                            <a class="dropdown-item"><%= link_to '我的訂單', user_orders_path(current_user) %></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item"><%= link_to "登出", destroy_user_session_path, method: "delete" %></a>
+                        </div>
                     <% else %>
-                    <li><%= link_to 'Log in', new_user_session_path %></li>
-                    <li><%= link_to 'Sign up', new_user_registration_path %></li>
+                    <li><%= link_to '登入', new_user_session_path %></li>
+                    <li><%= link_to '註冊', new_user_registration_path %></li>
                     <% end %>
                 </li>
             </ul>

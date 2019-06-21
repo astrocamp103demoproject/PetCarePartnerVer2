@@ -17,21 +17,21 @@
  
     </div>
     <div class="select-date">
-      <%= text_field_tag 'Drop_Off', nil, :'data-provide' =>'datepicker', placeholder:'Drop-Off',autocomplete:"off"%>
-      <%= text_field_tag 'Pick_Up', nil, :'data-provide' =>'datepicker', placeholder:'Pick-Up',autocomplete:"off"%>
+      <%= text_field_tag 'Drop_Off', nil, :'data-provide' =>'datepicker', placeholder:'送出日期',autocomplete:"off"%>
+      <%= text_field_tag 'Pick_Up', nil, :'data-provide' =>'datepicker', placeholder:'接回日期',autocomplete:"off"%>
 
     </div>
     <div class="pet-count">
-      <%= label_tag(:xs_count, "XS (0~10 kg)") %>
+      <%= label_tag(:xs_count, "迷你 (0~10 kg)") %>
       <%= select_tag(:xs_count, options_for_select([['0', 0], ['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]],6)) %>
-      <%= label_tag(:s_count, "S (11~25 kg)") %>
+      <%= label_tag(:s_count, "小型 (11~25 kg)") %>
       <%= select_tag(:s_count, options_for_select([['0', 0], ['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]],6)) %>
-      <%= label_tag(:m_count, "M (26~40 kg)") %>
+      <%= label_tag(:m_count, "中型 (26~40 kg)") %>
       <%= select_tag(:m_count, options_for_select([['0', 0], ['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]],6)) %>
-      <%= label_tag(:l_count, "L (41 kg up)") %>
+      <%= label_tag(:l_count, "大型 (41 kg up)") %>
       <%= select_tag(:l_count, options_for_select([['0', 0], ['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]],6)) %>
     </div>
-    <%= submit_tag("Search", class:'btn btn-primary') %>
+    <%= submit_tag("找保母", class:'btn btn-primary') %>
   <% end %>        
   
   
