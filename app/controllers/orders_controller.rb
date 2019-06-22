@@ -13,6 +13,7 @@ class OrdersController < ApplicationController
     @drop = Date.strptime(session[:drop_off], '%m/%d/%Y')
     @pick = Date.strptime(session[:pick_up], '%m/%d/%Y')
     @total = (@pick - @drop).to_i * @sitter['price']
+    
     @token = gateway.client_token.generate
     
   end
@@ -62,13 +63,12 @@ class OrdersController < ApplicationController
   end
   
   def pending
-    
     # Time.now.strftime('%Y-%m-%d').to_s
-    @orders = current_user.orders.where("pick_up > '2019-06-20'").page(params[:page]).per(5) 
+    @orders = current_user.orders.where("pick_up > '#{Time.now.strftime('%Y-%m-%d').to_s}'").page(params[:page]).per(5) 
   end
   
   def finish
-    @orders = current_user.orders.where("pick_up < '2019-06-20'").where(state: 'paid').page(params[:page]).per(5) 
+    @orders = current_user.orders.where("pick_up < '#{Time.now.strftime('%Y-%m-%d').to_s}'").where(state: 'paid').page(params[:page]).per(5) 
   end
   
   def cancel

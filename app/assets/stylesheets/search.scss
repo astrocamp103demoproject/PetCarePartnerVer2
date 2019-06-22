@@ -9,7 +9,9 @@
     height: 100vh;
     padding: 0 20px;
     border-right: 1px solid #ddd;
-
+    .bar-form {
+      padding: 0;
+    }
     .search-bar-size,
     .search-pet,
     .city-group {
@@ -28,6 +30,7 @@
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
+    justify-content: center;
     overflow: scroll;
 
     .sitter-item {
@@ -75,12 +78,6 @@
         }
       } //item-price
     } //sitter-item
-    //kaminari
-    .pagination {
-      width: 100%;
-      text-align: center;
-      position: relative;
-    }
   } //search-sitters
 
   //kaminari

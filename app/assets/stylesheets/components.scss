@@ -25,6 +25,9 @@
   background: #191919;
   z-index: -1;
 }
+nav.navbar {
+  margin-bottom: 0;
+}
 .navbar-inverse {
   // background-color: transparent;
 }
@@ -134,7 +137,7 @@
       font-size: 20px;
       span {
         .hi-user {
-          display: inline;
+          display: inline-block;
           font-size: 18px;
           color: #113859;
           text-shadow: none;
@@ -160,6 +163,12 @@
       }
     }
   }
+}
+
+.nav-logo,
+.nav-st {
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .notice,

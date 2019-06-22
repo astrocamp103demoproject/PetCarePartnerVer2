@@ -3,13 +3,13 @@
 </div>
 <div class="info">
   <%= content_tag(:h3, profile.name) %>
-  <%= link_to 'Edit', edit_user_path(current_user), class: 'btn btn-edit btn-primary' if profile == @user %>
-  <%= link_to 'Edit', edit_sitter_path(@sitter), class: 'btn btn-edit btn-primary' if profile == @sitter %>
+  <%= link_to '編輯', edit_user_path(current_user), class: 'btn btn-edit btn-primary' if profile == @user %>
+  <%= link_to '編輯', edit_sitter_path(@sitter), class: 'btn btn-edit btn-primary' if profile == @sitter && current_user.name == profile.name %>
   <%= content_tag(:p, profile.address) if profile == @sitter %>
   <%= content_tag(:p, profile.email) %>
   <%= content_tag(:p, profile.slogan) if profile == @sitter %>
   <%= content_tag(:p, "$ #{profile.price} /每晚") if profile == @sitter %>
-  <%= link_to 'Booking', new_user_order_path(current_user), class: 'btn btn-booking btn-success' if profile == @sitter %>
+  <%= link_to '下訂', new_user_order_path(current_user), class: 'btn btn-booking btn-success' if profile == @sitter && current_user.name != profile.name %>
 </div>
 <hr>
 <div class="pic">
@@ -28,7 +28,9 @@
     <%= date.day %>
     <% booking_dates.each do |booking_date| %>
     <div>
-    <%= booking_date.available %>
+      <% if booking_date.available == false %>
+        <p class="booked">已預訂</p>
+      <% end %>
     </div>
     <% end %>
   <% end %>
