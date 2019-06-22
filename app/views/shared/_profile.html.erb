@@ -15,6 +15,9 @@
 <div class="pic">
   <h3>圖片集</h3>
     <img src="<%= profile.pic %>" alt="">
+    
+    <%= link_to '＋', new_user_pet_path(current_user), class: 'add-symbol' %>
+    
 </div>
 <hr>
 <% if profile == @sitter %>
