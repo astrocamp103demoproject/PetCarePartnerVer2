@@ -1,0 +1,13 @@
+<div class="pictures-wrap" >
+    <h3>圖片集</h3>
+    <span>加入更多照片：<%= link_to '＋', new_sitter_picture_path(@sitter), class: 'add-symbol' %></span>
+    <div class="pic-wrap">
+        <% @sitter.pictures.each do |picture|%>
+            <div class="pic">
+                <img src="<%= picture.pic %>" alt="">
+            </div>
+        <%end%>
+    </div>
+    
+    
+</div>

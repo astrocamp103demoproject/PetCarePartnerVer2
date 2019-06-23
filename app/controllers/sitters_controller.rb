@@ -11,6 +11,8 @@ class SittersController < ApplicationController
 
   def edit
     @sitter = Sitter.find_by(id: params[:id])
+    # @pictures = @sitter.pictures.new(:user_id => )
+    
   end
   def update
     @sitter = Sitter.find_by(id: params[:id])
@@ -47,7 +49,7 @@ class SittersController < ApplicationController
  
   private
   def sitter_params
-    params.require(:sitter).permit( :address, :slogan, :price, :square_meters, :pet_limit)
+    params.require(:sitter).permit( :address, :slogan, :price, :square_meters, :pet_limit, :pic)
   end
   
 end
