@@ -58,6 +58,16 @@ ActiveRecord::Schema.define(version: 2019_06_23_090433) do
     t.index ["user_id"], name: "index_pets_on_user_id"
   end
 
+  create_table "pictures", force: :cascade do |t|
+    t.integer "sitter_id"
+    t.string "pic"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["sitter_id"], name: "index_pictures_on_sitter_id"
+    t.index ["user_id"], name: "index_pictures_on_user_id"
+  end
+
   create_table "sitters", force: :cascade do |t|
     t.string "name"
     t.string "email"

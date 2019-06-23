@@ -14,7 +14,15 @@
 <hr>
 <div class="pic">
   <h3>圖片集</h3>
-    <img src="<%= profile.pic %>" alt="">
+  <div class="pic-wrap">
+    <% profile.pictures.each do |picture|%>
+      <div class="pic">
+          <img src="<%= picture.pic %>" alt="">
+      </div>
+    <%end%>
+  </div>
+    <%= link_to '＋', sitter_picture_path(profile), class: 'add-symbol' %>
+    
 </div>
 <hr>
 <% if profile == @sitter %>

@@ -62,11 +62,21 @@ class SearchesController < ApplicationController
 
   # google map
   def g_map(result)
+    
+
     @gmaps = result
-    @hash = Gmaps4rails.build_markers(@gmaps) do |gmap, marker|
+    # byebug
+    @hash = Gmaps4rails.build_markers(@gmaps) do |gmap, marker|      
       marker.lat gmap.latitude
       marker.lng gmap.longitude
       marker.infowindow gmap.address
+      marker.picture({
+        :url    => "http://www.blankdots.com/img/github-32x32.png",
+        :width  => "32",
+        :height => "32"
+       })
+      marker.title   gmap.name
+      marker.json({ :id => gmap.id,:email => gmap.email })
     end
     
   end
