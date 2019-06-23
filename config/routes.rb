@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resource :searches, only: [:index, :show, :update, :create]
 
   resources :users, only: [:show, :edit, :update] do
+    resources :pictures, only: [:show, :new, :create, :destroy]
     resources :pets, except: [:index]
     resources :orders, only: [:new, :create, :index, :show] do
       resource :booking_date, only: [:create]
@@ -19,7 +20,9 @@ Rails.application.routes.draw do
       end
     end
   end
-
-  resources :sitters, except: [:destroy]
+  
+  resources :sitters, except: [:destroy] do
+    resources :pictures, only: [:show, :new, :create, :destroy]
+  end
 
 end
