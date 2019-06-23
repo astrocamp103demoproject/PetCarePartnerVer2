@@ -18,6 +18,15 @@
     margin-left: 20px;
     display: inline-block;
     vertical-align: top;
+    .delete-pet {
+      color: #f77;
+    }
+    .delete-pet:hover {
+      color: #a33;
+    }
+    a {
+      text-decoration: none;
+    }
   }
   .pet-pic {
     max-width: 100px;

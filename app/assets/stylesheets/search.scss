@@ -5,22 +5,57 @@
   display: flex;
   //左邊的部分
   .search-bar {
+    background-color: #eee;
     width: 20%;
     height: 100vh;
     padding: 0 20px;
     border-right: 1px solid #ddd;
+    h3 {
+      margin: 20px 0;
+    }
     .bar-form {
-      padding: 0;
-    }
-    .search-bar-size,
-    .search-pet,
-    .city-group {
       display: flex;
-      margin: 10px;
+      flex-flow: column wrap;
+      .pet-type {
+        margin: 10px 0;
+        input {
+          margin-left: 10px;
+        }
+      }
+      .city-group {
+        margin: 20px 0;
+        select {
+          color: #777;
+          margin: 0 5px;
+        }
+      }
+      .select-date {
+        margin: 20px 0;
+        input {
+          display: inline-block;
+          width: 80px;
+          margin: 10px 5px;
+          text-align: center;
+        }
+      }
+      .pet-count {
+        margin: 20px 0;
+        label {
+          width: 120px;
+          margin: 10px 0;
+        }
+        select {
+          margin: 0 10px;
+          width: 40px;
+        }
+      }
     }
-    p {
-      margin: 0 5px;
-    }
+    // .search-bar-size,
+    // .search-pet,
+    // .city-group {
+    //   display: flex;
+    //   margin: 10px;
+    // }
   }
   //中間的部分
   .search-sitters {
@@ -49,7 +84,11 @@
         }
       }
       .item-sitter-info {
+        .item-sitter-name {
+          font-size: 18px;
+        }
         .item-sitter-slogan {
+          color: #777;
           overflow: hidden;
           display: -webkit-box;
           -webkit-box-orient: vertical;
@@ -64,20 +103,32 @@
         text-align: center;
         width: 20%;
         padding: 5px;
+        box-sizing: border-box;
+        .per-price {
+          font-size: 18px;
+          color: #467302;
+          margin: 10px 0 0;
+        }
         p {
-          margin: 5px 0;
+          margin: 0;
         }
-        a {
-          display: inline-block;
-          padding: 10px;
-          margin: 5px;
-          text-decoration: none;
-          border-radius: 14px;
-          background-color: red;
-          color: white;
+        .btn {
+          margin-top: 5px;
         }
+        // a {
+        //   display: inline-block;
+        //   padding: 10px;
+        //   margin: 5px;
+        //   text-decoration: none;
+        //   border-radius: 14px;
+        //   background-color: red;
+        //   color: white;
+        // }
       } //item-price
     } //sitter-item
+    .sitter-item:nth-child(even) {
+      background-color: #eff;
+    }
   } //search-sitters
 
   //kaminari

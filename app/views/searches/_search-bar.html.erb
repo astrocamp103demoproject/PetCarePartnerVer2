@@ -1,10 +1,12 @@
 <div class="search-bar">
     <h3>搜尋條件</h3>
     <%= form_tag('searches', method: 'patch', class: 'bar-form') do %>
-    <%= check_box_tag(:dog, 0) %>
-    <%= label_tag(:dog, "Dog") %>
-    <%= check_box_tag(:cat, 1) %>
-    <%= label_tag(:cat, "Cat") %>
+    <div class="pet-type">
+      <%= check_box_tag(:dog, 0) %>
+      <%= label_tag(:dog, "Dog") %>
+      <%= check_box_tag(:cat, 1) %>
+      <%= label_tag(:cat, "Cat") %>
+    </div>
     <div class="city-group">
       <%= select_tag(:city_id, options_for_select(TaiwanCity.list.unshift('縣市')),class:'city-select') %>
       <%= select_tag(:township_id, raw("<option value="">鄉鎮市區</option>"),class:'city-select') %>
@@ -25,6 +27,6 @@
       <%= label_tag(:l_count, "大型 (41 kg up)") %>
       <%= select_tag(:l_count, options_for_select([['0', 0], ['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]],6)) %>
     </div>
-    <%= submit_tag("搜尋", class:'btn btn-primary', id: 'search-sitters') %>
+    <%= submit_tag("再次搜尋", class:'btn btn-primary', id: 'search-sitters') %>
   <% end %>        
 </div>

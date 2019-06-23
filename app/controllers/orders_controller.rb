@@ -37,7 +37,7 @@ class OrdersController < ApplicationController
     
     if @order.save
       (@drop .. @pick).to_a.each do |day|
-        BookingDate.find_or_initialize_by(sitter_id: @sitter['id'], date: day, available: false) do |booking_date|
+        BookingDate.find_or_initialize_by(sitter_id: @sitter['id'], date: day, available: 'booked') do |booking_date|
           booking_date.save
         end
       end

@@ -8,9 +8,9 @@
     <p>年齡： <%= pet.age %> 歲</p>
     <p>體重： <%= pet.size %> 公斤</p>
     <p>性別： <%= pet.sex %></p>
-    <%= link_to 'view', user_pet_path(current_user, pet) %>
-    <%= link_to 'edit', edit_user_pet_path(current_user, pet) %>
-    <%= link_to 'delete', user_pet_path(current_user, pet), method: 'delete', data: {confirm: '確定要刪除？'} %>
+    <%= link_to '查看', user_pet_path(current_user, pet) %>
+    <%= link_to '編輯', edit_user_pet_path(current_user, pet) %>
+    <%= link_to '刪除', user_pet_path(current_user, pet), method: 'delete', data: {confirm: '確定要刪除？'}, class: 'delete-pet' %>
   </div>
 </div>
 <% end %>
