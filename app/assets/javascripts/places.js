@@ -14,8 +14,8 @@ function getLocationData(data) {
 function initMapMarker(data) {
 
   let locations = data
-
   let marker, i
+  let lastIndex = 0;
 
 
   for (i = 0; i < locations.length; i++) {
@@ -28,16 +28,30 @@ function initMapMarker(data) {
       'click',
       (function(marker, i) {
         return function() {
-          console.log("initMapMarker----click")
 
            contentString = setHTMLmethod(locations[i][0],locations[i][4],locations[i][6],locations[i][5],locations[i][3],locations[i][7])
            window.googleMapConfig.infowindow.setContent(contentString)
            window.googleMapConfig.infowindow.open(map, marker)
+          //  console.log($(".search-sitters").scrollTop()+" px")
+ 
+          if(lastIndex != locations[i][5]){
+            let index = '#'+locations[i][5]
+            $('.search-sitters').animate({
+              scrollTop: ($(index).offset().top)
+            },700);
+              console.log(locations[i][5]+" ID form marker ")
+              lastIndex = locations[i][5]
+          }
+        
+
+    
         }
       })(marker, i)
     )
   }
 }
+
+
 
 function setMapStyle(data) {
   

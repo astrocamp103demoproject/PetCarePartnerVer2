@@ -27,7 +27,7 @@
     <hr>
     <p><span>每晚金額：</span> <span><%= @order.sitter.price %> 元</span></p>
     <p><span>總金額：</span> <span><%= (@order.pick_up - @order.drop_off).to_i * @order.sitter.price %> 元</span></p>
-    <p><span>付款日期：</span> <span><%= @order.checkout_time %></span></p>
+    <p><span>付款時間：</span> <span><%= @order.created_at %></span></p>
     <hr>
     <p><span>付款方式：</span> <span>credit card</span></p>
   </div>
