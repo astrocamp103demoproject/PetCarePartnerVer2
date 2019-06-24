@@ -38,7 +38,7 @@ function initMapMarker(data) {
             let index = '#'+locations[i][5]
             $('.search-sitters').animate({
               scrollTop: ($(index).offset().top)
-            },100);
+            },700);
               console.log(locations[i][5]+" ID form marker ")
               lastIndex = locations[i][5]
           }

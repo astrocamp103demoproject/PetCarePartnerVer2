@@ -1,15 +1,17 @@
-<div class="avatar">
-  <img src="<%= profile.avatar %>" alt="" class="avatar-img">
-</div>
-<div class="info">
-  <%= content_tag(:h3, profile.name) %>
-  <%= link_to '編輯', edit_user_path(current_user), class: 'btn btn-edit btn-info' if profile == @user %>
-  <%= link_to '編輯', edit_sitter_path(@sitter), class: 'btn btn-edit btn-info' if profile == @sitter && current_user.name == profile.name %>
-  <%= content_tag(:p, profile.address) if profile == @sitter %>
-  <%= content_tag(:p, profile.email) %>
-  <%= content_tag(:p, profile.slogan) if profile == @sitter %>
-  <%= content_tag(:p, "$ #{profile.price} /每晚") if profile == @sitter %>
-  <%= link_to '預訂付款', new_user_order_path(current_user), class: 'btn btn-booking btn-success' if profile == @sitter && current_user.name != profile.name %>
+<div class="section-top">
+  <div class="avatar">
+    <img src="<%= profile.avatar %>" alt="" class="avatar-img">
+  </div>
+  <div class="info">
+    <%= content_tag(:h3, profile.name) %>
+    <%= link_to '編輯', edit_user_path(current_user), class: 'btn btn-edit btn-info' if profile == @user %>
+    <%= link_to '編輯', edit_sitter_path(@sitter), class: 'btn btn-edit btn-info' if profile == @sitter && current_user.name == profile.name %>
+    <%= content_tag(:p, profile.address) if profile == @sitter %>
+    <%= content_tag(:p, profile.email) %>
+    <%= content_tag(:p, profile.slogan) if profile == @sitter %>
+    <%= content_tag(:p, "$ #{profile.price} /每晚", class:'per-price') if profile == @sitter %>
+    <%= link_to '預訂付款', new_user_order_path(current_user), class: 'btn btn-booking btn-success' if profile == @sitter && current_user.name != profile.name %>
+  </div>
 </div>
 <hr>
 <div class="pic">
@@ -27,8 +29,10 @@
 <hr>
 <% if profile == @sitter %>
   <div class="square">
-    <%= content_tag(:p, "空間坪數： #{profile.square_meters} 平方公尺") %>
-    <%= content_tag(:p, "最大收容數： #{profile.pet_limit} 隻") %>
+    <div class="limit">
+      <%= content_tag(:p, "空間坪數： #{profile.square_meters} 平方公尺") %>
+      <%= content_tag(:p, "最大收容數： #{profile.pet_limit} 隻") %>
+    </div>
     <%= link_to '設定日期', new_sitter_booking_date_path(profile), class: 'btn btn-info' if current_user.name == profile.name %>
     <%= month_calendar events: @booking_dates do |date, booking_dates| %>
       <%= date.day %>
