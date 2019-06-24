@@ -10,16 +10,16 @@ class SearchesController < ApplicationController
     
     un_sitter_ids = BookingDate.where(date: date_change(params[:Drop_Off])..date_change(params[:Pick_Up]),available: false).map(&:sitter_id).uniq#uniq 清除重複的
     un_sitter_ids = un_sitter_ids.blank? ? [-1] : un_sitter_ids
-    @result = Sitter.where('id NOT IN (?)',un_sitter_ids).page(params[:page]).per(10) 
+    @result = Sitter.where('id NOT IN (?)',un_sitter_ids).where("pet_limit >= ?",pet_count).where("address LIKE ?",location_code).page(params[:page]).per(10) 
     g_map(@result)
   end
   
   def update
     un_sitter_ids = BookingDate.where(date: date_change(params[:Drop_Off])..date_change(params[:Pick_Up]),available: false).map(&:sitter_id).uniq#uniq 清除重複的
     un_sitter_ids = un_sitter_ids.blank? ? [-1] : un_sitter_ids
-    @result = Sitter.where('id NOT IN (?)',un_sitter_ids).page(params[:page]).per(10) 
+    @result = Sitter.where('id NOT IN (?)',un_sitter_ids).where("pet_limit >= ?",pet_count).where("address LIKE ?",location_code).page(params[:page]).per(10) 
     # @result = Sitter.joins(:booking_dates).having(booking_dates: {date: subTraction(params[:Drop_Off],params[:Pick_Up]),available:true}).group(:sitter_id).where("pet_limit >= ?",pet_count).where("address LIKE ?",location_code).page(params[:page]).per(10) 
-
+# byebugs
     session[:drop_off] = params[:Drop_Off]
     session[:pick_up] = params[:Pick_Up]
     g_map(@result)
