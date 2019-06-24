@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_22_065256) do
+ActiveRecord::Schema.define(version: 2019_06_23_090433) do
 
   create_table "booking_dates", force: :cascade do |t|
     t.integer "sitter_id"
     t.date "date"
-    t.boolean "available"
+    t.string "available"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["sitter_id"], name: "index_booking_dates_on_sitter_id"
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2019_06_22_065256) do
     t.string "pic"
     t.index ["user_id"], name: "index_pets_on_user_id"
   end
-  
+
   create_table "pictures", force: :cascade do |t|
     t.integer "sitter_id"
     t.string "pic"
