@@ -1,13 +1,15 @@
 <h1>訂單細項</h1>
 <div class="order-detail">
-  <div class="sitter-avatar">
-    <img src="<%= @order.sitter.avatar %>" alt="">
-  </div>
-  <div class="sitter-info">
-    <h3>保母： <%= @order.sitter.name %></h3>
-    <p>地址： <%= @order.sitter.address %></p>
-    <p>email: <%= @order.sitter.email %></p>
-    <%= link_to '查看保母', sitter_path(@order.sitter), class: 'btn btn-info' %>
+  <div class="order-section-top">
+    <div class="sitter-avatar">
+      <img src="<%= @order.sitter.avatar %>" alt="">
+    </div>
+    <div class="sitter-info">
+      <h3>保母： <%= @order.sitter.name %></h3>
+      <p>地址： <%= @order.sitter.address %></p>
+      <p>email: <%= @order.sitter.email %></p>
+      <%= link_to '查看保母', sitter_path(@order.sitter), class: 'btn btn-info' %>
+    </div>
   </div>
   <hr>
   <div class="detail-text">

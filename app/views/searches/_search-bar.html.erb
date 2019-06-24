@@ -1,32 +1,34 @@
 <div class="search-bar">
-    <h3>搜尋條件</h3>
-    <%= form_tag('searches', method: 'patch', class: 'bar-form') do %>
-    <div class="pet-type">
-      <%= check_box_tag(:dog, 0) %>
-      <%= label_tag(:dog, "Dog") %>
-      <%= check_box_tag(:cat, 1) %>
-      <%= label_tag(:cat, "Cat") %>
-    </div>
-    <div class="city-group">
-      <%= select_tag(:city_id, options_for_select(TaiwanCity.list.unshift('縣市')),class:'city-select') %>
-      <%= select_tag(:township_id, raw("<option value="">鄉鎮市區</option>"),class:'city-select') %>
- 
-    </div>
-    <div class="select-date">
-      <%= text_field_tag 'Drop_Off', nil, :'data-provide' =>'datepicker', placeholder:'送出日期' ,autocomplete:"off"%>
-      <%= text_field_tag 'Pick_Up', nil, :'data-provide' =>'datepicker', placeholder:'接回日期' ,autocomplete:"off"%>
-
-    </div>
-    <div class="pet-count">
-      <%= label_tag(:xs_count, "迷你 (0~10 kg)") %>
-      <%= select_tag(:xs_count, options_for_select([['0', 0], ['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]],6)) %>
-      <%= label_tag(:s_count, "小型 (11~25 kg)") %>
-      <%= select_tag(:s_count, options_for_select([['0', 0], ['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]],6)) %>
-      <%= label_tag(:m_count, "中型 (26~40 kg)") %>
-      <%= select_tag(:m_count, options_for_select([['0', 0], ['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]],6)) %>
-      <%= label_tag(:l_count, "大型 (41 kg up)") %>
-      <%= select_tag(:l_count, options_for_select([['0', 0], ['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]],6)) %>
-    </div>
-    <%= submit_tag("再次搜尋", class:'btn btn-primary', id: 'search-sitters') %>
-  <% end %>        
+    <div class="search-card">
+      <h3>搜尋條件</h3>
+      <%= form_tag('searches', method: 'patch', class: 'bar-form') do %>
+      <div class="pet-type">
+        <%= check_box_tag(:dog, 0) %>
+        <%= label_tag(:dog, "Dog") %>
+        <%= check_box_tag(:cat, 1) %>
+        <%= label_tag(:cat, "Cat") %>
+      </div>
+      <div class="city-group">
+        <%= select_tag(:city_id, options_for_select(TaiwanCity.list.unshift('縣市')),class:'city-select') %>
+        <%= select_tag(:township_id, raw("<option value="">鄉鎮市區</option>"),class:'city-select') %>
+   
+      </div>
+      <div class="select-date">
+        <%= text_field_tag 'Drop_Off', nil, :'data-provide' =>'datepicker', placeholder:'送出日期' ,autocomplete:"off"%>
+        <%= text_field_tag 'Pick_Up', nil, :'data-provide' =>'datepicker', placeholder:'接回日期' ,autocomplete:"off"%>
+  
+      </div>
+      <div class="pet-count">
+        <%= label_tag(:xs_count, "迷你 (0~10 kg)") %>
+        <%= select_tag(:xs_count, options_for_select([['0', 0], ['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]],6)) %>
+        <%= label_tag(:s_count, "小型 (11~25 kg)") %>
+        <%= select_tag(:s_count, options_for_select([['0', 0], ['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]],6)) %>
+        <%= label_tag(:m_count, "中型 (26~40 kg)") %>
+        <%= select_tag(:m_count, options_for_select([['0', 0], ['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]],6)) %>
+        <%= label_tag(:l_count, "大型 (41 kg up)") %>
+        <%= select_tag(:l_count, options_for_select([['0', 0], ['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]],6)) %>
+      </div>
+      <%= submit_tag("再次搜尋", class:'btn btn-primary', id: 'search-sitters') %>
+    <% end %>
+    </div>        
 </div>
