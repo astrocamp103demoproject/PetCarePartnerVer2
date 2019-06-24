@@ -1,5 +1,6 @@
 .search-index {
   margin: auto;
+  margin-top: 60px;
   max-width: 800px;
   height: 600px;
   display: flex;
@@ -42,12 +43,14 @@
       color: #777;
       height: 30px;
       margin: 0 10px;
+      border: none;
     }
     .datepick {
       width: 80px;
       height: 30px;
       margin: 0 10px;
       text-align: center;
+      border: none;
     }
     .pet-count {
       margin: 10px 20px;
@@ -59,10 +62,22 @@
       select {
         width: 60px;
         margin: auto;
+        border: none;
       }
     }
     .btn {
       margin-top: 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .search-index {
+    flex-direction: column;
+    width: 80%;
+    margin-top: 0;
+    .jumbotron {
+      padding-top: 150px;
     }
   }
 }
