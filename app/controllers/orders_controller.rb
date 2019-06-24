@@ -3,7 +3,13 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @orders = current_user.orders.all.page(params[:page]).per(5) 
+    # byebug
+    @current_sitter = Sitter.find_by("name == '#{current_user.name}'")
+    if current_user.role == 'sitter'
+      @orders = @current_sitter.orders.all.page(params[:page]).per(5)
+    else
+      @orders = current_user.orders.all.page(params[:page]).per(5)
+    end
   end
 
   def new
@@ -59,20 +65,36 @@ class OrdersController < ApplicationController
   end
 
   def show
+    
     @order = current_user.orders.find_by(id: params[:id])
   end
   
   def pending
     # Time.now.strftime('%Y-%m-%d').to_s
-    @orders = current_user.orders.where("pick_up > '#{Time.now.strftime('%Y-%m-%d').to_s}'").page(params[:page]).per(5) 
+    @current_sitter = Sitter.find_by("name == '#{current_user.name}'")
+    if current_user.role == 'sitter'
+      @orders = @current_sitter.orders.where("pick_up > '#{Time.now.strftime('%Y-%m-%d').to_s}'").page(params[:page]).per(5)
+    else
+      @orders = current_user.orders.where("pick_up > '#{Time.now.strftime('%Y-%m-%d').to_s}'").page(params[:page]).per(5) 
+    end
   end
   
   def finish
-    @orders = current_user.orders.where("pick_up < '#{Time.now.strftime('%Y-%m-%d').to_s}'").where(state: 'paid').page(params[:page]).per(5) 
+    @current_sitter = Sitter.find_by("name == '#{current_user.name}'")
+    if current_user.role == 'sitter'
+      @orders = @current_sitter.orders.where("pick_up < '#{Time.now.strftime('%Y-%m-%d').to_s}'").where(state: 'paid').page(params[:page]).per(5)
+    else
+      @orders = current_user.orders.where("pick_up < '#{Time.now.strftime('%Y-%m-%d').to_s}'").where(state: 'paid').page(params[:page]).per(5) 
+    end
   end
   
   def cancel
-    @orders = current_user.orders.where(state: 'cancel').page(params[:page]).per(5) 
+    @current_sitter = Sitter.find_by("name == '#{current_user.name}'")
+    if current_user.role == 'sitter'
+      @orders = @current_sitter.orders.where(state: 'cancel').page(params[:page]).per(5) 
+    else
+      @orders = current_user.orders.where(state: 'cancel').page(params[:page]).per(5) 
+    end
   end
 
   private
