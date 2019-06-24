@@ -8,8 +8,14 @@
     background-color: #eee;
     width: 20%;
     height: 100vh;
-    padding: 0 20px;
-    border-right: 1px solid #ddd;
+    padding: 0 10px;
+    // border-right: 1px solid #ddd;
+    .search-card {
+      background-color: #fff;
+      padding: 10px;
+      margin: 5px;
+      border-radius: 5px;
+    }
     h3 {
       margin: 20px 0;
     }
@@ -61,24 +67,24 @@
   .search-sitters {
     width: 40%;
     height: 100vh;
-    border-right: 1px solid #ddd;
+    // border-right: 1px solid #ddd;
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
     justify-content: center;
     overflow: scroll;
-
     .sitter-item {
       width: 100%;
       height: 100px;
-      border-bottom: 1px solid #ddd;
+      border-top: 3px solid #eee;
+      border-bottom: 3px solid #eee;
       overflow: hidden;
       display: flex;
       align-items: center;
 
       .item-pic {
         width: 20%;
-        padding: 5px;
+        padding-right: 10px;
         img {
           width: 100%;
         }

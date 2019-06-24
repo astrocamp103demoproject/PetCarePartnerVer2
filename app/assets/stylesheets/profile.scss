@@ -1,5 +1,9 @@
 .profile {
   // position: relative;
+  .section-top {
+    margin: auto;
+    text-align: center;
+  }
   .btn-edit {
     margin-left: 100px;
     display: inline-block;
@@ -13,17 +17,42 @@
   //   top: 200px;
   //   right: 35%;
   // }
-  .avatar-img {
-    border-radius: 50%;
-    max-width: 250px;
-    vertical-align: middle;
+
+  .avatar {
+    margin: 20px 40px;
+    .avatar-img {
+      border-radius: 50%;
+      max-width: 200px;
+      vertical-align: middle;
+    }
   }
   .info {
-    margin-left: 40px;
+    margin: 0 60px;
+    width: 600px;
+    text-align: left;
     h3 {
       margin: 20px 0;
       display: inline-block;
       vertical-align: middle;
+    }
+    .per-price {
+      font-size: 20px;
+      color: #467302;
+    }
+  }
+  .square {
+    background-color: #eee;
+    padding: 20px;
+    border-radius: 10px;
+    .limit {
+      margin: 20px 0;
+      p {
+        font-size: 18px;
+        margin: 20px 0;
+      }
+    }
+    .btn {
+      margin: 20px 0;
     }
   }
 }

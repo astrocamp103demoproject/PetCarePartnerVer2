@@ -12,13 +12,15 @@
   </head>
 
   <body>
+    <div class="body-bg">
     <%= render 'shared/nav' %>
-   
-    <div class="container">
-      <%= flash[:notice] %>
-      <%= yield %>
-    
-</div>
-    
+      
+      <div class="container">
+        <p class="flash"><%= flash[:notice] %></p>
+        <%= yield %>
+      
+      </div>
+     
+    </div> 
   </body>
 </html>

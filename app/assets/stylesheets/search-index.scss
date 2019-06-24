@@ -24,8 +24,11 @@
     border-radius: 10px;
     width: 80%;
     box-sizing: border-box;
-    color: #fff;
+    color: #000;
     text-align: center;
+    label {
+      color: #fff;
+    }
     .pet-type {
       // margin: 0 10px;
       input {
