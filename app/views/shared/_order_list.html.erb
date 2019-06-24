@@ -22,7 +22,7 @@
       <p>保母： <%= order.sitter.name %></p>
       <p>送出日期： <%= order.drop_off %> | 接回日期： <%= order.pick_up %></p>
       <p>總金額： <%= (order.pick_up - order.drop_off).to_i * order.sitter.price %> 元</p>
-      <p>結帳時間： <%= order.created_at %></p>
+      <p>付款日期： <%= order.created_at.to_date %></p>
     </div>
     <%= link_to '查看細節', user_order_path(current_user, order) %>
   </div>
