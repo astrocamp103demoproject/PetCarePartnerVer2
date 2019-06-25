@@ -47,8 +47,9 @@ class SittersController < ApplicationController
     @sitter.name = current_user.name
     @sitter.avatar = current_user.avatar
 
-    User.update(role:'sitter')
+
     if @sitter.save
+      User.update(role:'sitter')
       @current_sitter = Sitter.find_by("name == '#{current_user.name}'")
       redirect_to sitter_path(@current_sitter.id), notice:'恭喜你成為保母'
     else

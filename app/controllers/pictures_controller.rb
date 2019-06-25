@@ -1,5 +1,5 @@
 class PicturesController < ApplicationController
-    
+  before_action :authenticate_user!
   def show
     @sitter = Sitter.find_by(id: params[:id])
   end
@@ -11,12 +11,12 @@ class PicturesController < ApplicationController
   def create
     @picture = Picture.new(picture_params)
     
-    # byebug
+    byebug
   end
 
   private
   def picture_params
-    params.require(:picture).permit( :pic)
+    params.require(:picture).permit(:sitter_id, :pic)
     # params.require(:sitter).permit( :address, :slogan, :price, :square_meters, :pet_limit, :pic)
   end
 end
