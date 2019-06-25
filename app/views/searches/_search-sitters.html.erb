@@ -4,7 +4,7 @@
         <h1>找不到搜尋結果</h1> 
     <% else %>
         <% sitters.each do |sitter|%>
-            <div class="sitter-item">
+            <div class="sitter-item" id="<%=sitter.id%>">
                 <div class="item-pic"><img src=<%=sitter.avatar%>></div>
                 <div class="item-sitter-info">
                     <div class="item-sitter-name"><%=sitter.name%></div>
@@ -12,12 +12,14 @@
                     <div class="item-sitter-slogan"><%=sitter.slogan%></div>
                 </div>        
                 <div class="item-price">
-                    <p><%=sitter.price%>$</p>
+                    <p class='per-price'><%=sitter.price%>$</p>
                     <p>per night</p>
-                    <%= link_to 'Choose',sitter_path(sitter)%>
+                    <%= link_to '查看保母',sitter_path(sitter), class: 'btn btn-info' %>
                 </div>
             </div>
         <%end%>
+        <%= paginate sitters, outer_window: 3 %> 
     <%end%>
-    <%= paginate sitters, outer_window: 3 %>    
+    
+    
 </div>

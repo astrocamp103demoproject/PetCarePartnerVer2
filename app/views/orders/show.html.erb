@@ -1,23 +1,25 @@
-<h1>Order detail</h1>
+<h1>訂單細項</h1>
 <div class="order-detail">
-  <div class="sitter-avatar">
-    <img src="<%= @order.sitter.avatar %>" alt="">
-  </div>
-  <div class="sitter-info">
-    <h3>保母： <%= @order.sitter.name %></h3>
-    <p>地址： <%= @order.sitter.address %></p>
-    <p>email: <%= @order.sitter.email %></p>
-    <%= link_to '保母專頁', sitter_path(@order.sitter), class: 'btn btn-primary' %>
+  <div class="order-section-top">
+    <div class="sitter-avatar">
+      <img src="<%= @order.sitter.avatar %>" alt="">
+    </div>
+    <div class="sitter-info">
+      <h3>保母： <%= @order.sitter.name %></h3>
+      <p>地址： <%= @order.sitter.address %></p>
+      <p>email: <%= @order.sitter.email %></p>
+      <%= link_to '查看保母', sitter_path(@order.sitter), class: 'btn btn-info' %>
+    </div>
   </div>
   <hr>
   <div class="detail-text">
     <p><span>訂單號：</span> <span><%= @order.id %></span></p>
     <p><span>訂單狀態：</span> <span><%= @order.state %></span></p>
     <hr>
-    <p><span>Drop-Off:</span> <span><%= @order.drop_off %></span></p>
-    <p><span>Pick-Up:</span> <span><%= @order.pick_up %></span></p>
-    <p><span>寵物主人:</span> <span><%= @order.user.name %></span></p>
-    <p><span>寵物主人email:</span> <span><%= @order.user.email %></span></p>
+    <p><span>送出日期：</span> <span><%= @order.drop_off %></span></p>
+    <p><span>接回日期：</span> <span><%= @order.pick_up %></span></p>
+    <p><span>飼主:</span> <span><%= @order.user.name %></span></p>
+    <p><span>飼主email:</span> <span><%= @order.user.email %></span></p>
     <hr>
     <p><span>寵物數量：</span> <span><%= @order.user.pets.count %> 隻</span></p>
     <p><span>寵物體型：</span> <span><%= @order.user.pets.size %> 公斤</span></p>
@@ -25,7 +27,7 @@
     <hr>
     <p><span>每晚金額：</span> <span><%= @order.sitter.price %> 元</span></p>
     <p><span>總金額：</span> <span><%= (@order.pick_up - @order.drop_off).to_i * @order.sitter.price %> 元</span></p>
-    <p><span>付款日期：</span> <span><%= @order.checkout_time %></span></p>
+    <p><span>付款日期：</span> <span><%= @order.created_at.to_date %></span></p>
     <hr>
     <p><span>付款方式：</span> <span>credit card</span></p>
   </div>

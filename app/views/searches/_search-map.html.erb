@@ -9,8 +9,10 @@
         
         <script type="text/javascript">
           function initialize(){
-                var hashes = '<%= raw hash.to_json %>';
-                var getlocation = getLocationData(hashes);
+            var hashes = '<%= raw hash.to_json %>';
+            console.log("result in initialize"+hashes)
+                data = JSON.parse(hashes);
+                var getlocation = getLocationData(data);
                 bulidMap(getlocation);
                 setMapStyle(getlocation);
           }
@@ -18,6 +20,7 @@
           function bulidMap(data){
                 handler = Gmaps.build('Google');
                 handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+                  console.log("bulidMap----")
                   initMapMarker(data);
                 });
                 

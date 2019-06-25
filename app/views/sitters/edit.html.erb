@@ -1,14 +1,15 @@
-<h1>Edit Profile</h1>
+<h1>更新資料</h1>
 <%= simple_form_for @sitter do |form| %>
 <%= form.input :avatar, label: '頭貼' %>
-<%= form.input :name %>
-<%= form.input :address %>
-<%= form.input :slogan %>
-<%= form.input :price %>
+<%= form.input :name, label: '使用者名稱' %>
+<%= form.input :address, label: '地址' %>
+<%= form.input :slogan, label: '想說的話' %>
+<%= form.input :price, label: '每晚價位' %>
 <hr>
-<%= form.input :square_meters %>
-<%= form.input :pet_limit %>
+<%= form.input :square_meters, label: '空間總坪數' %>
+<%= form.input :pet_limit, label: '允許寵物隻數' %>
 
-<%= form.input :pic, label:'照片' %>
-<%= form.button :submit, class: 'btn-primary' %>
+<%= form.input :pic, label: '照片' %>
+
+<%= form.button :submit, '送出', class: 'btn-primary' %>
 <% end %>

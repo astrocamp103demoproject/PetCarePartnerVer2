@@ -11,6 +11,8 @@
 file = File.open("address_six_country.txt")
 array = JSON.parse(file.read)
 array.each do |address_six_country| 
+# township_array =  ["臺北市中正區","臺北市大同區","臺北市中山區","臺北市松山區","臺北市大安區","臺北市萬華區","臺北市信義區","臺北市士林區","臺北市北投區","臺北市內湖區"]
+# 20.times { 
     #sitter
     email = Faker::Internet.email
     name = Faker::Name.unique.name
@@ -24,6 +26,9 @@ array.each do |address_six_country|
 
     Sitter.create(avatar: avatar, name: name ,email: email, password: '123456', slogan:slogan, address:address_six_country, price:price, pet_limit: '3', pic: pic)
     User.create(avatar: avatar, name: name ,email: email, password: '123456', address:township_array[number])
+
+    # Sitter.create(avatar: avatar, name: name ,email: email, password: '123456', slogan:slogan, address:township_array[number], price:price, pet_limit: '3', pic: pic,square_meters: number)
+    # User.create(avatar: avatar, name: name ,email: email, password: '123456', address:township_array[number])
 
 
     

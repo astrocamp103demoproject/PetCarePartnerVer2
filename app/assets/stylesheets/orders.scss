@@ -7,6 +7,9 @@
   text-align: center;
   li {
     display: inline-block;
+    a {
+      text-decoration: none;
+    }
   }
 }
 .check-empty {
@@ -19,15 +22,19 @@
   border: 1px solid #eee;
   width: 100%;
   max-width: 800px;
+  a {
+    text-decoration: none;
+  }
   img {
-    width: 80%;
+    max-width: 250px;
   }
   .order-content {
     margin-left: 40px;
   }
 }
-.pagination {
-  width: 100%;
+//kaminari
+nav .pagination {
+  // width: 100%;
   text-align: center;
   position: relative;
 }
@@ -36,9 +43,13 @@
 .order-detail {
   max-width: 800px;
   margin: auto;
+  .order-section-top {
+    text-align: center;
+  }
   .sitter-avatar,
   .sitter-info {
     display: inline-block;
+    text-align: left;
   }
   img {
     width: 80%;

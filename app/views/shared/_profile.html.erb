@@ -1,39 +1,57 @@
-<div class="avatar">
-  <img src="<%= profile.avatar %>" alt="" class="avatar-img">
-</div>
-<div class="info">
-  <%= content_tag(:h3, profile.name) %>
-  <%= link_to 'Edit', edit_user_path(current_user), class: 'btn btn-edit btn-primary' if profile == @user %>
-  <%= link_to 'Edit', edit_sitter_path(@sitter), class: 'btn btn-edit btn-primary' if profile == @sitter %>
-  <%= content_tag(:p, profile.address) if profile == @sitter %>
-  <%= content_tag(:p, profile.email) %>
-  <%= content_tag(:p, profile.slogan) if profile == @sitter %>
-  <%= content_tag(:p, "$ #{profile.price} /每晚") if profile == @sitter %>
-  <%= link_to 'Booking', new_user_order_path(current_user), class: 'btn btn-booking btn-success' if profile == @sitter %>
+<div class="section-top">
+  <div class="avatar">
+    <img src="<%= profile.avatar %>" alt="" class="avatar-img">
+  </div>
+  <div class="info">
+    <%= content_tag(:h3, profile.name) %>
+    <%= link_to '編輯', edit_user_path(current_user), class: 'btn btn-edit btn-info' if profile == @user %>
+    <%= link_to '編輯', edit_sitter_path(@sitter), class: 'btn btn-edit btn-info' if profile == @sitter && current_user.name == profile.name %>
+    <%= content_tag(:p, profile.address) if profile == @sitter %>
+    <%= content_tag(:p, profile.email) %>
+    <%= content_tag(:p, profile.slogan) if profile == @sitter %>
+    <%= content_tag(:p, "$ #{profile.price} /每晚", class:'per-price') if profile == @sitter %>
+    <%= link_to '預訂付款', new_user_order_path(current_user), class: 'btn btn-booking btn-success' if profile == @sitter && current_user.name != profile.name %>
+  </div>
 </div>
 <hr>
 <div class="pic">
   <h3>圖片集</h3>
-    <img src="<%= profile.pic %>" alt="">
+  <div class="pic-wrap">
+    <% profile.pictures.each do |picture|%>
+      <div class="pic">
+          <img src="<%= picture.pic %>" alt="">
+      </div>
+    <%end%>
+  </div>
+    <%= link_to '＋', sitter_picture_path(profile), class: 'add-symbol' %>
+    
 </div>
 <hr>
 <% if profile == @sitter %>
-<div class="square">
-  <%= content_tag(:p, "空間坪數： #{profile.square_meters} 平方公尺") %>
-  <%= content_tag(:p, "最大收容數： #{profile.pet_limit} 隻") %>
-  <%= month_calendar events: @booking_dates do |date, booking_dates| %>
-    <%= date.day %>
-    <% booking_dates.each do |booking_date| %>
-    <div>
-    <%= booking_date.available %>
+  <div class="square">
+    <div class="limit">
+      <%= content_tag(:p, "空間坪數： #{profile.square_meters} 平方公尺") %>
+      <%= content_tag(:p, "最大收容數： #{profile.pet_limit} 隻") %>
     </div>
+    <%= link_to '設定日期', new_sitter_booking_date_path(profile), class: 'btn btn-info' if current_user.name == profile.name %>
+    <%= month_calendar events: @booking_dates do |date, booking_dates| %>
+      <%= date.day %>
+      <% booking_dates.each do |booking_date| %>
+      <div>
+        <% if booking_date.available == 'booked' %>
+          <p class="booked">已預訂</p>
+        <% elsif booking_date.available == 'closure' %>
+          <p class="closure">不開放</p>
+          <%= link_to '開放預訂', sitter_booking_date_path(profile, booking_date), method: 'delete', class: 'open-date' if current_user.name == profile.name %>
+        <% end %>
+      </div>
+      <% end %>
     <% end %>
-  <% end %>
-</div>
-<div class="comment">
-  <%= content_tag(:h3, '留言板') %>
-  <%= render 'shared/comment' %>
-</div>
+  </div>
+  <div class="comment">
+    <%= content_tag(:h3, '留言板') %>
+    <%= render 'shared/comment' %>
+  </div>
 <% end %>
 <% if profile == @user %>
   <%= render 'shared/petcard' %>

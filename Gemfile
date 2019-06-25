@@ -52,6 +52,7 @@ gem 'bootstrap-sass', '~> 3.4.1'
 gem 'taiwan_city', '~> 0.0.4'
 gem 'bootstrap-datepicker-rails', '~> 1.8', '>= 1.8.0.1'
 gem 'simple_calendar', '~> 2.3'
+gem 'fog-aws', '~> 3.5', '>= 3.5.1'
 #google map
 gem 'gmaps4rails', '~> 2.1', '>= 2.1.2'
 gem 'geocoder', '~> 1.5', '>= 1.5.1'
