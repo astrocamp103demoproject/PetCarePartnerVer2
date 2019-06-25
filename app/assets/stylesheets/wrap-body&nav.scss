@@ -246,6 +246,6 @@ nav.navbar {
 
 @media screen and (max-width: 767px) {
   .navbar-nav {
-    // float: left !important;
+    display: inline-block !important;
   }
 }
