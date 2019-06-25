@@ -21,7 +21,7 @@ township_array =  ["臺北市中正區","臺北市大同區","臺北市中山區
 
 
     Sitter.create(avatar: avatar, name: name ,email: email, password: '123456', slogan:slogan, address:township_array[number], price:price, pet_limit: '3', pic: pic,square_meters: number)
-    # User.create(avatar: avatar, name: name ,email: email, password: '123456', address:township_array[number])
+    User.create(avatar: avatar, name: name ,email: email, password: '123456', address:township_array[number])
 
 
     
