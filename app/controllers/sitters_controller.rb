@@ -59,7 +59,7 @@ class SittersController < ApplicationController
  
   private
   def sitter_params
-    params.require(:sitter).permit( :address, :slogan, :price, :square_meters, :pet_limit, :date, :available, :pic)
+    params.require(:sitter).permit( :address, :slogan, :price, :square_meters, :pet_limit, :date, :available, :pic, :avatar)
   end
   
   def booking_date_params

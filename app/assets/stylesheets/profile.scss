@@ -3,41 +3,42 @@
   .section-top {
     margin: auto;
     text-align: center;
-  }
-  .btn-edit {
-    margin-left: 100px;
-    display: inline-block;
-    vertical-align: middle;
-    // position: absolute;
-    // top: 40px;
-    // right: 35%;
-  }
-  // .btn-booking {
-  //   position: absolute;
-  //   top: 200px;
-  //   right: 35%;
-  // }
 
-  .avatar {
-    margin: 20px 40px;
-    .avatar-img {
-      border-radius: 50%;
-      max-width: 200px;
-      vertical-align: middle;
-    }
-  }
-  .info {
-    margin: 0 60px;
-    width: 600px;
-    text-align: left;
-    h3 {
-      margin: 20px 0;
+    .btn-edit {
+      margin-left: 100px;
       display: inline-block;
       vertical-align: middle;
+      // position: absolute;
+      // top: 40px;
+      // right: 35%;
     }
-    .per-price {
-      font-size: 20px;
-      color: #467302;
+    // .btn-booking {
+    //   position: absolute;
+    //   top: 200px;
+    //   right: 35%;
+    // }
+
+    .avatar {
+      margin: 20px 40px;
+      .avatar-img {
+        border-radius: 50%;
+        max-width: 200px;
+        vertical-align: middle;
+      }
+    }
+    .info {
+      margin: 0 60px;
+      width: 600px;
+      text-align: left;
+      h3 {
+        margin: 20px 0;
+        display: inline-block;
+        vertical-align: middle;
+      }
+      .per-price {
+        font-size: 20px;
+        color: #467302;
+      }
     }
   }
   .square {

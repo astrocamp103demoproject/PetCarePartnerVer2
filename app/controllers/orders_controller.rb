@@ -65,8 +65,12 @@ class OrdersController < ApplicationController
   end
 
   def show
-    
-    @order = current_user.orders.find_by(id: params[:id])
+    @current_sitter = Sitter.find_by("name == '#{current_user.name}'")
+    if current_user.role == 'sitter'
+      @order = @current_sitter.orders.find_by(id: params[:id])
+    else
+      @order = current_user.orders.find_by(id: params[:id])
+    end
   end
   
   def pending
