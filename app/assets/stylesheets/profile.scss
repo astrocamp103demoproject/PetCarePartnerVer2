@@ -56,6 +56,50 @@
       margin: 20px 0;
     }
   }
+  //照片集
+  .pictures-content{
+    width: 900px;
+    height: 500px;
+    h3{
+      display: inline-block;
+    }
+    a{
+      display: inline-block;
+      font-size: 30px;
+    }
+    .pic-wrap{
+      display: flex;
+      flex-wrap: wrap;
+      overflow: hidden;
+      .first-pic{
+        width: 500px;
+        height: 500px;
+        img{
+          border-radius: 14px;
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .pic-content{
+        width: 400px;
+        display: flex;
+        flex-wrap: wrap;
+        
+        .pic{
+          overflow: hidden;
+          width: 200px;
+          height: 250px;
+          img{
+            border-radius: 14px;
+            height: 100%;
+            width: 100%;
+          }
+        }
+      }
+    }
+
+  }
+  //照片集結束
 }
 .avatar,
 .info,

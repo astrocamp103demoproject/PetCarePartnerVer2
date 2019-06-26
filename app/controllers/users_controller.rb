@@ -3,6 +3,8 @@ class UsersController < ApplicationController
   def show
     @user = current_user
     @pets = current_user.pets.all
+    @pictures = Picture.where("sitter_id = ? OR user_id = ?",current_user.id,current_user.id).limit(5)#只會拿到四張
+    # byebug
   end
 
   def update

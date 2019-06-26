@@ -5,7 +5,7 @@ class SittersController < ApplicationController
   def show
     @sitter = Sitter.find_by(id: params[:id])
     session[:current_sitter] = @sitter
-    
+    @pictures = Picture.where("sitter_id = ?",@sitter).limit(5)#只會拿到四張
     @booking_dates = @sitter.booking_dates.all
     
     # @current_sitter = Sitter.find_by("name == '#{current_user.name}'")
