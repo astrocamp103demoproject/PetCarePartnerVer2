@@ -7,11 +7,10 @@ class OrdersController < ApplicationController
     @current_sitter = Sitter.find_by("name == '#{current_user.name}'")
     if @current_sitter.nil?
       @orders = Order.where("user_id = ?",current_user.id).page(params[:page]).per(5)
-    else 
+    else
       @orders = Order.where("user_id = ? OR sitter_id = ?",current_user.id,@current_sitter.id).page(params[:page]).per(5)
     end
-    
-    
+
   end
 
   def new
@@ -68,28 +67,38 @@ class OrdersController < ApplicationController
 
   def show
     @current_sitter = Sitter.find_by("name == '#{current_user.name}'")
-    @orders = Order.where("user_id = ? OR sitter_id = ?",current_user.id,@current_sitter.id).page(params[:page]).per(5)
-
+    if @current_sitter.nil?
+      @orders = Order.where("user_id = ?",current_user.id).page(params[:page]).per(5)
+    else
+      @orders = Order.where("user_id = ? OR sitter_id = ?",current_user.id,@current_sitter.id).page(params[:page]).per(5)
+    end
   end
   
   def pending
-    # Time.now.strftime('%Y-%m-%d').to_s
     @current_sitter = Sitter.find_by("name == '#{current_user.name}'")
-    @orders = Order.where("user_id = ? OR sitter_id = ?",current_user.id,@current_sitter.id).where("pick_up > '#{Time.now.strftime('%Y-%m-%d').to_s}'").page(params[:page]).per(5)
+    if @current_sitter.nil?
+      @orders = Order.where("user_id = ?",current_user.id).where("pick_up > '#{Time.now.strftime('%Y-%m-%d').to_s}'").page(params[:page]).per(5)
+    else
+      @orders = Order.where("user_id = ? OR sitter_id = ?",current_user.id,@current_sitter.id).where("pick_up > '#{Time.now.strftime('%Y-%m-%d').to_s}'").page(params[:page]).per(5)
+    end
   end
   
   def finish
     @current_sitter = Sitter.find_by("name == '#{current_user.name}'")
-    
-    @orders = Order.where("user_id = ? OR sitter_id = ?",current_user.id,@current_sitter.id).where("pick_up < '#{Time.now.strftime('%Y-%m-%d').to_s}'").where(state: 'paid').page(params[:page]).per(5)
-    
+    if @current_sitter.nil?
+      @orders = Order.where("user_id = ?",current_user.id).where("pick_up < '#{Time.now.strftime('%Y-%m-%d').to_s}'").where(state: 'paid').page(params[:page]).per(5)
+    else
+      @orders = Order.where("user_id = ? OR sitter_id = ?",current_user.id,@current_sitter.id).where("pick_up < '#{Time.now.strftime('%Y-%m-%d').to_s}'").where(state: 'paid').page(params[:page]).per(5)
+    end
   end
   
   def cancel
     @current_sitter = Sitter.find_by("name == '#{current_user.name}'")
-    
-    @orders = Order.where("user_id = ? OR sitter_id = ?",current_user.id,@current_sitter.id).where(state: 'cancel').page(params[:page]).per(5) 
-    
+    if @current_sitter.nil?
+      @orders = Order.where("user_id = ?",current_user.id).where(state: 'cancel').page(params[:page]).per(5)
+    else
+      @orders = Order.where("user_id = ? OR sitter_id = ?",current_user.id,@current_sitter.id).where(state: 'cancel').page(params[:page]).per(5) 
+    end
   end
 
   private
