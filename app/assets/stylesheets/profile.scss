@@ -1,5 +1,8 @@
 .profile {
   // position: relative;
+  p {
+    font-size: 18px;
+  }
   .section-top {
     margin: auto;
     text-align: center;
@@ -70,4 +73,23 @@
 .square,
 .comment {
   vertical-align: top;
+}
+
+@media screen and (max-width: 767px) {
+  .section-top .info {
+    margin: auto !important;
+  }
+  .square,
+  .comment {
+    display: block;
+    text-align: center;
+  }
+  .square {
+    .limit {
+      text-align: left;
+    }
+    .simple-calendar {
+      margin: auto;
+    }
+  }
 }

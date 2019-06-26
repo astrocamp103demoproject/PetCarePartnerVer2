@@ -5,6 +5,7 @@
 //_petcard
 .my-pet,
 .add-pet {
+  // font-size: 12px;
   width: 300px;
   height: 200px;
   border: 1px solid #ddd;
@@ -14,10 +15,15 @@
   vertical-align: middle;
 }
 .my-pet {
+  // margin: auto;
+  text-align: left;
   .pet-info {
-    margin-left: 20px;
+    // margin-left: 20px;
     display: inline-block;
     vertical-align: top;
+    p {
+      font-size: 14px;
+    }
     .delete-pet {
       color: #f77;
     }
@@ -30,6 +36,7 @@
   }
   .pet-pic {
     max-width: 100px;
+    margin: 0 20px;
   }
 }
 .add-pet {
@@ -47,4 +54,7 @@
 //pet.show
 .pet-show-pic {
   max-width: 400px;
+}
+
+@media screen and (max-width: 767px) {
 }

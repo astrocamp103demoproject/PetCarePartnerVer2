@@ -1,13 +1,10 @@
 .search-index {
-  margin: auto;
-  margin-top: 60px;
+  margin: 150px auto;
   max-width: 800px;
-  height: 600px;
   display: flex;
   justify-content: center;
   align-items: center;
   .jumbotron {
-    // background-color: #0ae;
     background: rgba(247, 245, 245, 0);
     box-sizing: border-box;
     padding-top: 0;
@@ -22,51 +19,58 @@
   form {
     background: rgba(247, 245, 245, 0.4);
     padding: 30px;
+    margin-bottom: 60px;
     border-radius: 10px;
     width: 80%;
     box-sizing: border-box;
     color: #000;
-    text-align: center;
+    text-align: left;
     label {
       color: #fff;
     }
     .pet-type {
-      // margin: 0 10px;
-      input {
-        margin: 0 0 0 10px;
+      margin: 10px 20px;
+      label {
+        margin: 0 10px 0 0;
       }
     }
-    div {
-      margin: 5%;
-    }
-    .city-select {
-      color: #777;
-      height: 30px;
+    .city-group {
       margin: 0 10px;
-      border: none;
+      .city-select {
+        color: #777;
+        height: 30px;
+        margin: 10px;
+        border: none;
+      }
     }
-    .datepick {
-      width: 80px;
-      height: 30px;
+    .select-date {
       margin: 0 10px;
-      text-align: center;
-      border: none;
+      .datepick {
+        width: 80px;
+        height: 30px;
+        margin: 10px;
+        text-align: center;
+        border: none;
+      }
     }
     .pet-count {
       margin: 10px 20px;
-      display: flex;
-      flex-flow: column wrap;
+      text-align: left;
       label {
         margin-top: 10px;
+        width: 120px;
       }
       select {
         width: 60px;
-        margin: auto;
+        // margin: auto;
         border: none;
+        align-self: center;
       }
     }
     .btn {
       margin-top: 20px;
+      display: inline-block;
+      margin-left: 20px;
     }
   }
 }
@@ -74,10 +78,25 @@
 @media screen and (max-width: 767px) {
   .search-index {
     flex-direction: column;
-    width: 80%;
+    justify-content: flex-start;
+    width: 100%;
     margin-top: 0;
     .jumbotron {
-      padding-top: 150px;
+      margin-top: 40px;
+    }
+    form {
+      text-align: center;
+      padding: 20px;
+      width: 80%;
+      .pet-count div {
+        text-align: center;
+        label {
+          text-align: left;
+        }
+      }
+      .btn {
+        margin: auto;
+      }
     }
   }
 }
