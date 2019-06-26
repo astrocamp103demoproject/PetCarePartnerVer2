@@ -21,6 +21,7 @@
   form {
     background: rgba(247, 245, 245, 0.4);
     padding: 30px;
+    margin-bottom: 60px;
     border-radius: 10px;
     width: 80%;
     box-sizing: border-box;
@@ -88,12 +89,15 @@
     form {
       text-align: center;
       padding: 20px;
-      width: 60%;
+      width: 80%;
       .pet-count div {
         text-align: center;
         label {
           text-align: left;
         }
+      }
+      .btn {
+        margin: auto;
       }
     }
   }

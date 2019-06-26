@@ -5,34 +5,59 @@
         <li class="navbar-left">
             <%= link_to image_tag("animals.png"), root_path, class: 'nav-logo' %>
             <%= link_to 'PetCollage', root_path, class: 'nav-st' %>
-          <% if user_signed_in? && current_user.role == 'user' %>
-            <%= link_to '成為保母', sitters_path %>
-          <% elsif user_signed_in? && current_user.role == 'sitter' %>
-            <a href=""></a>
-          <% else %>
-            <%= link_to '成為保母', user_session_path %>
-          <% end %>
+            <div class="xs-hide">
+                <% if user_signed_in? && current_user.role == 'user' %>
+                <%= link_to '成為保母', sitters_path %>
+                <% elsif user_signed_in? && current_user.role == 'sitter' %>
+                <a href=""></a>
+                <% else %>
+                <%= link_to '成為保母', user_session_path %>
+                <% end %>
+            </div>
         </li>
-        <li class="navnbar-right nav-item dropdown navbar-nav">
-          <% if user_signed_in? %>
+            
+        <li class="navnbar-right nav-item dropdown navbar-nav xs-hide">
+            <% if user_signed_in? %>
             <% current_user.role %>
             <% @current_sitter = Sitter.find_by("name == '#{current_user.name}'") %>
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%= "Hi, #{current_user.name}" %><img src="<%= current_user.avatar %>" alt="" class="avatar-img">
+                <%= "Hi, #{current_user.name}" %><img src="<%= current_user.avatar %>" alt="" class="avatar-img">
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <% if current_user.role == "sitter" %>
-              <%= link_to '個人資料', sitter_path(@current_sitter.id), class: 'dropdown-item' %>
+                <%= link_to '個人資料', sitter_path(@current_sitter.id), class: 'dropdown-item' %>
             <% else %>  
-              <%= link_to '個人資料', user_path(current_user), class: 'dropdown-item' %>
+                <%= link_to '個人資料', user_path(current_user), class: 'dropdown-item' %>
             <% end %>
-              <%= link_to '我的訂單', user_orders_path(current_user), class: 'dropdown-item' %>
-              <%= link_to "登出", destroy_user_session_path, method: "delete", class: 'dropdown-item' %>
+                <%= link_to '我的訂單', user_orders_path(current_user), class: 'dropdown-item' %>
+                <%= link_to "登出", destroy_user_session_path, method: "delete", class: 'dropdown-item' %>
             </div>
-          <% else %>
+            <% else %>
             <%= link_to '登入', new_user_session_path %>
             <%= link_to '註冊', new_user_registration_path %>
-          <% end %>
+            <% end %>
         </li>
+        <button class="navbar-toggler xs-show" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
     </ul>
+    <div class="collapse" id="navbarToggleExternalContent">
+    <% if user_signed_in? %>
+    <% current_user.role %>
+    <% @current_sitter = Sitter.find_by("name == '#{current_user.name}'") %>
+      <p><%= "Hi, #{current_user.name}" %></p>
+        <% if current_user.role == "sitter" %>
+            <%= link_to '個人資料', sitter_path(@current_sitter.id), class: 'dropdown-item' %>
+        <% else %>  
+            <%= link_to '成為保母', sitters_path, class: 'dropdown-item' %>
+            <%= link_to '個人資料', user_path(current_user), class: 'dropdown-item' %>
+        <% end %>
+        <%= link_to '我的訂單', user_orders_path(current_user), class: 'dropdown-item' %>
+        <%= link_to "登出", destroy_user_session_path, method: "delete", class: 'dropdown-item' %>
+    <% else %>
+        <%= link_to '登入', new_user_session_path %>
+        <%= link_to '註冊', new_user_registration_path %>
+    <% end %>
+  </div>
 </nav>
+      
