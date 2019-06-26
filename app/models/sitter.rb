@@ -13,7 +13,7 @@ class Sitter < ApplicationRecord
 
   
 
-  geocoded_by :address        #從address欄位取出地址
+  geocoded_by :address        #從add
   after_validation :geocode   #將取出的地址自動轉為經緯度分別存在 latitude、longitude 欄位
 
 end
