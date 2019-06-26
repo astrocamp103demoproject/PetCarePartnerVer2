@@ -14,27 +14,28 @@
   </div>
 </div>
 <hr>
-<div class="pictures-content">
+<div class="profile-pictures-content">
   <h3>圖片集</h3>
-  <% if profile == @sitter %>
-    <%= link_to '＋新增圖片', sitter_picture_path(profile), class: 'add-symbol' %>
-  <%else%>
-    <%= link_to '＋新增圖片', sitter_picture_path(profile), class: 'add-symbol' %>
-  <%end%>
-  <div class="pic-wrap">
-    <%if pictures.empty?%>
-    <%else%>
-      <div class="first-pic">
-        <img src="<%= pictures[0].pic %>" alt="">
+  <%= link_to '更多圖片', sitter_pictures_path(profile), class: 'add-symbol' %> 
+  <div class="profile-pic-wrap">
+    <% if firstpic.nil? %>
+    <%elsif pictures.nil?%>
+      <div class="profile-first-pic">
+          <%= link_to image_tag("#{firstpic.pic.thumb.url}"), sitter_pictures_path(profile), class: 'add-symbol' %>  
       </div>
-      <div class="pic-content">
-        <% 1.upto(4) do |i|%>
-        <div class="pic">
-            <img src="<%= pictures[i].pic %>" alt="">
-        </div>
+    <%else%>
+      <div class="profile-first-pic">
+          <%= link_to image_tag("#{firstpic.pic.thumb.url}"), sitter_pictures_path(profile), class: 'add-symbol' %>  
+      </div>
+      <div class="profile-pic-content">
+        <% pictures.each do |picture|%>
+          <div class="profile-pic">
+              <%= link_to image_tag("#{picture.pic.thumb.url}"), sitter_pictures_path(profile), class: 'add-symbol' %> 
+          </div>
         <%end%>
       </div>  
     <%end%>
+
   </div>
   
     
