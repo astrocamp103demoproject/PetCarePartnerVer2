@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   
   resources :sitters, except: [:destroy] do
     resources :booking_dates, only: [:new, :create, :destroy]
-    resources :pictures, only: [:show, :new, :create, :destroy]
+    resources :pictures, only: [ :show, :new, :create, :destroy]
   end
 
 end

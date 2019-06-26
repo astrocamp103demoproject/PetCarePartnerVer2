@@ -45,7 +45,13 @@ class SearchesController < ApplicationController
       city = TaiwanCity.get(p_city)
       township = TaiwanCity.get(p_town)
     end
+    if(city == '台中市')
+      city = '臺中市'
+    elsif(city == '台南市')
+      city = '臺南市'
+    end
     @location = city + "%" + township + "%"
+
   end
 
   def pet_count
