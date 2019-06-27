@@ -12,6 +12,7 @@
     <p>品種： <%= @pet.breed %></p>
     <p>簡介： <%= @pet.note %></p>
     <p>飼主： <%= current_user.name %></p>
-  <%= link_to '找褓姆', searches_path, class: 'btn btn-primary' %>
+    <%= link_to '找褓姆', searches_path, class: 'btn btn-primary l-hide' %>
   </div>
+  <%= link_to '找褓姆', searches_path, class: 'btn btn-primary l-show' %>
 </div>

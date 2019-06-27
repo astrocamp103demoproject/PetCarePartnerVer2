@@ -70,12 +70,27 @@
     max-width: 400px;
   }
   .pet-info {
+    width: 100%;
     text-align: left;
+    padding: 0 20px;
+    .btn.l-hide {
+      margin-top: 20px;
+    }
+  }
+  .l-show {
+    display: none;
   }
 }
 @media screen and (max-width: 992px) {
   .pet-detail {
     flex-direction: column;
     align-items: center;
+    .btn.l-show {
+      display: block;
+      margin: 20px auto 0;
+    }
+    .l-hide {
+      display: none;
+    }
   }
 }
