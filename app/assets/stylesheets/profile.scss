@@ -4,9 +4,6 @@
     font-size: 18px;
   }
   .section-top {
-    margin: auto;
-    text-align: center;
-
     .btn-edit {
       margin-left: 100px;
       display: inline-block;
@@ -18,6 +15,7 @@
 
     .avatar {
       margin: 20px 40px;
+      display: inline-block;
       .avatar-img {
         border-radius: 50%;
         max-width: 200px;
@@ -25,8 +23,9 @@
       }
     }
     .info {
-      margin: 0 60px;
+      display: inline-block;
       width: 100%;
+      max-width: 500px;
       text-align: left;
       h3 {
         margin: 20px 0;
@@ -40,6 +39,8 @@
     }
   }
   .square {
+    width: 45%;
+    box-sizing: border-box;
     background-color: #eee;
     padding: 20px;
     border-radius: 10px;
@@ -53,6 +54,11 @@
     .btn {
       margin: 20px 0;
     }
+  }
+  .comment {
+    width: 54%;
+    box-sizing: border-box;
+    padding: 20px;
   }
   //照片集
   .profile-pictures-content {
@@ -139,6 +145,7 @@
       display: none;
     }
   }
+
   .profile-pic-wrap {
     flex-flow: column wrap;
     align-items: center;
@@ -152,12 +159,16 @@
     text-align: center;
   }
   .square {
+    width: 100% !important;
     .limit {
       text-align: left;
     }
     .simple-calendar {
       margin: auto;
     }
+  }
+  .comment {
+    width: 100% !important;
   }
 }
 @media screen and (max-width: 767px) {
