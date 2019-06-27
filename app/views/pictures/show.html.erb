@@ -5,17 +5,9 @@
         </span>
     <%end%>
     <div class="show-pic">
-                  
-        <%if @picture == nil %>
-            <div class="h1">已經沒有圖片囉</div>
-        <%else%>
-            <%= link_to '<<',sitter_picture_path(@sitter,params[:id].to_i-1), class: 'btn add-symbol' %> 
-            <div>
-                <%= image_tag @picture.pic.url %>
-            </div>
-            <%= link_to '>>',sitter_picture_path(@sitter,params[:id].to_i+1), class: 'btn add-symbol' %>     
-        <%end%>
-                
+        <%= link_to '⇦',sitter_picture_path(@sitter,session['beforepic']), class: 'add-symbol' if session['beforepic'] != params[:id]%>
+        <%= image_tag @picture.pic.url %>
+        <%= link_to '⇨',sitter_picture_path(@sitter,session['afterpic']), class: 'add-symbol' if session['afterpic'] != nil%>     
     </div>
     
     
