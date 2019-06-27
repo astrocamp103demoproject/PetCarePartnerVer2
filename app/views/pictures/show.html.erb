@@ -9,9 +9,11 @@
         <%if @picture == nil %>
             <div class="h1">已經沒有圖片囉</div>
         <%else%>
-            <%= link_to '上一張',sitter_picture_path(@sitter,params[:id].to_i-1), class: 'add-symbol' %> 
-            <%= image_tag @picture.pic.url %>
-            <%= link_to '下一張',sitter_picture_path(@sitter,params[:id].to_i+1), class: 'add-symbol' %>     
+            <%= link_to '<<',sitter_picture_path(@sitter,params[:id].to_i-1), class: 'btn add-symbol' %> 
+            <div>
+                <%= image_tag @picture.pic.url %>
+            </div>
+            <%= link_to '>>',sitter_picture_path(@sitter,params[:id].to_i+1), class: 'btn add-symbol' %>     
         <%end%>
                 
     </div>

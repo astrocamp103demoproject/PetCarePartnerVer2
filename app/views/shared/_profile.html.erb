@@ -3,9 +3,11 @@
     <img src="<%= profile.avatar %>" alt="" class="avatar-img">
   </div>
   <div class="info">
+    <%= link_to '編輯', edit_user_path(current_user), class: 'btn btn-edit btn-info l-show' if profile == @user %>
+    <%= link_to '編輯', edit_sitter_path(@sitter), class: 'btn btn-edit btn-info l-show' if profile == @sitter && current_user.name == profile.name %>
     <%= content_tag(:h3, profile.name) %>
-    <%= link_to '編輯', edit_user_path(current_user), class: 'btn btn-edit btn-info' if profile == @user %>
-    <%= link_to '編輯', edit_sitter_path(@sitter), class: 'btn btn-edit btn-info' if profile == @sitter && current_user.name == profile.name %>
+    <%= link_to '編輯', edit_user_path(current_user), class: 'btn btn-edit btn-info l-hide' if profile == @user %>
+    <%= link_to '編輯', edit_sitter_path(@sitter), class: 'btn btn-edit btn-info l-hide' if profile == @sitter && current_user.name == profile.name %>
     <%= content_tag(:p, profile.address) if profile == @sitter %>
     <%= content_tag(:p, profile.email) %>
     <%= content_tag(:p, profile.slogan) if profile == @sitter %>

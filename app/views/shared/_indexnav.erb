@@ -7,11 +7,11 @@
             <%= link_to 'PetCollage', root_path, class: 'nav-st' %>
             <div class="xs-hide">
                 <% if user_signed_in? && current_user.role == 'user' %>
-                <%= link_to '成為保母', sitters_path %>
+                <%= link_to '成為褓姆', sitters_path %>
                 <% elsif user_signed_in? && current_user.role == 'sitter' %>
                 <a href=""></a>
                 <% else %>
-                <%= link_to '成為保母', user_session_path %>
+                <%= link_to '成為褓姆', user_session_path %>
                 <% end %>
             </div>
         </li>
@@ -38,7 +38,6 @@
             <% end %>
         </li>
         <button class="navbar-toggler xs-show" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
         </button>
     </ul>
     <div class="collapse" id="navbarToggleExternalContent">
@@ -49,7 +48,7 @@
         <% if current_user.role == "sitter" %>
             <%= link_to '個人資料', sitter_path(@current_sitter.id), class: 'dropdown-item' %>
         <% else %>  
-            <%= link_to '成為保母', sitters_path, class: 'dropdown-item' %>
+            <%= link_to '成為褓姆', sitters_path, class: 'dropdown-item' %>
             <%= link_to '個人資料', user_path(current_user), class: 'dropdown-item' %>
         <% end %>
         <%= link_to '我的訂單', user_orders_path(current_user), class: 'dropdown-item' %>
