@@ -7,6 +7,8 @@ class PicturesController < ApplicationController
   end
   def show
     @sitter = Sitter.find_by(id: params[:sitter_id])
+    next_pic
+    
     @picture = Picture.find(params[:id])#找單張圖片
     
     # byebug
@@ -31,5 +33,14 @@ class PicturesController < ApplicationController
   def picture_params
     params.require(:picture).permit(:sitter_id, :pic, :user_id)
     # params.require(:sitter).permit( :address, :slogan, :price, :square_meters, :pet_limit, :pic)
+  end
+  def next_pic
+    arr = Picture.where("sitter_id = ?",params[:sitter_id])
+    newarr = []
+    arr.map {|element| newarr << element.id } # 把hash.id丟出來存陣列
+    
+    session['beforepic'] = newarr[newarr.index(params[:id].to_i)-1]
+    session['afterpic'] = newarr[newarr.index(params[:id].to_i)+1]
+    # byebug
   end
 end

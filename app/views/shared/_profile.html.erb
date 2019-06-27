@@ -21,16 +21,18 @@
     <% if firstpic.nil? %>
     <%elsif pictures.nil?%>
       <div class="profile-first-pic">
-          <%= link_to image_tag("#{firstpic.pic.thumb.url}"), sitter_pictures_path(profile), class: 'add-symbol' %>  
-      </div>
+          <%= link_to image_tag("#{firstpic.pic.thumb.url}"),sitter_picture_path(profile,firstpic.id
+              ), class: 'add-symbol' %> 
+      </div> 
     <%else%>
       <div class="profile-first-pic">
-          <%= link_to image_tag("#{firstpic.pic.thumb.url}"), sitter_pictures_path(profile), class: 'add-symbol' %>  
+          <%= link_to image_tag("#{firstpic.pic.thumb.url}"),sitter_picture_path(profile,firstpic.id
+              ), class: 'add-symbol' %> 
       </div>
       <div class="profile-pic-content">
         <% pictures.each do |picture|%>
           <div class="profile-pic">
-              <%= link_to image_tag("#{picture.pic.thumb.url}"), sitter_pictures_path(profile), class: 'add-symbol' %> 
+              <%= link_to image_tag("#{picture.pic.thumb.url}"), sitter_picture_path(profile,picture.id), class: 'add-symbol' %> 
           </div>
         <%end%>
       </div>  
