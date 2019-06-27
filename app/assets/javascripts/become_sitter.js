@@ -1,4 +1,5 @@
 $(document).on('turbolinks:load', function() {
+  
   $('#agree-btn').click(function() {
     var check = $("input[type='checkbox']:checked").length //判斷有多少個方框被勾選
     if (check == 0) {
@@ -9,15 +10,4 @@ $(document).on('turbolinks:load', function() {
     }
   })
 
-  // $('#search-sitters').click( function(e){
-  //     e.preventDefault();
-  //     var url =  $(this).attr("href");
-
-  //     $.ajax(url, {
-  //       success: function(response) {
-  //         console.log("url in ajax"+response);
-  //         $("#sitters-content").html(response);
-  //       }
-  //     });
-  // });
 })

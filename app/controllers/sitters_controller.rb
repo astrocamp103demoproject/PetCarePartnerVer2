@@ -63,6 +63,7 @@ class SittersController < ApplicationController
  
   private
   def sitter_params
+    # byebug
     params.require(:sitter).permit( :address, :slogan, :price, :square_meters, :pet_limit, :date, :available, :pic, :avatar)
   end
   
