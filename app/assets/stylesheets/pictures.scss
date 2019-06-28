@@ -1,49 +1,59 @@
-
-
-.index-pictures-wrap{
-    width: 100%;
-    .index-pic-wrap{
-        display: flex;
-        flex-wrap: wrap;
-        .index-pic{
-            width: 200px;
-            height: 200px;
-            margin: 5px;
-            a{
-                img{
-                    width: 100%;
-                    height: 100%;
-                }
-            }
+//圖片列表
+.index-pictures-wrap {
+  width: 100%;
+  .index-pic-wrap {
+    // display: flex;
+    // flex-wrap: wrap;
+    // justify-content: center;
+    margin: auto;
+    .index-pic {
+      display: inline-block;
+      width: 200px;
+      height: 200px;
+      margin: 5px;
+      a {
+        img {
+          width: 100%;
+          height: 100%;
         }
+      }
     }
+  }
 }
 
-
-
-.show-pic-wrap{
-    a{
-        font-size: 30px;
+//個別圖片瀏覽
+.show-pic-wrap {
+  text-align: center;
+  span {
+    a {
+      display: inline-block;
+      font-size: 20px;
+      margin: 20px 0;
     }
-    .show-pic{
-        display: flex;
-        justify-content: center;
-        margin: auto;
-        width: 800px;
-        height: 800px;
-        a{
-            font-size: 50px;//箭頭
-            vertical-align: middle;
-        }
-        a:before{
-            content: '';
-            display: inline-block;
-            height: 100%;
-            vertical-align: middle;
-        }
-        img{
-           width: 100%;
-           height: 100%;
-        }
+  }
+  .show-pic {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    a {
+      font-size: 40px;
+      color: #72a603; //箭頭
+      transition: 0.3s;
     }
+    a:hover {
+      color: #4e5927;
+      transition: 0.3s;
+    }
+    // a:before {
+    //   content: '';
+    //   display: inline-block;
+    //   height: 100%;
+    //   // vertical-align: middle;
+    // }
+    img {
+      width: 80%;
+      max-width: 400px;
+      // height: 100%;
+    }
+  }
 }

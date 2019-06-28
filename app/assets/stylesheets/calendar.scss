@@ -1,5 +1,5 @@
 .simple-calendar {
-  width: 450px;
+  width: 100%;
   background-color: #fff;
   .calendar-heading {
     background-color: #eee;
@@ -11,6 +11,7 @@
   .closure {
     text-align: center;
     margin: 0;
+    font-size: 14px;
   }
   .open-date {
     text-decoration: none;
@@ -18,5 +19,16 @@
     text-align: center;
     margin-top: 5px;
     font-size: 8px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .simple-calendar {
+    .booked,
+    .closure {
+      font-size: 12px;
+    }
+    .open-date {
+      font-size: 6px;
+    }
   }
 }

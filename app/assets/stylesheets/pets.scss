@@ -14,47 +14,83 @@
   padding: 10px;
   vertical-align: middle;
 }
-.my-pet {
-  // margin: auto;
-  text-align: left;
-  .pet-info {
-    // margin-left: 20px;
-    display: inline-block;
-    vertical-align: top;
-    p {
-      font-size: 14px;
+.pet-list {
+  display: flex;
+  align-items: center;
+  .my-pet {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: left;
+    .pet-info {
+      display: inline-block;
+      vertical-align: top;
+      p {
+        font-size: 14px;
+      }
+      .delete-pet {
+        color: #f77;
+      }
+      .delete-pet:hover {
+        color: #a33;
+      }
+      a {
+        text-decoration: none;
+      }
     }
-    .delete-pet {
-      color: #f77;
+    .pet-pic {
+      max-width: 150px;
+      // margin: 0 10px;
     }
-    .delete-pet:hover {
-      color: #a33;
-    }
-    a {
+  }
+  .add-pet {
+    text-align: center;
+    .add-symbol {
+      font-size: 87px;
+      display: inline-block;
       text-decoration: none;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
     }
   }
-  .pet-pic {
-    max-width: 100px;
-    margin: 0 20px;
+}
+@media screen and (max-width: 992px) {
+  .pet-list {
+    flex-direction: column;
   }
 }
-.add-pet {
-  text-align: center;
-  .add-symbol {
-    font-size: 87px;
-    display: inline-block;
-    text-decoration: none;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-}
-
 //pet.show
-.pet-show-pic {
-  max-width: 400px;
-}
+.pet-detail {
+  display: flex;
+  justify-content: space-evenly;
 
-@media screen and (max-width: 767px) {
+  .pet-show-pic {
+    width: 100%;
+    max-width: 400px;
+  }
+  .pet-info {
+    width: 100%;
+    text-align: left;
+    padding: 0 20px;
+    .btn.l-hide {
+      margin-top: 20px;
+    }
+  }
+  .l-show {
+    display: none;
+  }
+}
+@media screen and (max-width: 992px) {
+  .pet-detail {
+    flex-direction: column;
+    align-items: center;
+    .btn.l-show {
+      display: block;
+      margin: 20px auto 0;
+    }
+    .l-hide {
+      display: none;
+    }
+  }
 }
