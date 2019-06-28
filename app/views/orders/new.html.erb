@@ -4,7 +4,7 @@
         <div class="check-item item-sitter-profile">
         <h3>訂單資訊</h3>
             <%= f.input :sitter_id, as: :hidden, input_html: { value: @sitter['id']} %>
-            <%= content_tag(:p, "保母： #{@sitter['name']}") %>
+            <%= content_tag(:p, "褓姆： #{@sitter['name']}") %>
             <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id} %>
             <%= content_tag(:p, "飼主： #{current_user.name}") %>
             <%= f.input :drop_off, as: :hidden, input_html: { value: @drop} %>

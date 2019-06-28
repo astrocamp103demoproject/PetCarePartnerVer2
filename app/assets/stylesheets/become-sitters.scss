@@ -1,33 +1,39 @@
-.sitter-treaty{
-    width: 50%;
-    margin: auto;
-    article{
-        input,p{ display: inline-block; }
-        section{
-            margin: 20px 0;
-            height: 500px;
-            overflow: scroll;
-        }
-        #agree-btn{
-            display: block;
-            width: 100%;
-            text-align: center;
-        }
-        
+.sitter-treaty {
+  width: 80%;
+  margin: auto;
+  article {
+    input,
+    p {
+      display: inline-block;
     }
+    section {
+      margin: 20px 0;
+      height: 500px;
+      overflow: scroll;
+    }
+    #agree-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+  }
 }
-.become-sitter-wrap{
-    .new-sitter{
-        display: flex;
-        align-content: center;
-        form{
-            padding: 20px;
-            width: 50%;
-            margin: auto;
-            background-color: #d1d8e0;
-        }
-        .invalid-feedback{
-            color: red;
-        }
+.become-sitter-wrap {
+  .new-sitter {
+    display: flex;
+    align-content: center;
+    form {
+      padding: 20px;
+      width: 80%;
+      margin: auto;
+      background-color: #d1d8e0;
+      border-radius: 5px;
+      p {
+        font-size: 18px;
+      }
     }
+    .invalid-feedback {
+      color: #f88;
+    }
+  }
 }

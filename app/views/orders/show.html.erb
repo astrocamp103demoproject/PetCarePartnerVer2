@@ -5,10 +5,10 @@
       <img src="<%= @order.sitter.avatar %>" alt="">
     </div>
     <div class="sitter-info">
-      <h3>保母： <%= @order.sitter.name %></h3>
+      <h3>褓姆： <%= @order.sitter.name %></h3>
       <p>地址： <%= @order.sitter.address %></p>
       <p>email: <%= @order.sitter.email %></p>
-      <%= link_to '查看保母', sitter_path(@order.sitter), class: 'btn btn-info' %>
+      <%= link_to '查看褓姆', sitter_path(@order.sitter), class: 'btn btn-info' %>
     </div>
   </div>
   <hr>

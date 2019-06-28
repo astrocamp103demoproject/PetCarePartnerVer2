@@ -50,11 +50,15 @@ class SittersController < ApplicationController
     @sitter.email = current_user.email
     @sitter.name = current_user.name
     @sitter.avatar = current_user.avatar
+<<<<<<< HEAD
     @sitter.address = address_connect
     # byebug
+=======
+
+>>>>>>> master
     if @sitter.save
       User.update(role:'sitter')
-      @current_sitter = Sitter.find_by("name == '#{current_user.name}'")
+      get_current_sitter
       redirect_to sitter_path(@current_sitter.id), notice:'恭喜你成為保母'
     else
       render :new

@@ -14,11 +14,11 @@
                 <div class="item-price">
                     <p class='per-price'><%=sitter.price%>$</p>
                     <p>per night</p>
-                    <%= link_to '查看保母',sitter_path(sitter), class: 'btn btn-info' %>
+                    <%= link_to '查看褓姆',sitter_path(sitter), class: 'btn btn-info' %>
                 </div>
             </div>
         <%end%>
-        <%= paginate sitters, outer_window: 3 %> 
+        <%= paginate sitters, outer_window: 3  %> 
     <%end%>
     
     
