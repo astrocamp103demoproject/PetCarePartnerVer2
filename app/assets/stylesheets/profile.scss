@@ -32,9 +32,13 @@
         display: inline-block;
         vertical-align: middle;
       }
+      p {
+        margin: 5px 0;
+      }
       .per-price {
         font-size: 20px;
         color: #467302;
+        margin-top: 10px;
       }
     }
   }
