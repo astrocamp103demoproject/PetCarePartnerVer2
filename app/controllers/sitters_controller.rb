@@ -46,12 +46,12 @@ class SittersController < ApplicationController
   end
   def create
     
-    @sitter = Sitter.new(sitter_params)
+    @sitter = Sitter.new(become_sitter_form)
     @sitter.email = current_user.email
     @sitter.name = current_user.name
     @sitter.avatar = current_user.avatar
-
-
+    @sitter.address = address_connect
+    # byebug
     if @sitter.save
       User.update(role:'sitter')
       @current_sitter = Sitter.find_by("name == '#{current_user.name}'")
@@ -66,7 +66,12 @@ class SittersController < ApplicationController
     # byebug
     params.require(:sitter).permit( :address, :slogan, :price, :square_meters, :pet_limit, :date, :available, :pic, :avatar)
   end
-  
+  def become_sitter_form
+    params.permit( :slogan, :price, :square_meters, :pet_limit)
+  end
+  def address_connect
+    TaiwanCity.get(params[:city_id])+TaiwanCity.get(params[:township_id])+params[:address]
+  end
   def booking_date_params
     params.require(:booking_date).permit(:sitter_id, :date)
   end
