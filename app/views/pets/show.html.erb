@@ -1,7 +1,7 @@
 <h1>關於 <%= @pet.name %></h1>
 <div class="pet-detail">
   <div class="pet-pic">
-    <img src="<%= @pet.pic %>" alt="" class="pet-show-pic">
+    <%= image_tag @pet.pic_url(:middle), class: 'pet-show-pic' %>
   </div>
   <div class="pet-info">
     <h3>我是 <%= @pet.pet_type %></h3>

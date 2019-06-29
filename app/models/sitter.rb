@@ -1,5 +1,5 @@
 class Sitter < ApplicationRecord
-  # mount_uploader :avatar, AvatarUploader
+  mount_uploader :avatar, AvatarUploader
   # mount_uploader :pic, AvatarUploader
 
   validates :square_meters, numericality: { greater_than_or_equal_to:1 }

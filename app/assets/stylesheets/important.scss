@@ -1,0 +1,9 @@
+// 此scss為複寫bootstrap的預設
+
+//modal
+.modal-backdrop {
+  z-index: 0 !important;
+}
+.modal-title {
+  font-size: 18px;
+}
