@@ -53,8 +53,7 @@
       <%= content_tag(:p, "最大收容數： #{profile.pet_limit} 隻") %>
     </div>
     <% if current_user.name == profile.name %>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">設定日期
-    </button>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">設定日期</button>
     <% end %>
     <%= month_calendar events: @booking_dates do |date, booking_dates| %>
       <%= date.day %>
@@ -95,3 +94,5 @@
     </div>
   </div>
 </div>
+<!---->
+

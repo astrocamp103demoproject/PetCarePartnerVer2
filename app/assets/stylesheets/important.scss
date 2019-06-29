@@ -2,7 +2,7 @@
 
 //modal
 .modal-backdrop {
-  z-index: 0 !important;
+  z-index: -1 !important;
 }
 .modal-title {
   font-size: 18px;
