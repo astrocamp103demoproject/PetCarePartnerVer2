@@ -5,8 +5,9 @@ class SittersController < ApplicationController
   def show
     @sitter = Sitter.find_by(id: params[:id])
     session[:current_sitter] = @sitter
-
-    picture = Picture.where("sitter_id = ?",@sitter).limit(4)#只會拿到五張
+    @email_find_user = User.where("email = ?",@sitter.email).pluck(:id)
+    # byebug
+    picture = Picture.where("user_id = ?",@email_find_user).limit(4)#只會拿到五張
     @pic = picture.first  #第一個
     @pictures = picture.offset(1)#第二個開始
 
@@ -50,12 +51,9 @@ class SittersController < ApplicationController
     @sitter.email = current_user.email
     @sitter.name = current_user.name
     @sitter.avatar = current_user.avatar
-<<<<<<< HEAD
+
     @sitter.address = address_connect
     # byebug
-=======
-
->>>>>>> master
     if @sitter.save
       User.update(role:'sitter')
       get_current_sitter

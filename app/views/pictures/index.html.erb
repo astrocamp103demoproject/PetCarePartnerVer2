@@ -1,14 +1,12 @@
 <div class="index-pictures-wrap" >
   <h3>圖片集</h3>
-  <%if @sitter.name == current_user.name%>
-      <span>
-          <%= link_to '加入更多照片', new_sitter_picture_path(@sitter), class: 'add-symbol',id:'new-pic'%>
-      </span>
-  <%end%>
+  
+  <span><%= link_to '加入更多照片', new_user_picture_path(@user), class: 'add-symbol',id:'new-pic' if @user.email == current_user.email%></span>
+  
   <div class="index-pic-wrap">
-      <% @sitter.pictures.each do |picture|%>
+      <% @user.pictures.each do |picture|%>
           <div class="index-pic">
-              <%= link_to image_tag("#{picture.pic.thumb.url}"),sitter_picture_path(@sitter,picture
+              <%= link_to image_tag("#{picture.pic.thumb.url}"),user_picture_path(@user,picture
               ), class: 'add-symbol'  %>                
           </div>
       <%end%>
