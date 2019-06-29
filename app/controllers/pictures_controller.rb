@@ -15,12 +15,12 @@ class PicturesController < ApplicationController
   end
   def new
     @picture = Picture.new
-    @current_sitter = Sitter.find_by("name == '#{current_user.name}'")
+    # @current_sitter = Sitter.find_by("name == '#{current_user.name}'")
     # byebug
   end
   def create
     @picture = Picture.new(picture_params)
-    @current_sitter = Sitter.find_by("name == '#{current_user.name}'")
+    # @current_sitter = Sitter.find_by("name == '#{current_user.name}'")
     if @picture.save
       redirect_to sitter_pictures_path(params[:sitter_id]), notice: '圖片上傳成功'
     else

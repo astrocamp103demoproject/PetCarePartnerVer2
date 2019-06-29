@@ -2,7 +2,7 @@
 <div class="order-detail">
   <div class="order-section-top">
     <div class="sitter-avatar">
-      <img src="<%= @order.sitter.avatar %>" alt="">
+      <%= image_tag @order.sitter.avatar_url(:thumb) %>
     </div>
     <div class="sitter-info">
       <h3>褓姆： <%= @order.sitter.name %></h3>

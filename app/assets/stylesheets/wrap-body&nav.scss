@@ -167,7 +167,7 @@ nav.navbar {
   background-color: #fff;
   position: relative;
   z-index: 3;
-  border-radius: none;
+  border-radius: 0 !important;
   padding: 0 30px;
   ul {
     display: flex;
@@ -264,7 +264,7 @@ nav.navbar {
 //統一共用下拉樣式
 .open {
   .dropdown-menu {
-    display: flex;
+    display: flex !important;
     flex-flow: column wrap;
     align-items: center;
     .dropdown-item {
