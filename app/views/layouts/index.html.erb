@@ -21,6 +21,91 @@
         <%= flash[:notice] %>
         <%= yield %>
       </div>
+      
+      <div class="to-down">
+        <div class="arrow arrow-1"></div>
+        <div class="arrow arrow-2"></div>
+      </div>
+    </div>
+
+    <div class="container process-intro">
+      <div class="pub-wrap">
+        <div class="pub-title" id="pubTitle">服務流程</div>
+        <ul class="pub-process process-5 pub-process-flex" id="pubProcess">
+          <li class="active"><span class="ball">1</span></li>
+          <li class="active"><span class="ball">2</span></li>
+          <li class="active"><span class="ball">3</span></li>
+        </ul>
+        <div class="process-group">
+          <div class="process-item">
+            <div class="ball-sm-show">1</div>
+            <div class="pic">
+              <%= image_tag '825445-128.png', class: 'process-pic' %>
+            </div>
+            <h3 class="process-title">Search</h3>
+            <div class="process-text">
+              <p>搜尋一位執得您信賴的褓姆</p>
+            </div>
+          </div>
+         <div class="process-item">
+           <div class="ball-sm-show">2</div>
+            <div class="pic">
+              <%= image_tag '2992655-128.png', class: 'process-pic' %>
+            </div>
+            <h3 class="process-title">Book & Pay on PetCollage</h3>
+            <div class="process-text">
+              <p>透過網站與褓姆預約日期並付款</p>
+            </div>
+          </div>
+          <div class="process-item">
+            <div class="ball-sm-show">3</div>
+            <div class="pic">
+              <%= image_tag '4049315-128.png', class: 'process-pic' %>
+            </div>
+            <h3 class="process-title">Relax</h3>
+            <div class="process-text">
+              <p>將毛孩託付給褓姆，放心享受您安排的時光</p>
+            </div>
+          </div>
+        </div>
+      </div> 
+    </div>
+
+
+    <div class="container-fluid about-us">
+      <div class="about-us-wrap">
+        <h3>關於我們</h3>
+          <div class="member-wrap">
+            <div class="member">
+              <div class="avatar">
+                <%= image_tag '10568669.jpeg', class: 'member-avatar' %>
+              </div>
+              <p class="member-name">Luca</p>
+              <p class="member-murmur">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+            </div>
+            <div class="member">
+              <div class="avatar">
+                <%= image_tag 'original.png', class: 'member-avatar' %>
+              </div>
+              <p class="member-name">Eric</p>
+              <p class="member-murmur">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+            </div>
+            <div class="member">
+              <div class="avatar">
+                <%= image_tag '33931887.jpeg', class: 'member-avatar' %>
+              </div>
+              <p class="member-name">Daniel</p>
+              <p class="member-murmur">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+            </div>
+            <div class="member">
+              <div class="avatar">
+                <%= image_tag 'c5954f8a43cbb530f25ed90ad359b1d8.png', class: 'member-avatar' %>
+              </div>
+              <p class="member-name">Evan</p>
+              <p class="member-murmur">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+            </div>
+          </div>
+      </div>
     </div>
   </body>
 </html>

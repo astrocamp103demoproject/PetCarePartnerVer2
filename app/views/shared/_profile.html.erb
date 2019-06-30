@@ -4,16 +4,16 @@
     <%= image_tag profile.avatar_url(:thumb), class: 'avatar-img' if current_user.email != profile.email %>
   </div>
   <div class="info">
-    <%= link_to '編輯', edit_user_path(current_user), class: 'btn btn-edit btn-info l-show' if profile == @user %>
-    <%= link_to '編輯', edit_sitter_path(@sitter), class: 'btn btn-edit btn-info l-show' if profile == @sitter && current_user.email == profile.email %>
+    <%= link_to '編輯', edit_user_path(current_user), class: 'btn btn-edit l-show' if profile == @user %>
+    <%= link_to '編輯', edit_sitter_path(@sitter), class: 'btn btn-edit l-show' if profile == @sitter && current_user.email == profile.email %>
     <%= content_tag(:h3, profile.name) %>
-    <%= link_to '編輯', edit_user_path(current_user), class: 'btn btn-edit btn-info l-hide' if profile == @user %>
-    <%= link_to '編輯', edit_sitter_path(@sitter), class: 'btn btn-edit btn-info l-hide' if profile == @sitter && current_user.email == profile.email %>
+    <%= link_to '編輯', edit_user_path(current_user), class: 'btn btn-edit l-hide' if profile == @user %>
+    <%= link_to '編輯', edit_sitter_path(@sitter), class: 'btn btn-edit l-hide' if profile == @sitter && current_user.email == profile.email %>
     <%= content_tag(:p, profile.address) if profile == @sitter %>
     <%= content_tag(:p, profile.email) %>
-    <%= content_tag(:p, profile.slogan) if profile == @sitter %>
+    <%= content_tag(:p, profile.slogan, class: 'slogan') if profile == @sitter %>
     <%= content_tag(:p, "$ #{profile.price} /每晚", class:'per-price') if profile == @sitter %>
-    <%= link_to '預訂付款', new_user_order_path(current_user), class: 'btn btn-booking btn-success' if profile == @sitter && current_user.email != profile.email %>
+    <%= link_to '預訂付款', new_user_order_path(current_user), class: 'btn btn-booking' if profile == @sitter && current_user.email != profile.email %>
   </div>
 </div>
 <hr>
@@ -53,7 +53,7 @@
       <%= content_tag(:p, "最大收容數： #{profile.pet_limit} 隻") %>
     </div>
     <% if current_user.name == profile.name %>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">設定日期</button>
+    <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal">設定日期</button>
     <% end %>
     <%= month_calendar events: @booking_dates do |date, booking_dates| %>
       <%= date.day %>

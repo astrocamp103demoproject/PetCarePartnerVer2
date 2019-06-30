@@ -7,16 +7,26 @@
       text-decoration: none;
     }
   }
+  .table {
+    width: 100%;
+    th,
+    td {
+      // font-size: 14px;
+      text-align: center;
+      padding: 0;
+    }
+  }
   .booked,
   .closure {
-    text-align: center;
+    // text-align: center;
     margin: 0;
+    padding: 5px 0;
     font-size: 14px;
   }
   .open-date {
     text-decoration: none;
     display: block;
-    text-align: center;
+    // text-align: center;
     margin-top: 5px;
     font-size: 8px;
   }
