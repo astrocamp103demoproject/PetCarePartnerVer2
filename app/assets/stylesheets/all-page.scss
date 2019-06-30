@@ -1,14 +1,18 @@
 .btn {
   color: #fff;
   // background-color: #467302 !important;
+  // background: linear-gradient(#a7d93d, #6ea61b) !important;
   background: linear-gradient(#6ea61b, #467302) !important;
   // transition: 0.3s !important;
   // border-color: #467302 !important;
   border: none !important;
+  padding: 6px 8px !important;
 }
 .btn:hover {
   color: #fff !important;
   // background: #6ea61b !important;
-  background: linear-gradient(#467302, #6ea61b) !important;
+  // background: linear-gradient(#6ea61b, #467302) !important;
+  background: linear-gradient(#a7d93d, #6ea61b) !important;
   // transition: 0.3s;
 }
+// (#467302, #6ea61b)

@@ -23,19 +23,22 @@
 }
 .order-info {
   display: flex;
+  align-items: center;
   margin: 10px auto;
   border: 1px solid #eee;
   width: 100%;
   max-width: 800px;
   a {
     text-decoration: none;
+    align-self: flex-start;
   }
   p {
     // font-size: 16px;
     line-height: 2;
   }
   img {
-    width: 250px;
+    width: 100%;
+    max-width: 250px;
   }
   .order-content {
     margin-left: 40px;
@@ -75,9 +78,11 @@ nav .pagination {
 }
 @media screen and (max-width: 992px) {
   //index
-  .order-info .order-content {
-    text-align: left;
-    margin: auto;
+  .order-info {
+    .order-content {
+      text-align: left;
+      margin: auto;
+    }
   }
   //show
   .order-section-top {
@@ -111,6 +116,9 @@ nav .pagination {
     flex-flow: column wrap;
     img {
       margin: 10px 0;
+    }
+    a {
+      align-self: center;
     }
   }
   //show
