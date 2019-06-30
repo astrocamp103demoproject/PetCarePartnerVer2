@@ -35,10 +35,8 @@ class SearchesController < ApplicationController
   def location_code
     p_city = params[:city_id]
     p_town = params[:township_id]
-    if (p_city =="縣市" && p_town == "")
-      city = TaiwanCity.get("")
-      township = TaiwanCity.get("")
-    elsif (p_city != "" && p_town == "")
+    
+    if (p_city != "" && p_town == "")
       city = TaiwanCity.get(p_city)
       township = TaiwanCity.get("")
     else
@@ -51,7 +49,7 @@ class SearchesController < ApplicationController
       city = '臺南市'
     end
     @location = city + "%" + township + "%"
-
+# byebug
   end
 
   def pet_count

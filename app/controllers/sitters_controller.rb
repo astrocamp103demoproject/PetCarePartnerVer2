@@ -5,8 +5,9 @@ class SittersController < ApplicationController
   def show
     @sitter = Sitter.find_by(id: params[:id])
     session[:current_sitter] = @sitter
-
-    picture = Picture.where("sitter_id = ?",@sitter).limit(4)#只會拿到五張
+    @email_find_user = User.where("email = ?",@sitter.email).pluck(:id)
+    # byebug
+    picture = Picture.where("user_id = ?",@email_find_user).limit(4)#只會拿到五張
     @pic = picture.first  #第一個
     @pictures = picture.offset(1)#第二個開始
 
@@ -48,11 +49,13 @@ class SittersController < ApplicationController
   end
   def create
     
-    @sitter = Sitter.new(sitter_params)
+    @sitter = Sitter.new(become_sitter_form)
     @sitter.email = current_user.email
     @sitter.name = current_user.name
     @sitter.avatar = current_user.avatar
 
+    @sitter.address = address_connect
+    # byebug
     if @sitter.save
       User.update(role:'sitter')
       get_current_sitter
@@ -64,9 +67,15 @@ class SittersController < ApplicationController
  
   private
   def sitter_params
+    # byebug
     params.require(:sitter).permit( :address, :slogan, :price, :square_meters, :pet_limit, :date, :available, :pic, :avatar)
   end
-  
+  def become_sitter_form
+    params.permit( :slogan, :price, :square_meters, :pet_limit)
+  end
+  def address_connect
+    TaiwanCity.get(params[:city_id])+TaiwanCity.get(params[:township_id])+params[:address]
+  end
   def booking_date_params
     params.require(:booking_date).permit(:sitter_id, :date)
   end

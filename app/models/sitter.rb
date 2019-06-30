@@ -10,7 +10,6 @@ class Sitter < ApplicationRecord
   
   has_many :booking_dates
   has_many :orders
-  has_many :pictures
 
   
 
