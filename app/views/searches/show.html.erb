@@ -1,5 +1,7 @@
 <div class="search-wrap" >
+  
   <%= render 'search-bar'%>
+  <%= render 'shared/error_content'%>
   <%= render 'search-sitters',sitters: @result%>
   <%= render 'search-map',hash: @hash%>
   

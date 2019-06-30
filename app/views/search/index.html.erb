@@ -5,7 +5,7 @@
     <h3 class="slogan-h3">Book trusted sitters who'll treat your pets like family!</h3>
   </div>
   </div>
-
+  <%= render 'shared/error_content'%>
     <%= form_tag('searches', method: 'patch') do %>
       <div class="pet-type">
         <%= check_box_tag(:dog, 0) %>
@@ -39,7 +39,7 @@
           <%= select_tag(:l_count, options_for_select([['0', 0], ['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]],6)) %>
         </div>
       </div>
-      <%= submit_tag("找褓姆", class:'btn btn-primary') %>
+      <%= submit_tag("找褓姆", class:'btn btn-primary',id: 'btn-primary',:'data-toggle'=>"modal", :'data-target'=>"#exampleModalCenter") %>
     <% end %>        
   
   
