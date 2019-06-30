@@ -2,7 +2,7 @@
 <div class="pet-list">
   <% @pets.each do |pet| %>
   <div class='my-pet'>
-    <img src="<%= pet.pic %>" alt="" class='pet-pic'>
+    <%= image_tag pet.pic_url(:middle), class: 'pet-pic' %>
     <div class="pet-info">
       <p><%= pet.pet_type %></p>
       <p>名字： <%= pet.name %></p>

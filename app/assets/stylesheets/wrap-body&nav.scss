@@ -11,6 +11,7 @@
   -webkit-filter: saturate(0.9);
 
   // filter: grayscale(50%);
+  position: relative;
 }
 
 //全頁bg
@@ -167,7 +168,7 @@ nav.navbar {
   background-color: #fff;
   position: relative;
   z-index: 3;
-  border-radius: none;
+  border-radius: 0 !important;
   padding: 0 30px;
   ul {
     display: flex;

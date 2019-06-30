@@ -1,7 +1,7 @@
 <h1>關於 <%= @pet.name %></h1>
 <div class="pet-detail">
   <div class="pet-pic">
-    <img src="<%= @pet.pic %>" alt="" class="pet-show-pic">
+    <%= image_tag @pet.pic_url(:middle), class: 'pet-show-pic' %>
   </div>
   <div class="pet-info">
     <h3>我是 <%= @pet.pet_type %></h3>
@@ -12,7 +12,7 @@
     <p>品種： <%= @pet.breed %></p>
     <p>簡介： <%= @pet.note %></p>
     <p>飼主： <%= current_user.name %></p>
-    <%= link_to '找褓姆', searches_path, class: 'btn btn-primary l-hide' %>
+    <%= link_to '找褓姆', searches_path, class: 'btn l-hide' %>
   </div>
-  <%= link_to '找褓姆', searches_path, class: 'btn btn-primary l-show' %>
+  <%= link_to '找褓姆', searches_path, class: 'btn l-show' %>
 </div>

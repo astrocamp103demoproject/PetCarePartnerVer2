@@ -14,12 +14,10 @@ class PicturesController < ApplicationController
   end
   def new
     @picture = Picture.new
-    
     # byebug
   end
   def create
     @picture = Picture.new(picture_params)
-    
     if @picture.save
       redirect_to user_pictures_path(params[:user_id]), notice: '圖片上傳成功'
     else

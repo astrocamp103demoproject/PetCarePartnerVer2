@@ -12,8 +12,10 @@ class SittersController < ApplicationController
     @pictures = picture.offset(1)#第二個開始
 
     @booking_dates = @sitter.booking_dates.all
-    # byebug
+    
     # @current_sitter = Sitter.find_by("name== '#{current_user.name}'")
+    #設定日期
+    @booking_date = BookingDate.new
   end
 
   def edit

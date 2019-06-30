@@ -1,7 +1,6 @@
-<h1>設定日期</h1>
-<%= simple_form_for([@current_sitter, @booking_date]) do |f| %>
-  <%= f.input :sitter_id, as: :hidden, input_html: { value: @current_sitter.id} %>
-  <%= f.input :date, label: '無法服務的日期',input_html:{ for: 'booking_date_date'} %>
+<%= simple_form_for([@sitter, @booking_date]) do |f| %>
+  <%= f.input :sitter_id, as: :hidden, input_html: { value: @sitter.id} %>
+  <%= f.input :date, label: false, input_html:{ for: 'booking_date_date'} %>
 
   <%= f.submit '送出', class: 'btn btn-primary'%>
 <% end %>
