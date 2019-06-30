@@ -11,7 +11,7 @@
     <%= link_to '編輯', edit_sitter_path(@sitter), class: 'btn btn-edit l-hide' if profile == @sitter && current_user.email == profile.email %>
     <%= content_tag(:p, profile.address) if profile == @sitter %>
     <%= content_tag(:p, profile.email) %>
-    <%= content_tag(:p, profile.slogan) if profile == @sitter %>
+    <%= content_tag(:p, profile.slogan, class: 'slogan') if profile == @sitter %>
     <%= content_tag(:p, "$ #{profile.price} /每晚", class:'per-price') if profile == @sitter %>
     <%= link_to '預訂付款', new_user_order_path(current_user), class: 'btn btn-booking' if profile == @sitter && current_user.email != profile.email %>
   </div>

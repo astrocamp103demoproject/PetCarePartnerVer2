@@ -51,6 +51,12 @@
         margin: 10px;
         text-align: center;
         border: none;
+        border-bottom: 2px solid #fff;
+        background: none;
+        color: #fff;
+      }
+      .datepick::placeholder {
+        color: #fff;
       }
     }
     .pet-count {
@@ -62,8 +68,9 @@
       }
       select {
         width: 60px;
-        // margin: auto;
+        background: none;
         border: none;
+        color: #fff;
         align-self: center;
       }
     }
@@ -74,10 +81,83 @@
     }
   }
 }
+// arrow
+.to-down {
+  .arrow {
+    position: absolute;
+    left: 48%;
+    top: 95%;
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-transform: translate3d(-50%, -50%, 0);
+    transform: translate3d(-50%, -50%, 0);
+  }
 
+  .arrow-1 {
+    -webkit-animation: arrow-movement 2s ease-in-out infinite;
+    animation: arrow-movement 2s ease-in-out infinite;
+  }
+
+  .arrow-2 {
+    -webkit-animation: arrow-movement 2s 1s ease-in-out infinite;
+    animation: arrow-movement 2s 1s ease-in-out infinite;
+  }
+
+  .arrow:before,
+  .arrow:after {
+    background: #fff;
+    content: '';
+    display: block;
+    height: 3px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px;
+  }
+
+  .arrow:before {
+    -webkit-transform: rotate(45deg) translateX(-23%);
+    transform: rotate(45deg) translateX(-23%);
+    -webkit-transform-origin: top left;
+    transform-origin: top left;
+  }
+
+  .arrow:after {
+    -webkit-transform: rotate(-45deg) translateX(23%);
+    transform: rotate(-45deg) translateX(23%);
+    -webkit-transform-origin: top right;
+    transform-origin: top right;
+  }
+
+  @-webkit-keyframes arrow-movement {
+    0% {
+      opacity: 0;
+      top: 92%;
+    }
+    70% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes arrow-movement {
+    0% {
+      opacity: 0;
+      top: 92%;
+    }
+    70% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+}
 //index 下方介紹
 .process-intro {
-  min-height: 50vh;
+  // min-height: 50vh;
 
   .ul {
     margin: 0;
@@ -96,10 +176,10 @@
   }
 
   .pub-title {
-    padding-top: 14px;
+    padding: 20px 0;
     margin-right: -20px;
     margin-left: -20px;
-    font-size: 20px;
+    font-size: 24px;
     text-align: center;
   }
 
@@ -230,16 +310,16 @@
 }
 //about us
 .about-us {
-  min-height: 50vh;
+  // min-height: 50vh;
   background-color: #eee;
   .about-us-wrap {
     text-align: center;
     margin: 10% 0;
     padding: 0 10%;
     h3 {
-      font-size: 20px;
+      font-size: 24px;
       font-weight: normal;
-      margin: 20px 0;
+      margin: 30px 0;
     }
     .member-wrap {
       display: flex;
@@ -288,6 +368,10 @@
         margin: auto;
       }
     }
+  }
+  //arrow
+  .to-down {
+    display: none;
   }
   //流程
   .process-intro {
