@@ -40,7 +40,10 @@
   <div class="profile-pic-wrap">
   <!--sitter-->
     <% if firstpic.nil? %>
-      <h3>沒有圖片</h3>
+      <div class="profile-pic-nil">
+        <span><%= link_to '加入更多照片', new_user_picture_path(email_find_user), class: 'add-symbol',id:'new-pic'  if current_user && current_user.id == @user.id%></span>  
+        <h3>目前沒有照片上傳</h3>
+      </div>
     <%elsif pictures.nil?%>
       <%= link_to '更多圖片', user_pictures_path(email_find_user), class: 'add-symbol' %>
       <div class="profile-first-pic">
@@ -62,6 +65,7 @@
       </div>  
     <% end %>
     
+
   </div>
 </div>
 <hr>
@@ -90,11 +94,12 @@
           <% end %>
         </div>
       <% end %>
-    <% end %>
+  <% end %>
   </div>
   <div class="comment">
-    <%= content_tag(:h3, '留言板') %>
-    <%= render 'shared/comment' %>
+    <%= content_tag(:h3, '過往評價') %>
+    <%= render file: 'comments/index' %>
+    
   </div>
 <% end %>
 <% if profile == @user %>

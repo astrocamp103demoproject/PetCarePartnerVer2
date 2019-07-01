@@ -1,5 +1,5 @@
 .search-index {
-  margin: 150px auto;
+  margin: 15% auto 0;
   max-width: 800px;
   display: flex;
   justify-content: center;
@@ -8,6 +8,7 @@
     background: rgba(247, 245, 245, 0);
     box-sizing: border-box;
     padding-top: 0;
+    padding-bottom: 80px !important;
   }
   .slogan-h1,
   .slogan-h3 {
@@ -85,8 +86,8 @@
 .to-down {
   .arrow {
     position: absolute;
-    left: 48%;
-    top: 95%;
+    left: 48.5%;
+    top: 97%;
     -webkit-transform-origin: 50% 50%;
     transform-origin: 50% 50%;
     -webkit-transform: translate3d(-50%, -50%, 0);
@@ -112,19 +113,19 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 30px;
+    width: 20px;
   }
 
   .arrow:before {
-    -webkit-transform: rotate(45deg) translateX(-23%);
-    transform: rotate(45deg) translateX(-23%);
+    -webkit-transform: rotate(45deg) translateX(-18%);
+    transform: rotate(45deg) translateX(-18%);
     -webkit-transform-origin: top left;
     transform-origin: top left;
   }
 
   .arrow:after {
-    -webkit-transform: rotate(-45deg) translateX(23%);
-    transform: rotate(-45deg) translateX(23%);
+    -webkit-transform: rotate(-45deg) translateX(18%);
+    transform: rotate(-45deg) translateX(18%);
     -webkit-transform-origin: top right;
     transform-origin: top right;
   }
@@ -132,7 +133,7 @@
   @-webkit-keyframes arrow-movement {
     0% {
       opacity: 0;
-      top: 92%;
+      top: 94%;
     }
     70% {
       opacity: 1;
@@ -145,7 +146,7 @@
   @keyframes arrow-movement {
     0% {
       opacity: 0;
-      top: 92%;
+      top: 94%;
     }
     70% {
       opacity: 1;
@@ -349,15 +350,16 @@
   .search-index {
     flex-direction: column;
     justify-content: flex-start;
-    width: 100%;
-    margin-top: 0;
+    // width: 100%;
+    margin: 0;
     .jumbotron {
-      margin-top: 40px;
+      margin: 20px 0 0;
+      padding-bottom: 5px !important;
     }
     form {
       text-align: center;
-      padding: 20px;
-      width: 80%;
+      padding: 5px 0;
+      width: 100%;
       .pet-count div {
         text-align: center;
         label {
@@ -370,9 +372,9 @@
     }
   }
   //arrow
-  .to-down {
-    display: none;
-  }
+  // .to-down {
+  //   display: none;
+  // }
   //流程
   .process-intro {
     .pub-process {

@@ -14,6 +14,7 @@ class SittersController < ApplicationController
     @booking_dates = @sitter.booking_dates.all
     
     # @current_sitter = Sitter.find_by("name== '#{current_user.name}'")
+    @comments = @sitter.comments.all
     #設定日期
     @booking_date = BookingDate.new
   end
