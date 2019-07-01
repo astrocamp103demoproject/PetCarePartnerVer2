@@ -10,6 +10,7 @@ class User < ApplicationRecord
   
   has_many :pets
   has_many :orders
-
+  has_many :comments
+  has_many :pictures
   
 end

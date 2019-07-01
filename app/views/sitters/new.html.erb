@@ -1,20 +1,26 @@
 <div class="become-sitter-wrap">
-        
-    <div class="new-sitter">
-        <%= simple_form_for @sitter do |f| %> 
-            <% if f.error_notification %>
-                <div class="alert alert-error fade in">
-                  <a class="close" data-dismiss="alert" href="#">&times;</a>
-                    <%= f.error_notification %>
+        <div class="new-sitter">
+            
+            <%= form_tag(@sitter, method: 'post', class: 'bar-form') do %>
+                <div class="city-group">
+                    <p>提供住宿地址：</p>
+                    <p><%= select_tag(:city_id, options_for_select(TaiwanCity.list),prompt: "縣市",class:'city-select') %>
+                       <%= select_tag(:township_id, raw("<option value="">鄉鎮市區</option>"),class:'city-select') %></p>
+                    <p><%= text_field_tag :address, nil, placeholder:'請輸入街道地址' %><span><%= '地址不得空白' if @sitter.errors[:address].any? %></span></p> 
                 </div>
+                  <p>空間總坪數</p>
+                  <p><%= number_field_tag(:square_meters, min:1) %><span> <%= '坪數必須大於0' if @sitter.errors[:square_meters].any? %></span> </p>
+                  <p> 允許寵物隻數</p>
+                  <p><%= number_field_tag(:pet_limit, min:1) %><span><%= '可接受寵物數必須大於0' if @sitter.errors[:pet_limit].any? %></span></p>
+                  <p>每晚價位</p>
+                  <p><%= number_field_tag(:price, min:1) %><span><%= '房價必須大於0' if @sitter.errors[:price].any? %></span></p>
+                  <p>想說的話</p>
+                  <p><%= text_field_tag :slogan, nil, placeholder:'讓大家更快地了解你' ,autocomplete:"off"%></p>
+                <%= submit_tag("送出", class:'btn btn-primary', id: 'search-sitters') %>
             <% end %>
-            <p>地址：<%= f.input :address, label: false, placeholder: '請輸入地址'%></p>
-            <p>坪數：<%= f.input :square_meters, label: false, placeholder: '請輸入房間坪數'%></p>
-            <p> 最多可接受寵物數：<%= f.input :pet_limit, label: false, placeholder: '請輸入最多可接受寵物數'%></p>
-            <p>每晚房價：<%= f.input :price, label: false, placeholder: '請輸入價錢', min:'0'%></p>
-            <p>房間描述：<%= f.input :slogan, label: false, placeholder: '讓使用者搜尋可以更快速了解'%></p>
-            <%= f.submit '送出', class:'btn' %>
-        <% end %>
-    </div>
-</div>
 
+        </div>
+
+    </div>
+        
+        

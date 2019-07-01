@@ -9,14 +9,12 @@
         <%= label_tag(:cat, "Cat") %>
       </div>
       <div class="city-group">
-        <%= select_tag(:city_id, options_for_select(TaiwanCity.list.unshift('縣市')),class:'city-select') %>
+        <%= select_tag(:city_id, options_for_select(TaiwanCity.list),class:'city-select',prompt: "縣市") %>
         <%= select_tag(:township_id, raw("<option value="">鄉鎮市區</option>"),class:'city-select') %>
-   
       </div>
       <div class="select-date">
         <%= text_field_tag 'Drop_Off', nil, :'data-provide' =>'datepicker', placeholder:'送出日期' ,autocomplete:"off"%>
         <%= text_field_tag 'Pick_Up', nil, :'data-provide' =>'datepicker', placeholder:'接回日期' ,autocomplete:"off"%>
-  
       </div>
       <div class="pet-count">
         <%= label_tag(:xs_count, "迷你 (0~10 kg)") %>
@@ -28,7 +26,9 @@
         <%= label_tag(:l_count, "大型 (41 kg up)") %>
         <%= select_tag(:l_count, options_for_select([['0', 0], ['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]],6)) %>
       </div>
-      <%= submit_tag("再次搜尋", class:'btn', id: 'search-sitters') %>
+
+      <%= submit_tag("找褓姆", class:'btn btn-primary',id: 'btn-primary',:'data-toggle'=>"modal", :'data-target'=>"#exampleModalCenter") %>
+
     <% end %>
     </div>        
 </div>

@@ -1,13 +1,11 @@
 <div class="show-pic-wrap" >
-    <%if @sitter.name == current_user.name%>
-        <span>
-            <%= link_to '回圖片集', sitter_pictures_path(@sitter), class: 'add-symbol' %>
-        </span>
-    <%end%>
+    
+    <span><%= link_to '回圖片集', user_pictures_path(@user), class: 'add-symbol' %></span>
+    
     <div class="show-pic">
-        <%= link_to '⇦',sitter_picture_path(@sitter,session['beforepic']), class: 'add-symbol' if session['beforepic'] != params[:id]%>
+        <%= link_to '⇦',user_picture_path(@user,session['beforepic']), class: 'add-symbol' if session['beforepic'] != params[:id]%>
         <%= image_tag @picture.pic.url %>
-        <%= link_to '⇨',sitter_picture_path(@sitter,session['afterpic']), class: 'add-symbol' if session['afterpic'] != nil%>     
+        <%= link_to '⇨',user_picture_path(@user,session['afterpic']), class: 'add-symbol' if session['afterpic'] != nil%>     
     </div>
     
     
