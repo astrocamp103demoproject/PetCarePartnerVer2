@@ -27,7 +27,8 @@ class SearchesController < ApplicationController
     session[:drop_off] = params[:Drop_Off]
     session[:pick_up] = params[:Pick_Up]
     g_map(@result)
-      
+    # binding.pry
+    render :show  
       
   end
 

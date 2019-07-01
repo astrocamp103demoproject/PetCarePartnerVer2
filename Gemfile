@@ -45,7 +45,7 @@ gem 'rails_admin', '~> 1.4', '>= 1.4.2'
 gem 'paranoia', '~> 2.4', '>= 2.4.2'
 gem "braintree", "~> 2.96.0"
 gem 'figaro', '~> 1.1', '>= 1.1.1'
-# gem 'pg', '~> 1.1', '>= 1.1.4'
+gem 'pg', '~> 1.1', '>= 1.1.4'
 gem 'jquery-rails', '~> 4.1', '>= 4.1.1'
 gem 'aasm', '~> 5.0', '>= 5.0.5'
 gem 'bootstrap-sass', '~> 3.4.1'

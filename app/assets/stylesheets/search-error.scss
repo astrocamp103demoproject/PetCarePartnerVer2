@@ -1,17 +1,18 @@
 .search-error{
+    display: none;
     position: fixed;
     top: 50%;
     left: 50%;
-    width: 150px;
+    width: 250px;
     transform: translate3d(-50%,-50%,0);
+    z-index: 3;
     .modal-content{
-        width: 200px;
-    #error-content{
-        text-align: center;
-        font-size: 30px;
-        line-height: 150px;
-        height: 150px;
-        
+        width: 300px;
+        #error-content{
+            text-align: center;
+            font-size: 30px;
+            line-height: 150px;
+            height: 150px;
+        }
     }
-}
 }
