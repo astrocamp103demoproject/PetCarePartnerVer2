@@ -3,6 +3,7 @@ class PicturesController < ApplicationController
   def index
     @user = User.find_by(id: params[:user_id])
     # byebug
+    # @sitter = Sitter.find_by(id: params[:sitter_id])
   end
   def show
     @user = User.find_by(id: params[:user_id])

@@ -46,18 +46,28 @@
     }
     .select-date {
       margin: 0 10px;
-      .datepick {
-        width: 80px;
-        height: 30px;
-        margin: 10px;
-        text-align: center;
-        border: none;
-        border-bottom: 2px solid #fff;
-        background: none;
-        color: #fff;
-      }
-      .datepick::placeholder {
-        color: #fff;
+      .datepick-wrap {
+        display: inline-block;
+        position: relative;
+        .datepick {
+          width: 80px;
+          height: 30px;
+          margin: 10px;
+          text-align: left;
+          border: none;
+          border-bottom: 2px solid #fff;
+          background: none;
+          color: #fff;
+        }
+        .datepick::placeholder {
+          color: #fff;
+        }
+        .calendar-icon {
+          width: 25px;
+          position: absolute;
+          right: 5px;
+          top: 11px;
+        }
       }
     }
     .pet-count {
@@ -86,7 +96,7 @@
 .to-down {
   .arrow {
     position: absolute;
-    left: 48.5%;
+    left: 48.7%;
     top: 97%;
     -webkit-transform-origin: 50% 50%;
     transform-origin: 50% 50%;
@@ -371,10 +381,6 @@
       }
     }
   }
-  //arrow
-  // .to-down {
-  //   display: none;
-  // }
   //流程
   .process-intro {
     .pub-process {

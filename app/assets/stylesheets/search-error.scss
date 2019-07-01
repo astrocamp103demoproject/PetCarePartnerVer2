@@ -1,17 +1,17 @@
-.search-error{
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 150px;
-    transform: translate3d(-50%,-50%,0);
-    .modal-content{
-        width: 200px;
-    #error-content{
-        text-align: center;
-        font-size: 30px;
-        line-height: 150px;
-        height: 150px;
-        
+.search-error {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  max-width: 200px;
+  width: 100%;
+  transform: translate3d(-50%, -50%, 0);
+  .modal-content {
+    width: 200px;
+    #error-content {
+      text-align: center;
+      font-size: 30px;
+      line-height: 150px;
+      height: 150px;
     }
-}
+  }
 }

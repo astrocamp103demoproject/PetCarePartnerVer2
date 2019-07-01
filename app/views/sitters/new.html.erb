@@ -15,7 +15,7 @@
                   <p>每晚價位</p>
                   <p><%= number_field_tag(:price, min:1) %><span><%= '房價必須大於0' if @sitter.errors[:price].any? %></span></p>
                   <p>想說的話</p>
-                  <p><%= text_field_tag :slogan, nil, placeholder:'讓大家更快地了解你' ,autocomplete:"off"%></p>
+                  <p><%= text_area_tag :slogan, nil, placeholder:'讓大家更快地了解你' ,autocomplete:"off"%></p>
                 <%= submit_tag("送出", class:'btn btn-primary', id: 'search-sitters') %>
             <% end %>
 
