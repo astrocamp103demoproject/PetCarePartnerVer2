@@ -18,13 +18,14 @@
     <div class="order-content">
       <p>訂單號： <%= order.id %></p>
       <p>狀態： <%= order.state %></p>
-      <p>寵物主人： <%= order.user.name %></p>
-      <p>保母： <%= order.sitter.name %></p>
+      <p>飼主： <%= order.user.name %></p>
+      <p>褓姆： <%= order.sitter.name %></p>
       <p>送出日期： <%= order.drop_off %> | 接回日期： <%= order.pick_up %></p>
       <p>總金額： <%= (order.pick_up - order.drop_off).to_i * order.sitter.price %> 元</p>
       <p>付款日期： <%= order.created_at.to_date %></p>
     </div>
     <%= link_to '查看細節', user_order_path(current_user, order) %>
+    <%= link_to '留下寶貴的評價', new_sitter_comment_path(order.sitter.id) %>
   </div>
   <% end %>
   <%= paginate @orders, outer_window: 3 %> 

@@ -5,16 +5,21 @@
 //index
 .order-type {
   text-align: center;
+  margin: 20px 0;
   li {
     display: inline-block;
     a {
       text-decoration: none;
+      margin: 0 5px;
     }
   }
 }
 .check-empty {
   text-align: center;
   margin: 40px 0;
+  p {
+    font-size: 20px;
+  }
 }
 .order-info {
   display: flex;
@@ -26,7 +31,7 @@
     text-decoration: none;
   }
   img {
-    max-width: 250px;
+    width: 250px;
   }
   .order-content {
     margin-left: 40px;
@@ -59,6 +64,20 @@ nav .pagination {
     span {
       display: inline-block;
       width: 300px;
+    }
+  }
+}
+@media screen and (max-width: 992px) {
+  .order-info .order-content {
+    text-align: left;
+    margin: auto;
+  }
+}
+@media screen and (max-width: 767px) {
+  .order-info {
+    flex-flow: column wrap;
+    img {
+      margin: 10px 0;
     }
   }
 }

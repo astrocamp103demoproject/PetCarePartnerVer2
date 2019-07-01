@@ -1,25 +1,21 @@
 .profile {
   // position: relative;
+  p {
+    font-size: 18px;
+  }
   .section-top {
-    margin: auto;
-    text-align: center;
-
     .btn-edit {
       margin-left: 100px;
       display: inline-block;
       vertical-align: middle;
-      // position: absolute;
-      // top: 40px;
-      // right: 35%;
     }
-    // .btn-booking {
-    //   position: absolute;
-    //   top: 200px;
-    //   right: 35%;
-    // }
+    .btn.l-show {
+      display: none;
+    }
 
     .avatar {
       margin: 20px 40px;
+      display: inline-block;
       .avatar-img {
         border-radius: 50%;
         max-width: 200px;
@@ -27,21 +23,28 @@
       }
     }
     .info {
-      margin: 0 60px;
-      width: 600px;
+      display: inline-block;
+      width: 100%;
+      max-width: 500px;
       text-align: left;
       h3 {
         margin: 20px 0;
         display: inline-block;
         vertical-align: middle;
       }
+      p {
+        margin: 5px 0;
+      }
       .per-price {
         font-size: 20px;
         color: #467302;
+        margin-top: 10px;
       }
     }
   }
   .square {
+    width: 45%;
+    box-sizing: border-box;
     background-color: #eee;
     padding: 20px;
     border-radius: 10px;
@@ -56,6 +59,66 @@
       margin: 20px 0;
     }
   }
+  .comment {
+    width: 54%;
+    box-sizing: border-box;
+    padding: 20px;
+  }
+  //照片集
+  .profile-pictures-content {
+    margin: auto;
+    width: 100%;
+    // height: 500px;
+    h3 {
+      display: inline-block;
+      margin-right: 20px;
+    }
+    .add-symbol {
+      display: inline-block;
+      font-size: 18px;
+    }
+    .profile-pic-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      overflow: hidden;
+      justify-content: center;
+      .profile-first-pic {
+        width: 100%;
+        max-width: 400px;
+        height: 400px;
+        a {
+          width: 100%;
+          height: 100%;
+          img {
+            border-radius: 8px;
+            width: 100%;
+            height: 100%;
+            padding: 3px;
+          }
+        }
+      }
+      .profile-pic-content {
+        width: 100%;
+        max-width: 400px;
+        display: flex;
+        flex-wrap: wrap;
+
+        .profile-pic {
+          overflow: hidden;
+          position: relative;
+          width: 200px;
+          height: 200px;
+          img {
+            border-radius: 8px;
+            height: 100%;
+            width: 100%;
+            padding: 3px;
+          }
+        }
+      }
+    }
+  }
+  //照片集結束
 }
 .avatar,
 .info,
@@ -70,4 +133,65 @@
 .square,
 .comment {
   vertical-align: top;
+}
+
+@media screen and (max-width: 992px) {
+  .profile .section-top .info {
+    text-align: center;
+    h3 {
+      display: block;
+    }
+    .btn.l-show {
+      display: inline-block;
+      margin: auto;
+    }
+    .btn.l-hide {
+      display: none;
+    }
+  }
+
+  .profile-pic-wrap {
+    flex-flow: column wrap;
+    align-items: center;
+  }
+  .section-top .info {
+    margin: auto !important;
+  }
+  .square,
+  .comment {
+    display: block;
+    text-align: center;
+  }
+  .square {
+    width: 100% !important;
+    .limit {
+      text-align: left;
+    }
+    .simple-calendar {
+      margin: auto;
+    }
+  }
+  .comment {
+    width: 100% !important;
+  }
+}
+@media screen and (max-width: 767px) {
+  .profile {
+    .section-top {
+      .avatar {
+        margin: 20px auto;
+      }
+    }
+    .square {
+      padding: 20px 0;
+      .limit {
+        padding: 0 20px;
+      }
+    }
+
+    .profile-pic-content {
+      flex-flow: column wrap;
+      align-items: center;
+    }
+  }
 }

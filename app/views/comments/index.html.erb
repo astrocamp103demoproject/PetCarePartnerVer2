@@ -1,5 +1,11 @@
-本身是使用者後，才可以去留言
-留言時自動跳出自己的身份跟日期
-從資料庫去撈使用者資料(變數)，自動生成(render)
-
-最後要放在sitter_controller裡面
+<% if @comments.empty? %>
+<p>目前沒有任何留言</p>
+<% else %>
+    <% @comments.each do |comment| %>
+        <div>
+            <p><%= comment.user.name %></p>
+            <p><%= comment.created_at.to_date %></p>
+            <p><%= comment.message %></p>
+        </div>
+    <% end %>
+<% end %>

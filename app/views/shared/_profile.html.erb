@@ -3,9 +3,11 @@
     <img src="<%= profile.avatar %>" alt="" class="avatar-img">
   </div>
   <div class="info">
+    <%= link_to '編輯', edit_user_path(current_user), class: 'btn btn-edit btn-info l-show' if profile == @user %>
+    <%= link_to '編輯', edit_sitter_path(@sitter), class: 'btn btn-edit btn-info l-show' if profile == @sitter && current_user.name == profile.name %>
     <%= content_tag(:h3, profile.name) %>
-    <%= link_to '編輯', edit_user_path(current_user), class: 'btn btn-edit btn-info' if profile == @user %>
-    <%= link_to '編輯', edit_sitter_path(@sitter), class: 'btn btn-edit btn-info' if profile == @sitter && current_user.name == profile.name %>
+    <%= link_to '編輯', edit_user_path(current_user), class: 'btn btn-edit btn-info l-hide' if profile == @user %>
+    <%= link_to '編輯', edit_sitter_path(@sitter), class: 'btn btn-edit btn-info l-hide' if profile == @sitter && current_user.name == profile.name %>
     <%= content_tag(:p, profile.address) if profile == @sitter %>
     <%= content_tag(:p, profile.email) %>
     <%= content_tag(:p, profile.slogan) if profile == @sitter %>
@@ -14,19 +16,35 @@
   </div>
 </div>
 <hr>
-<div class="pic">
+<% if profile == @sitter %>
+<div class="profile-pictures-content">
   <h3>圖片集</h3>
-  <div class="pic-wrap">
-    <% profile.pictures.each do |picture|%>
-      <div class="pic">
-          <img src="<%= picture.pic %>" alt="">
+  <%= link_to '更多圖片', sitter_pictures_path(profile), class: 'add-symbol' %>
+  <div class="profile-pic-wrap">
+  <!--sitter-->
+    <% if firstpic.nil? %>
+    <%elsif pictures.nil?%>
+      <div class="profile-first-pic">
+          <%= link_to image_tag("#{firstpic.pic.thumb.url}"),sitter_picture_path(profile,firstpic.id
+              ), class: 'add-symbol' %> 
+      </div> 
+    <%else%>
+      <div class="profile-first-pic">
+          <%= link_to image_tag("#{firstpic.pic.thumb.url}"),sitter_picture_path(profile,firstpic.id
+              ), class: 'add-symbol' %> 
       </div>
+      <div class="profile-pic-content">
+        <% pictures.each do |picture|%>
+          <div class="profile-pic">
+              <%= link_to image_tag("#{picture.pic.thumb.url}"), sitter_picture_path(profile,picture.id), class: 'add-symbol' %> 
+          </div>
+        <%end%>
+      </div>  
     <%end%>
   </div>
-    <%= link_to '＋', sitter_picture_path(profile), class: 'add-symbol' %>
-    
 </div>
 <hr>
+<% end %>
 <% if profile == @sitter %>
   <div class="square">
     <div class="limit">
@@ -49,8 +67,9 @@
     <% end %>
   </div>
   <div class="comment">
-    <%= content_tag(:h3, '留言板') %>
-    <%= render 'shared/comment' %>
+    <%= content_tag(:h3, '過往評價') %>
+    <%= render file: 'comments/index' %>
+    
   </div>
 <% end %>
 <% if profile == @user %>

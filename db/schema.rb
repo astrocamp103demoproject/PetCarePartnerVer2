@@ -12,8 +12,11 @@
 
 ActiveRecord::Schema.define(version: 2019_06_28_024206) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "booking_dates", force: :cascade do |t|
-    t.integer "sitter_id"
+    t.bigint "sitter_id"
     t.date "date"
     t.string "available"
     t.datetime "created_at", null: false
@@ -22,8 +25,8 @@ ActiveRecord::Schema.define(version: 2019_06_28_024206) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.integer "sitter_id"
-    t.integer "user_id"
+    t.bigint "sitter_id"
+    t.bigint "user_id"
     t.text "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -32,7 +35,7 @@ ActiveRecord::Schema.define(version: 2019_06_28_024206) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "user_id"
+    t.bigint "user_id"
     t.date "drop_off"
     t.date "pick_up"
     t.text "note"
@@ -40,13 +43,13 @@ ActiveRecord::Schema.define(version: 2019_06_28_024206) do
     t.date "checkout_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "sitter_id"
+    t.bigint "sitter_id"
     t.index ["sitter_id"], name: "index_orders_on_sitter_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "payments", force: :cascade do |t|
-    t.integer "order_id"
+    t.bigint "order_id"
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -55,7 +58,7 @@ ActiveRecord::Schema.define(version: 2019_06_28_024206) do
 
   create_table "pets", force: :cascade do |t|
     t.integer "size"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "pet_type"
@@ -69,9 +72,9 @@ ActiveRecord::Schema.define(version: 2019_06_28_024206) do
   end
 
   create_table "pictures", force: :cascade do |t|
-    t.integer "sitter_id"
+    t.bigint "sitter_id"
     t.string "pic"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["sitter_id"], name: "index_pictures_on_sitter_id"
@@ -100,7 +103,7 @@ ActiveRecord::Schema.define(version: 2019_06_28_024206) do
     t.string "email", default: "", null: false
     t.string "password"
     t.string "address"
-    t.integer "pet_count", default: 0
+    t.integer "pet_count"
     t.string "avatar"
     t.string "pic"
     t.datetime "created_at", null: false
@@ -114,4 +117,12 @@ ActiveRecord::Schema.define(version: 2019_06_28_024206) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "booking_dates", "sitters"
+  add_foreign_key "comments", "sitters"
+  add_foreign_key "comments", "users"
+  add_foreign_key "orders", "users"
+  add_foreign_key "payments", "orders"
+  add_foreign_key "pets", "users"
+  add_foreign_key "pictures", "sitters"
+  add_foreign_key "pictures", "users"
 end

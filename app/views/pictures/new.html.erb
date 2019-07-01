@@ -1,5 +1,7 @@
-<%= simple_form_for ([@current_sitter,@picture] ) do |f| %> 
+<%= simple_form_for([@current_sitter,@picture]) do |f| %> 
+    
     <%= f.input :sitter_id, as: :hidden, input_html: { value: @current_sitter.id} %>
+    <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id} %>
     <%= f.input :pic %>
     <%= f.submit '新增', class: 'btn btn-success'%>
 <% end %>

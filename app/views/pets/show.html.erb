@@ -1,12 +1,18 @@
 <h1>關於 <%= @pet.name %></h1>
-<img src="<%= @pet.pic %>" alt="" class="pet-show-pic">
-<h3>我是 <%= @pet.pet_type %></h3>
-<p>性別： <%= @pet.sex %></p>
-<p>年齡： <%= @pet.age %> 歲</p>
-<p>體重： <%= @pet.size %> 公斤</p>
-<p>年齡： <%= @pet.age %> 歲</p>
-<p>品種： <%= @pet.breed %></p>
-<p>簡介： <%= @pet.note %></p>
-<hr>
-<p>飼主： <%= current_user.name %></p>
-<%= link_to '找保母', searches_path, class: 'btn btn-primary' %>
+<div class="pet-detail">
+  <div class="pet-pic">
+    <img src="<%= @pet.pic %>" alt="" class="pet-show-pic">
+  </div>
+  <div class="pet-info">
+    <h3>我是 <%= @pet.pet_type %></h3>
+    <p>性別： <%= @pet.sex %></p>
+    <p>年齡： <%= @pet.age %> 歲</p>
+    <p>體重： <%= @pet.size %> 公斤</p>
+    <p>年齡： <%= @pet.age %> 歲</p>
+    <p>品種： <%= @pet.breed %></p>
+    <p>簡介： <%= @pet.note %></p>
+    <p>飼主： <%= current_user.name %></p>
+    <%= link_to '找褓姆', searches_path, class: 'btn btn-primary l-hide' %>
+  </div>
+  <%= link_to '找褓姆', searches_path, class: 'btn btn-primary l-show' %>
+</div>

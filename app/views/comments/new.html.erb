@@ -1,11 +1,11 @@
-<h1>保母留言處</h1>
-
-<form action="" method="get">
-  您的姓名<input type="text"><br/>
-  填入日期<input type="date" name="" id=""><br/>
-  想說的話<textarea name="" id="" cols="30" rows="10"></textarea><br/>
-  <input type="submit" value="確認">
-</form>
+<%= simple_form_for([@sitter, @comment]) do |form| %>
+  <%= form.input :sitter_id, as: :hidden, input_html: {value: @sitter.id} %>
+  <%= form.input :user_id, as: :hidden, input_html: {value: current_user.id} %>
+  <%= content_tag(:p, "#{@current_user.name}")%>
+  <%= content_tag(:p, "#{Time.now.to_date}")%>
+  <%= form.input :message, label: '想說的話', class: 'btn' %>
+  <%= form.submit %>
+<% end %>
 
 
 

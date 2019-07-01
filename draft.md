@@ -15,3 +15,6 @@ Payment
 
 Pet
 \$rails g model Pet size:integer user:references
+
+<!-- Comment
+$rails g model Comment sitter:references user:references message:text -->

@@ -1,15 +1,19 @@
 class OrdersController < ApplicationController
   include Payable
+  # include ApplicationHelper
   before_action :authenticate_user!
-
+  
   def index
     # byebug
-    @current_sitter = Sitter.find_by("name == '#{current_user.name}'")
-    if current_user.role == 'sitter'
-      @orders = @current_sitter.orders.all.page(params[:page]).per(5)
+    # @current_sitter = Sitter.find_by("name == '#{current_user.name}'")
+    if @current_sitter.nil?
+      @orders = Order.where("user_id = ?",current_user.id).page(params[:page]).per(5)
     else
-      @orders = current_user.orders.all.page(params[:page]).per(5)
+      @orders = Order.where("user_id = ? OR sitter_id = ?",current_user.id,@current_sitter.id).page(params[:page]).per(5)
     end
+    
+    # byebug
+    # @sitter = @orders.sitters.find_by(id:['sitter_id'])
   end
 
   def new
@@ -65,39 +69,39 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @current_sitter = Sitter.find_by("name == '#{current_user.name}'")
-    if current_user.role == 'sitter'
-      @order = @current_sitter.orders.find_by(id: params[:id])
+    # @current_sitter = Sitter.find_by("name == '#{current_user.name}'")
+
+    if @current_sitter.nil?
+      @orders = Order.where("user_id = ?",current_user.id).page(params[:page]).per(5)
     else
-      @order = current_user.orders.find_by(id: params[:id])
+      @orders = Order.where("user_id = ? OR sitter_id = ?",current_user.id,@current_sitter.id).page(params[:page]).per(5)
     end
   end
   
   def pending
-    # Time.now.strftime('%Y-%m-%d').to_s
-    @current_sitter = Sitter.find_by("name == '#{current_user.name}'")
-    if current_user.role == 'sitter'
-      @orders = @current_sitter.orders.where("pick_up > '#{Time.now.strftime('%Y-%m-%d').to_s}'").page(params[:page]).per(5)
+    # @current_sitter = Sitter.find_by("name == '#{current_user.name}'")
+    if @current_sitter.nil?
+      @orders = Order.where("user_id = ?",current_user.id).where("pick_up > '#{Time.now.strftime('%Y-%m-%d').to_s}'").page(params[:page]).per(5)
     else
-      @orders = current_user.orders.where("pick_up > '#{Time.now.strftime('%Y-%m-%d').to_s}'").page(params[:page]).per(5) 
+      @orders = Order.where("user_id = ? OR sitter_id = ?",current_user.id,@current_sitter.id).where("pick_up > '#{Time.now.strftime('%Y-%m-%d').to_s}'").page(params[:page]).per(5)
     end
   end
   
   def finish
-    @current_sitter = Sitter.find_by("name == '#{current_user.name}'")
-    if current_user.role == 'sitter'
-      @orders = @current_sitter.orders.where("pick_up < '#{Time.now.strftime('%Y-%m-%d').to_s}'").where(state: 'paid').page(params[:page]).per(5)
+    # @current_sitter = Sitter.find_by("name == '#{current_user.name}'")
+    if @current_sitter.nil?
+      @orders = Order.where("user_id = ?",current_user.id).where("pick_up < '#{Time.now.strftime('%Y-%m-%d').to_s}'").where(state: 'paid').page(params[:page]).per(5)
     else
-      @orders = current_user.orders.where("pick_up < '#{Time.now.strftime('%Y-%m-%d').to_s}'").where(state: 'paid').page(params[:page]).per(5) 
+      @orders = Order.where("user_id = ? OR sitter_id = ?",current_user.id,@current_sitter.id).where("pick_up < '#{Time.now.strftime('%Y-%m-%d').to_s}'").where(state: 'paid').page(params[:page]).per(5)
     end
   end
   
   def cancel
-    @current_sitter = Sitter.find_by("name == '#{current_user.name}'")
-    if current_user.role == 'sitter'
-      @orders = @current_sitter.orders.where(state: 'cancel').page(params[:page]).per(5) 
+    # @current_sitter = Sitter.find_by("name == '#{current_user.name}'")
+    if @current_sitter.nil?
+      @orders = Order.where("user_id = ?",current_user.id).where(state: 'cancel').page(params[:page]).per(5)
     else
-      @orders = current_user.orders.where(state: 'cancel').page(params[:page]).per(5) 
+      @orders = Order.where("user_id = ? OR sitter_id = ?",current_user.id,@current_sitter.id).where(state: 'cancel').page(params[:page]).per(5) 
     end
   end
 
@@ -108,6 +112,6 @@ class OrdersController < ApplicationController
   # def booking_date_params
   #   params.require(:booking_date).permit(:sitter_id, :date, :avaliable)
   # end
-
+  
   
 end

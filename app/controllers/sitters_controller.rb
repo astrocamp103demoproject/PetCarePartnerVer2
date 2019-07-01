@@ -5,10 +5,15 @@ class SittersController < ApplicationController
   def show
     @sitter = Sitter.find_by(id: params[:id])
     session[:current_sitter] = @sitter
-    
+
+    picture = Picture.where("sitter_id = ?",@sitter).limit(4)#只會拿到五張
+    @pic = picture.first  #第一個
+    @pictures = picture.offset(1)#第二個開始
+
     @booking_dates = @sitter.booking_dates.all
-    
-    # @current_sitter = Sitter.find_by("name == '#{current_user.name}'")
+    # byebug
+    # @current_sitter = Sitter.find_by("name== '#{current_user.name}'")
+    @comments = @sitter.comments.all
   end
 
   def edit
@@ -47,9 +52,9 @@ class SittersController < ApplicationController
     @sitter.name = current_user.name
     @sitter.avatar = current_user.avatar
 
-    User.update(role:'sitter')
     if @sitter.save
-      @current_sitter = Sitter.find_by("name == '#{current_user.name}'")
+      User.update(role:'sitter')
+      get_current_sitter
       redirect_to sitter_path(@current_sitter.id), notice:'恭喜你成為保母'
     else
       render :new
