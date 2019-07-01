@@ -45,7 +45,7 @@ gem 'rails_admin', '~> 1.4', '>= 1.4.2'
 gem 'paranoia', '~> 2.4', '>= 2.4.2'
 gem "braintree", "~> 2.96.0"
 gem 'figaro', '~> 1.1', '>= 1.1.1'
-gem 'pg', '~> 1.1', '>= 1.1.4'
+# gem 'pg', '~> 1.1', '>= 1.1.4'
 gem 'jquery-rails', '~> 4.1', '>= 4.1.1'
 gem 'aasm', '~> 5.0', '>= 5.0.5'
 gem 'bootstrap-sass', '~> 3.4.1'
@@ -65,8 +65,14 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.8', '>= 3.8.2'
   gem 'factory_bot_rails', '~> 5.0', '>= 5.0.2'
   gem 'timecop', '~> 0.9.1'
-end
+  gem 'pg', '~> 1.1', '>= 1.1.4'
 
+end
+group :production do 
+  # gem 'postgresql', '~> 1.0'
+  gem 'pg', '~> 1.1', '>= 1.1.4'
+
+end
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
@@ -74,6 +80,8 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  # gem 'pg', '~> 1.1', '>= 1.1.4'
+
 end
 
 group :test do

@@ -23,15 +23,22 @@
 }
 .order-info {
   display: flex;
+  align-items: center;
   margin: 10px auto;
   border: 1px solid #eee;
   width: 100%;
   max-width: 800px;
   a {
     text-decoration: none;
+    align-self: flex-start;
+  }
+  p {
+    // font-size: 16px;
+    line-height: 2;
   }
   img {
-    width: 250px;
+    width: 100%;
+    max-width: 250px;
   }
   .order-content {
     margin-left: 40px;
@@ -57,7 +64,9 @@ nav .pagination {
     text-align: left;
   }
   img {
-    width: 80%;
+    width: 100%;
+    max-width: 300px;
+    padding: 0 20px;
   }
   .detail-text p {
     padding-left: 15%;
@@ -68,16 +77,56 @@ nav .pagination {
   }
 }
 @media screen and (max-width: 992px) {
-  .order-info .order-content {
-    text-align: left;
-    margin: auto;
+  //index
+  .order-info {
+    .order-content {
+      text-align: left;
+      margin: auto;
+    }
+  }
+  //show
+  .order-section-top {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    .sitter-info {
+      p {
+        font-size: 18px;
+      }
+      .btn {
+        display: block;
+        width: 80px;
+        margin: auto;
+      }
+    }
+  }
+  .detail-text {
+    p {
+      padding-left: 0 !important;
+      span {
+        font-size: 14px;
+        width: 45% !important;
+      }
+    }
   }
 }
 @media screen and (max-width: 767px) {
+  //index
   .order-info {
     flex-flow: column wrap;
     img {
       margin: 10px 0;
+    }
+    a {
+      align-self: center;
+    }
+  }
+  //show
+  .detail-text {
+    p {
+      span {
+        width: 100% !important;
+      }
     }
   }
 }

@@ -4,7 +4,10 @@ class UsersController < ApplicationController
   def show
     @user = current_user
     @pets = current_user.pets.all
-    @pictures = Picture.where("sitter_id = ? OR user_id = ?",current_user.id,current_user.id).limit(5)#只會拿到四張
+    
+    picture = Picture.where("user_id = ?",params[:id]).limit(4)#只會拿到五張
+    @pic = picture.first  #第一個
+    @pictures = picture.offset(1)#第二個開始
     # byebug
   end
 
@@ -21,7 +24,7 @@ class UsersController < ApplicationController
   
   private
   def user_params
-    params.require(:user).permit(:name, :email, :address, :avatar, :pic, :latitude, :longitude)
+    params.require(:user).permit(:name, :email, :address, :latitude, :longitude, :avatar)
   end
 
 end

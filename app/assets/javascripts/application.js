@@ -22,7 +22,8 @@
 //= require become_sitter
 //= require calendar_color
 //= require kaminari_align
-//= require kaminari
+//= require search_es
+//= require picture_new
 //
 //google map
 //= require underscore-min

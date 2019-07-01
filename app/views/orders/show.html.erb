@@ -2,13 +2,13 @@
 <div class="order-detail">
   <div class="order-section-top">
     <div class="sitter-avatar">
-      <img src="<%= @order.sitter.avatar %>" alt="">
+      <%= image_tag @order.sitter.avatar_url(:thumb) %>
     </div>
     <div class="sitter-info">
       <h3>褓姆： <%= @order.sitter.name %></h3>
       <p>地址： <%= @order.sitter.address %></p>
       <p>email: <%= @order.sitter.email %></p>
-      <%= link_to '查看褓姆', sitter_path(@order.sitter), class: 'btn btn-info' %>
+      <%= link_to '查看褓姆', sitter_path(@order.sitter), class: 'btn' %>
     </div>
   </div>
   <hr>

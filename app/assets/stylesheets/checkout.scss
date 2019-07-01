@@ -1,5 +1,6 @@
 //order#new
 .sitter-checkout {
+  width: 100%;
   max-width: 800px;
   margin: 100px auto;
 
@@ -17,7 +18,7 @@
       border: 1px solid #eee;
       border-radius: 10px;
       .btn {
-        margin: 0 10% 10px 90%;
+        margin: 10px auto;
       }
       .check-item {
         padding: 10px;
@@ -31,6 +32,20 @@
         box-sizing: border-box;
         width: 50%;
         height: 300px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 992px) {
+  .sitter-checkout {
+    .sitter-checkout-container {
+      .new_order {
+        flex-flow: column wrap !important;
+        align-items: center;
+        .item-sitter-profile,
+        .item-payment {
+          width: 100% !important;
+        }
       }
     }
   }
