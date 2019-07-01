@@ -76,8 +76,9 @@
     <% end %>
   </div>
   <div class="comment">
-    <%= content_tag(:h3, '留言板') %>
-    <%= render 'shared/comment' %>
+    <%= content_tag(:h3, '過往評價') %>
+    <%= render file: 'comments/index' %>
+    
   </div>
 <% end %>
 <% if profile == @user %>

@@ -21,6 +21,16 @@ ActiveRecord::Schema.define(version: 2019_06_28_112701) do
     t.index ["sitter_id"], name: "index_booking_dates_on_sitter_id"
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.integer "sitter_id"
+    t.integer "user_id"
+    t.text "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["sitter_id"], name: "index_comments_on_sitter_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
   create_table "orders", force: :cascade do |t|
     t.integer "user_id"
     t.date "drop_off"

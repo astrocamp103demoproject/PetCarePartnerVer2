@@ -1,0 +1,11 @@
+<%= simple_form_for([@sitter, @comment]) do |form| %>
+  <%= form.input :sitter_id, as: :hidden, input_html: {value: @sitter.id} %>
+  <%= form.input :user_id, as: :hidden, input_html: {value: current_user.id} %>
+  <%= content_tag(:p, "#{@current_user.name}")%>
+  <%= content_tag(:p, "#{Time.now.to_date}")%>
+  <%= form.input :message, label: '想說的話', class: 'btn' %>
+  <%= form.submit %>
+<% end %>
+
+
+
