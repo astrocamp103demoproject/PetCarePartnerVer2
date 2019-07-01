@@ -16,3 +16,16 @@
   // transition: 0.3s;
 }
 // (#467302, #6ea61b)
+
+.footer {
+  line-height: 2.5;
+  text-align: center;
+  color: #fff;
+  font-size: 16px;
+  background-color: #ddd;
+}
+@media screen and (max-width: 767px) {
+  .footer {
+    font-size: 8px;
+  }
+}
