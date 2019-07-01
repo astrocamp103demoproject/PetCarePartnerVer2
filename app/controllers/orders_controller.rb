@@ -4,7 +4,6 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!
   
   def index
-    # byebug
     # @current_sitter = Sitter.find_by("name == '#{current_user.name}'")
     if @current_sitter.nil?
       @orders = Order.where("user_id = ?",current_user.id).page(params[:page]).per(5)
