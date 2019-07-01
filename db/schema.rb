@@ -10,10 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_28_024206) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+ActiveRecord::Schema.define(version: 2019_06_28_112701) do
 
   create_table "booking_dates", force: :cascade do |t|
     t.integer "sitter_id"
@@ -25,8 +22,8 @@ ActiveRecord::Schema.define(version: 2019_06_28_024206) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.bigint "sitter_id"
-    t.bigint "user_id"
+    t.integer "sitter_id"
+    t.integer "user_id"
     t.text "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -115,12 +112,4 @@ ActiveRecord::Schema.define(version: 2019_06_28_024206) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "booking_dates", "sitters"
-  add_foreign_key "comments", "sitters"
-  add_foreign_key "comments", "users"
-  add_foreign_key "orders", "users"
-  add_foreign_key "payments", "orders"
-  add_foreign_key "pets", "users"
-  add_foreign_key "pictures", "sitters"
-  add_foreign_key "pictures", "users"
 end
