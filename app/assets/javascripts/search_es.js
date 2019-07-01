@@ -1,6 +1,8 @@
 document.addEventListener('turbolinks:load', () => {
-  $('#search-error').hide()  
+
+  // $('#search-error').hide()  
     $('#btn-primary').click(function() {
+      // btnnnn.addEventListener('click',function(){
       //先判斷日期，再判斷貓狗，再判斷選擇寵物數量   
       if ( Drop_Off.value == "" || Pick_Up.value == "") {
         errorContent("請選擇日期")
@@ -38,9 +40,10 @@ document.addEventListener('turbolinks:load', () => {
     }
 
     function changeDate(){
+      
       Darr = Drop_Off.value.split('/')
       Parr = Pick_Up.value.split('/')
-      result = new Date(Darr[2],Darr[1],Darr[0]) - new Date(Parr[2],Parr[1],Parr[0])
+      result = ((new Date(Darr[2],Darr[0],Darr[1]) - new Date(Parr[2],Parr[0],Parr[1]))/ 60000 /24/60)
       return result
     }
     function petCount(){
@@ -49,4 +52,3 @@ document.addEventListener('turbolinks:load', () => {
     }
 })
   
-
