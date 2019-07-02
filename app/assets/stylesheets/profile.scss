@@ -84,9 +84,9 @@
       flex-wrap: wrap;
       overflow: hidden;
       // justify-content: center;
-      .profile-pic-nil{
+      .profile-pic-nil {
         text-align-last: left;
-        h3{
+        h3 {
           display: block;
           text-align: center;
         }
@@ -159,11 +159,20 @@
     }
   }
 
-  .profile-pic-wrap {
-    flex-flow: column wrap;
-    align-items: center;
-    .profile-pic-content {
-      justify-content: center;
+  .profile-pictures-content {
+    h3 {
+      margin: 10px 0;
+      margin-right: 0 !important;
+    }
+    .profile-pic-wrap {
+      flex-flow: column wrap;
+      align-items: center;
+      .profile-pic-nil {
+        text-align-last: center !important;
+      }
+      // .profile-pictures-content {
+      //   justify-content: center;
+      // }
     }
   }
   .section-top .info {
