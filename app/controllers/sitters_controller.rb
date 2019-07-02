@@ -7,9 +7,9 @@ class SittersController < ApplicationController
     session[:current_sitter] = @sitter
     @email_find_user = User.where("email = ?",@sitter.email).pluck(:id)
     # byebug
-    picture = Picture.where("user_id = ?",@email_find_user).limit(4)#只會拿到五張
+    picture = Picture.where("user_id = ?",@email_find_user)
     @pic = picture.first  #第一個
-    @pictures = picture.offset(1)#第二個開始
+    @pictures = picture#第二個開始
 
     @booking_dates = @sitter.booking_dates.all
     
@@ -17,6 +17,7 @@ class SittersController < ApplicationController
     @comments = @sitter.comments.all
     #設定日期
     @booking_date = BookingDate.new
+    
   end
 
   def edit

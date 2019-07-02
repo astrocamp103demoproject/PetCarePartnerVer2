@@ -124,6 +124,25 @@
             padding: 3px;
           }
         }
+        .pic-count{
+          width: 200px;
+          height: 200px;
+          background-color: black;
+          color: white;
+          opacity: .5;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          margin: auto;
+          text-align: center;
+          line-height: 200px;
+          font-size: 50px;
+          border-radius: 8px;
+          overflow: hidden;
+        }
+        
       }
     }
   }

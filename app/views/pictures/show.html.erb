@@ -1,12 +1,12 @@
 <div class="show-pic-wrap" >
     
     <span><%= link_to '回圖片集', user_pictures_path(@user), class: 'add-symbol' %></span>
-    
-    <div class="show-pic">
+    <div class="">
         <%= link_to '⇦',user_picture_path(@user,session['beforepic']), class: 'add-symbol' if session['beforepic'] != params[:id]%>
-        <%= image_tag @picture.pic.url %>
+        <div class="show-pic">
+            <%= image_tag @picture.pic.url %>
+        </div>
         <%= link_to '⇨',user_picture_path(@user,session['afterpic']), class: 'add-symbol' if session['afterpic'] != nil%>     
     </div>
-    
     
 </div>

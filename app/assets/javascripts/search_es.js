@@ -1,8 +1,5 @@
 document.addEventListener('turbolinks:load', () => {
-
-  // $('#search-error').hide()  
     $('#btn-primary').click(function() {
-      // btnnnn.addEventListener('click',function(){
       //先判斷日期，再判斷貓狗，再判斷選擇寵物數量   
       if ( Drop_Off.value == "" || Pick_Up.value == "") {
         errorContent("請選擇日期")

@@ -1,16 +1,13 @@
 //圖片列表
 .index-pictures-wrap {
   width: 100%;
-  .turn-back {
-    margin-right: 20px;
-  }
+  
   .index-pic-wrap {
-    // display: flex;
-    // flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
     // justify-content: center;
     margin: auto;
     .index-pic {
-      display: inline-block;
       width: 200px;
       height: 200px;
       margin: 5px;
@@ -26,18 +23,20 @@
 
 //個別圖片瀏覽
 .show-pic-wrap {
-  text-align: center;
+  text-align: left;
   span {
     a {
       display: inline-block;
+
       font-size: 20px;
       margin: 20px 0;
     }
   }
-  .show-pic {
+  
+  div{
     display: flex;
     justify-content: space-around;
-    align-items: center;
+    line-height: 800px;
     a {
       font-size: 40px;
       color: #72a603; //箭頭
@@ -47,16 +46,22 @@
       color: #4e5927;
       transition: 0.3s;
     }
+    .show-pic {
+      display: flex;
+      align-items: center;
+      width: 800px;
+      height: 800px;
+    
     // a:before {
     //   content: '';
     //   display: inline-block;
     //   height: 100%;
     //   // vertical-align: middle;
     // }
-    img {
-      width: 80%;
-      max-width: 400px;
-      // height: 100%;
+      img {
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 }
