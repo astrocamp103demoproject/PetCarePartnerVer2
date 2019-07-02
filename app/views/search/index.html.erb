@@ -6,7 +6,7 @@
   </div>
   </div>
   <%= render 'shared/error_content'%>
-  <%= form_tag('searches', method: 'patch') do %>
+  <%= form_tag('searches', method: 'get') do %>
     <div class="pet-type">
       <%= check_box_tag(:dog, 0) %>
       <%= label_tag(:dog, "Dog") %>

@@ -36,37 +36,32 @@
 
 <div class="profile-pictures-content">
   <h3>圖片集</h3>
+  <%= link_to '更多圖片', user_pictures_path(email_find_user), class: 'add-symbol' if find_first_pic(pictures) != -1%>
   <div class="profile-pic-wrap">
-  <!--sitter-->
-    <% if firstpic.nil? %>
-      <div class="profile-pic-nil">
-        <span><%= link_to '加入更多照片', new_user_picture_path(email_find_user), class: 'add-symbol',id:'new-pic'  if current_user && current_user.id == email_find_user %></span>  
-        <h3>目前沒有照片上傳</h3>
-      </div>
-    <%elsif pictures.nil?%>
-      <%= link_to '更多圖片', user_pictures_path(email_find_user), class: 'add-symbol' %>
-      <div class="profile-first-pic">
-          <%= link_to image_tag("#{firstpic.pic.thumb.url}"),user_picture_path(email_find_user,firstpic.id
-              ), class: 'add-symbol' %> 
-      </div> 
-    <%else%>
-      <%= link_to '更多圖片', user_pictures_path(email_find_user), class: 'add-symbol' %>
-      <div class="profile-first-pic">
-          <%= link_to image_tag("#{firstpic.pic.thumb.url}"),user_picture_path(email_find_user,firstpic.id
-              ), class: 'add-symbol' %> 
-      </div>
-      <div class="profile-pic-content">
-        <% pictures.each do |picture|%>
-          <div class="profile-pic">
-              <%= link_to image_tag("#{picture.pic.thumb.url}"), user_picture_path(email_find_user,picture.id), class: 'add-symbol' %> 
-          </div>
-        <%end%>
-      </div>  
-    <% end %>
-    
 
+    <!--sitter-->
+    <% if find_first_pic(pictures) != -1%>
+      <div class="profile-first-pic"> 
+          <%= link_to image_tag("#{find_first_pic(pictures).pic.thumb.url}" ),user_picture_path(email_find_user,firstpic.id
+              ), class: 'add-symbol' %> 
+      </div>
+    <%else%>
+      <span><%= link_to '加入更多照片', new_user_picture_path(email_find_user), class: 'add-symbol',id:'new-pic'  if current_user && current_user.id == email_find_user%></span>  
+    <%end%>
+    
+    <% if find_other_pictures(pictures) != -1%>
+      
+      <div class="profile-pic-content" id ="pictures-count" data-value="<%=pictures.count%>">
+          <% find_other_pictures(pictures).each do |picture|%>
+            <div class="profile-pic">
+                <%= link_to image_tag("#{picture.pic.thumb.url}"), user_picture_path(email_find_user,picture.id), class: 'picture' %> 
+            </div>
+          <%end%>
+      </div>
+    <%end%>
   </div>
 </div>
+
 <hr>
 <% if profile == @sitter %>
   <div class="square">

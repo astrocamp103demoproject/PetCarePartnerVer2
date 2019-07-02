@@ -21,8 +21,8 @@
 //= require become_sitter
 //= require calendar_color
 //= require kaminari_align
+//= require picture_wall
 //= require search_es
-//= require picture_new
 //= require turbolinks
 //
 //google map
