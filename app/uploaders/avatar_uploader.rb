@@ -14,7 +14,8 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+    # "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/for-seed"
   end
 # 指定圖片size (同時產生其他size :thumb, :medium)
 
@@ -31,7 +32,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url(*args)
   #   # For Rails 3.1+ asset pipeline compatibility:
-  #   # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
+  #   # ActionController::Base.helpers.asset_path("/images/iconfinder_Instagram_UI-17_2315585.png" + [version_name, "default.png"].compact.join('_'))
   
   #   "https://i.pravatar.cc/300?img=#{rand(1..50)}" + [version_name, "default.png"].compact.join('_')
   # end

@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+    before_action :authenticate_user!
     def index
         @sitter = Sitter.find_by(id: params["sitter_id"])
         @comments = @sitter.comments
@@ -13,7 +14,7 @@ class CommentsController < ApplicationController
         @sitter = Sitter.find_by(id: params["sitter_id"])
         @comment = Comment.new(comment_params)
         if @comment.save
-            redirect_to sitter_path(@sitter.id), notice: '留言成功'
+            redirect_to sitter_path(@sitter.id), notice: '已留下評價'
         end
     end
 

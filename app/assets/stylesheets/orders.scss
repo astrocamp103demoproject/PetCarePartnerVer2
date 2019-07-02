@@ -24,6 +24,7 @@
 .order-info {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   margin: 10px auto;
   border: 1px solid #eee;
   width: 100%;
@@ -43,6 +44,15 @@
   }
   .order-content {
     margin-left: 40px;
+  }
+  .order-link {
+    display: flex;
+    flex-flow: column wrap;
+    align-self: flex-start;
+    margin-right: 20px;
+    a {
+      margin: 10px 0;
+    }
   }
 }
 //kaminari
@@ -120,6 +130,9 @@ nav .pagination {
     }
     a {
       align-self: center;
+    }
+    .order-link {
+      margin: auto;
     }
   }
   //show

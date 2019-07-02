@@ -13,7 +13,7 @@ township_array =  ["臺北市中正區","臺北市大同區","臺北市中山區
     slogan = Faker::TvShows::GameOfThrones.quote
 
     price = Faker::Number.number(3)
-    avatar = "https://i.pravatar.cc/300?img=#{rand(1..50)}"
+    # avatar = "https://i.pravatar.cc/300?img=#{rand(1..50)}"
     number = rand(0..9)
     pet_limit = rand(1..5)
     square_meters = rand(20..50)

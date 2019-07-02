@@ -63,8 +63,19 @@
   }
   .comment {
     width: 54%;
+    // max-height: 600px;
     box-sizing: border-box;
     padding: 20px;
+    // overflow: scroll;
+    h3 {
+      margin-top: 0;
+    }
+    .comment-wrap {
+      max-height: 600px;
+      box-sizing: border-box;
+      // padding: 20px;
+      overflow: scroll;
+    }
   }
   //照片集
   .profile-pictures-content {
@@ -124,12 +135,12 @@
             padding: 3px;
           }
         }
-        .pic-count{
+        .pic-count {
           width: 200px;
           height: 200px;
           background-color: black;
           color: white;
-          opacity: .5;
+          opacity: 0.5;
           position: absolute;
           top: 0;
           left: 0;
@@ -142,7 +153,6 @@
           border-radius: 8px;
           overflow: hidden;
         }
-        
       }
     }
   }
@@ -214,5 +224,6 @@
   }
   .comment {
     width: 100% !important;
+    padding: 20px 0 !important;
   }
 }

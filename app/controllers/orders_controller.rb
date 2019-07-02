@@ -11,8 +11,9 @@ class OrdersController < ApplicationController
       @orders = Order.where("user_id = ? OR sitter_id = ?",current_user.id,@current_sitter.id).page(params[:page]).per(5)
     end
     
-    # byebug
-    # @sitter = @orders.sitters.find_by(id:['sitter_id'])
+    #render comment/new
+    @sitter = Sitter.find_by(id: params["sitter_id"])
+    @comment = Comment.new
   end
 
   def new

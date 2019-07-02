@@ -24,8 +24,10 @@
       <p>總金額： <%= (order.pick_up - order.drop_off).to_i * order.sitter.price %> 元</p>
       <p>付款日期： <%= order.created_at.to_date %></p>
     </div>
-    <%= link_to '查看細節', user_order_path(current_user, order) %>
-    <%= link_to '留下寶貴的評價', new_sitter_comment_path(order.sitter.id) %>
+    <div class="order-link">
+      <%= link_to '查看細節', user_order_path(current_user, order) %>
+      <%= link_to '留下評價', new_sitter_comment_path(order.sitter.id) if order.pick_up < Time.now.to_date %>
+    </div>
   </div>
   <% end %>
   <%= paginate @orders, outer_window: 3 %> 
