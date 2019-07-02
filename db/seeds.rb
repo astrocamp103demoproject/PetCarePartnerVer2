@@ -5,7 +5,7 @@ township_array =  ["臺北市中正區","臺北市大同區","臺北市中山區
 # array.each do |address_six_country| 
 
 
-1.times { 
+5.times { 
 #     #sitter
 
     email = Faker::Internet.email
@@ -18,10 +18,10 @@ township_array =  ["臺北市中正區","臺北市大同區","臺北市中山區
     pet_limit = rand(1..5)
     square_meters = rand(20..50)
 
-    Sitter.create(name: name ,email: email, password: '123456', slogan:slogan, address:"臺北市中正區", price:price, pet_limit: pet_limit,square_meters: square_meters)
+    Sitter.create(name: name ,email: email, password: '123456', slogan:slogan, address:"臺北市大安區", price:price, pet_limit: pet_limit,square_meters: square_meters)
 
     puts "."
-    User.create(name: name ,email: email, password: '123456', address:"臺北市中正區")
+    User.create(name: name ,email: email, password: '123456', address:"臺北市大安區")
     puts "."
     sitterid = Faker::Number.number(1)
 }
