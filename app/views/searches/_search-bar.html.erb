@@ -1,7 +1,7 @@
 <div class="search-bar">
     <div class="search-card">
       <h3>搜尋條件</h3>
-      <%= form_tag('searches', method: 'patch', class: 'bar-form') do %>
+      <%= form_tag('searches', method: 'get', class: 'bar-form') do %>
       <div class="pet-type">
         <%= check_box_tag(:dog, 0) %>
         <%= label_tag(:dog, "Dog") %>
