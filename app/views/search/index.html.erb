@@ -18,8 +18,12 @@
       <%= select_tag(:township_id, raw("<option value="">鄉鎮市區</option>"),class:'city-select') %>
     </div>
     <div class="select-date">
-      <%= text_field_tag 'Drop_Off', nil, :'data-provide' =>'datepicker', placeholder:'送出日期',autocomplete:"off", class: 'datepick' %>
-      <%= text_field_tag 'Pick_Up', nil, :'data-provide' =>'datepicker', placeholder:'接回日期',autocomplete:"off", class: 'datepick' %>
+      <div class="datepick-wrap">
+        <%= text_field_tag 'Drop_Off', nil, :'data-provide' =>'datepicker', placeholder:'送出日期',autocomplete:"off", class: 'datepick' %><%= image_tag 'iconfinder_calendar_299092.png', class: 'calendar-icon' %>
+      </div>
+      <div class="datepick-wrap">
+        <%= text_field_tag 'Pick_Up', nil, :'data-provide' =>'datepicker', placeholder:'接回日期',autocomplete:"off", class: 'datepick' %><%= image_tag 'iconfinder_calendar_299092.png', class: 'calendar-icon' %>
+      </div>
     </div>
     <div class="pet-count">
       <div class="xs">

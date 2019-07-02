@@ -1,11 +1,10 @@
 
 <div class="section-top">
   <div class="avatar">
-    <% if current_user %>
-      <%= image_tag profile.avatar_url(:thumb), class: 'avatar-img' if current_user.email == profile.email %>
-      <%= image_tag profile.avatar_url(:thumb), class: 'avatar-img' if current_user.email != profile.email %>
-    <%else%>
-      <%= image_tag profile.avatar_url(:thumb), class: 'avatar-img'%>
+    <% if current_user && current_user.email == profile.email %>
+      <%= image_tag current_user.avatar_url(:thumb), class: 'avatar-img' if current_user.avatar? %>
+    <% else %>
+      <%= image_tag profile.avatar_url(:thumb), class: 'avatar-img' %>
     <% end %>
   </div>
   <div class="info">
@@ -39,6 +38,7 @@
   <h3>圖片集</h3>
   <%= link_to '更多圖片', user_pictures_path(email_find_user), class: 'add-symbol' if find_first_pic(pictures) != -1%>
   <div class="profile-pic-wrap">
+
     <!--sitter-->
     <% if find_first_pic(pictures) != -1%>
       <div class="profile-first-pic"> 
