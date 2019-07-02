@@ -83,7 +83,14 @@
       display: flex;
       flex-wrap: wrap;
       overflow: hidden;
-      justify-content: center;
+      // justify-content: center;
+      .profile-pic-nil{
+        text-align-last: left;
+        h3{
+          display: block;
+          text-align: center;
+        }
+      }
       .profile-first-pic {
         width: 100%;
         max-width: 400px;

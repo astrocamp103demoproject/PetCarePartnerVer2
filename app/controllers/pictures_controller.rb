@@ -1,5 +1,5 @@
 class PicturesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!,except: [:index]
   def index
     @user = User.find_by(id: params[:user_id])
     # byebug

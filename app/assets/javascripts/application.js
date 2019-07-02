@@ -12,7 +12,6 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require places
 //= require 'jquery'
 //= require jquery_ujs
@@ -24,6 +23,7 @@
 //= require kaminari_align
 //= require search_es
 //= require picture_new
+//= require turbolinks
 //
 //google map
 //= require underscore-min

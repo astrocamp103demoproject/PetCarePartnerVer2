@@ -1,44 +1,56 @@
+
 <div class="section-top">
   <div class="avatar">
-    <% if current_user.email == profile.email %>
-    <%= image_tag current_user.avatar_url(:thumb), class: 'avatar-img' if current_user.avatar? %>
+    <% if current_user && current_user.email == profile.email %>
+      <%= image_tag current_user.avatar_url(:thumb), class: 'avatar-img' if current_user.avatar? %>
     <% else %>
-    <%= image_tag profile.avatar_url(:thumb), class: 'avatar-img' %>
+      <%= image_tag profile.avatar_url(:thumb), class: 'avatar-img' %>
     <% end %>
   </div>
   <div class="info">
+    <% if current_user %>
+      <%= link_to '編輯', edit_user_path(current_user), class: 'btn btn-edit l-show' if profile == @user %>
+      <%= link_to '編輯', edit_sitter_path(@sitter), class: 'btn btn-edit l-show' if profile == @sitter && current_user.email == profile.email %>
+    <% end %>
 
-    <%= link_to '編輯', edit_user_path(current_user), class: 'btn btn-edit l-show' if profile == @user %>
-    <%= link_to '編輯', edit_sitter_path(@sitter), class: 'btn btn-edit l-show' if profile == @sitter && current_user.email == profile.email %>
     <%= content_tag(:h3, profile.name) %>
-    <%= link_to '編輯', edit_user_path(current_user), class: 'btn btn-edit l-hide' if profile == @user %>
-    <%= link_to '編輯', edit_sitter_path(@sitter), class: 'btn btn-edit l-hide' if profile == @sitter && current_user.email == profile.email %>
+
+    <% if current_user %>
+      <%= link_to '編輯', edit_user_path(current_user), class: 'btn btn-edit l-hide' if profile == @user %>
+      <%= link_to '編輯', edit_sitter_path(@sitter), class: 'btn btn-edit l-hide' if profile == @sitter && current_user.email == profile.email %>
+    <%end%>
 
     <%= content_tag(:p, profile.address) if profile == @sitter %>
     <%= content_tag(:p, profile.email) %>
     <%= content_tag(:p, profile.slogan, class: 'slogan') if profile == @sitter %>
     <%= content_tag(:p, "$ #{profile.price} /每晚", class:'per-price') if profile == @sitter %>
 
-    <%= link_to '預訂付款', new_user_order_path(current_user), class: 'btn btn-booking' if profile == @sitter && current_user.email != profile.email %>
-
+    <% if current_user %>
+      <%= link_to '預訂付款', new_user_order_path(current_user), class: 'btn btn-booking' if profile == @sitter && current_user.email != profile.email %>
+    <% else %>
+      <%= link_to '預訂付款', user_session_path, class: 'btn btn-booking' %>
+    <%end%>
   </div>
 </div>
 <hr>
 
 <div class="profile-pictures-content">
   <h3>圖片集</h3>
-  <%= link_to '更多圖片', user_pictures_path(email_find_user), class: 'add-symbol' %>
   <div class="profile-pic-wrap">
   <!--sitter-->
-  
     <% if firstpic.nil? %>
+      <div class="profile-pic-nil">
+        <span><%= link_to '加入更多照片', new_user_picture_path(email_find_user), class: 'add-symbol',id:'new-pic'  if current_user && current_user.id == @user.id%></span>  
+        <h3>目前沒有照片上傳</h3>
+      </div>
     <%elsif pictures.nil?%>
+      <%= link_to '更多圖片', user_pictures_path(email_find_user), class: 'add-symbol' %>
       <div class="profile-first-pic">
-        
           <%= link_to image_tag("#{firstpic.pic.thumb.url}"),user_picture_path(email_find_user,firstpic.id
               ), class: 'add-symbol' %> 
       </div> 
     <%else%>
+      <%= link_to '更多圖片', user_pictures_path(email_find_user), class: 'add-symbol' %>
       <div class="profile-first-pic">
           <%= link_to image_tag("#{firstpic.pic.thumb.url}"),user_picture_path(email_find_user,firstpic.id
               ), class: 'add-symbol' %> 
@@ -50,8 +62,9 @@
           </div>
         <%end%>
       </div>  
+    <% end %>
     
-<% end %>
+
   </div>
 </div>
 <hr>
@@ -61,22 +74,26 @@
       <%= content_tag(:p, "空間坪數： #{profile.square_meters} 平方公尺") %>
       <%= content_tag(:p, "最大收容數： #{profile.pet_limit} 隻") %>
     </div>
-    <% if current_user.name == profile.name %>
-    <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal">設定日期</button>
+
+    <% if current_user && current_user.name == profile.name%>
+      <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal">設定日期</button>
     <% end %>
+
     <%= month_calendar events: @booking_dates do |date, booking_dates| %>
       <%= date.day %>
       <% booking_dates.each do |booking_date| %>
-      <div>
-        <% if booking_date.available == 'booked' %>
-          <p class="booked">已預訂</p>
-        <% elsif booking_date.available == 'closure' %>
-          <p class="closure">不開放</p>
-          <%= link_to '開放預訂', sitter_booking_date_path(profile, booking_date), method: 'delete', class: 'open-date' if current_user.name == profile.name %>
-        <% end %>
-      </div>
+        <div>
+          <% if booking_date.available == 'booked' %>
+            <p class="booked">已預訂</p>
+          <% elsif booking_date.available == 'closure' %>
+            <p class="closure">不開放</p>
+            <% if current_user %>
+              <%= link_to '開放預訂', sitter_booking_date_path(profile, booking_date), method: 'delete', class: 'open-date' if current_user.name == profile.name %>
+            <%end%>
+          <% end %>
+        </div>
       <% end %>
-    <% end %>
+  <% end %>
   </div>
   <div class="comment">
     <%= content_tag(:h3, '過往評價') %>
