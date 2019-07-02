@@ -40,7 +40,7 @@
   <!--sitter-->
     <% if firstpic.nil? %>
       <div class="profile-pic-nil">
-        <span><%= link_to '加入更多照片', new_user_picture_path(email_find_user), class: 'add-symbol',id:'new-pic'  if current_user && current_user.id == @user.id%></span>  
+        <span><%= link_to '加入更多照片', new_user_picture_path(email_find_user), class: 'add-symbol',id:'new-pic'  if current_user && current_user.id == email_find_user %></span>  
         <h3>目前沒有照片上傳</h3>
       </div>
     <%elsif pictures.nil?%>
