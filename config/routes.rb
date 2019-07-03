@@ -30,14 +30,6 @@ Rails.application.routes.draw do
     resources :comments, only: [:index, :new, :create]
     resources :pictures, only: [ :index,:show, :new, :create, :destroy]
 
-    resources :orders, only: [:index] do
-      collection do
-        get :pending
-        get :finish
-        get :cancel
-      end
-    end
-
   end
 
 end

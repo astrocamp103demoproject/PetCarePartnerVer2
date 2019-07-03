@@ -85,7 +85,7 @@ class SearchesController < ApplicationController
         :height => "32"
        })
       marker.title   gmap.name
-      marker.json({ :id => gmap.id,:email => gmap.email })
+      marker.json({ :id => gmap.id,:email => gmap.email,:price => gmap.price })
     end
     
   end

@@ -22,7 +22,6 @@
       display: none;
     }
 
-    
     .info {
       display: inline-block;
       width: 100%;
@@ -91,6 +90,7 @@
     .add-symbol {
       display: inline-block;
       font-size: 18px;
+      margin: 0 10px;
     }
     .profile-pic-wrap {
       display: flex;
@@ -194,9 +194,10 @@
     h3 {
       margin: 10px 0;
       margin-right: 0 !important;
-      
     }
-    
+    // .add-symbol {
+    //   display: block !important;
+    // }
     .profile-pic-wrap {
       flex-flow: column wrap;
       align-items: center;
@@ -228,13 +229,13 @@
     padding: 20px 0 !important;
   }
 }
-.sitter-edit-wrap{
+.sitter-edit-wrap {
   display: flex;
-  
+
   align-items: center;
   flex-direction: column;
-  .sitter-edit{
+  .sitter-edit {
     width: 300px;
-    margin: 0 10% ;
+    margin: 0 10%;
   }
 }
