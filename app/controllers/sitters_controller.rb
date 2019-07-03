@@ -20,9 +20,9 @@ class SittersController < ApplicationController
 
   def update
     # @sitter.address = address_connect
-    
     if @sitter.update(sitter_params ) && @sitter.update(:address => address_connect)
-      User.update(name:params[:name])
+      User.where("email = ?",@sitter.email).update(name: params[:sitter][:name])
+      # binding.pry
       flash[:notice] = '更新成功'
       redirect_to sitter_path
     else
@@ -57,7 +57,7 @@ class SittersController < ApplicationController
   private
   def sitter_params
     # byebug
-    params.require(:sitter).permit( :slogan, :price, :square_meters, :pet_limit, :date, :available, :pic, :avatar)
+    params.require(:sitter).permit( :name, :slogan, :price, :square_meters, :pet_limit, :date, :available, :pic, :avatar)
   end
   def become_sitter_form
     params.permit( :slogan, :price, :square_meters, :pet_limit, :avatar, :name)
