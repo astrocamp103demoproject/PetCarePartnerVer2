@@ -21,7 +21,9 @@ class SittersController < ApplicationController
   def update
     # @sitter.address = address_connect
     if @sitter.update(sitter_params ) && @sitter.update(:address => address_connect)
-      User.where("email = ?",@sitter.email).update(name: params[:sitter][:name])
+      user = User.where("email = ?",@sitter.email)
+      user.update(name: params[:sitter][:name])
+      user.update(avatar: params[:sitter][:avatar])
       # binding.pry
       flash[:notice] = '更新成功'
       redirect_to sitter_path

@@ -2,15 +2,11 @@ class PicturesController < ApplicationController
   before_action :authenticate_user!,except: [:index,:show]
   def index
     @user = User.find_by(id: params[:user_id])
-    # byebug
-    # @sitter = Sitter.find_by(id: params[:sitter_id])
   end
   def show
     @user = User.find_by(id: params[:user_id])
     next_pic
-    
     @picture = Picture.find(params[:id])#找單張圖片
-    
     # byebug
   end
   def new
@@ -26,7 +22,14 @@ class PicturesController < ApplicationController
     end
     # byebug
   end
-
+  def destroy
+    @picture = Picture.find(params[:id])
+    if @picture.destroy 
+      redirect_to user_pictures_path(params[:user_id]), notice: '圖片刪除成功'
+    else
+      render :index
+    end
+  end
   private
   def picture_params
     params.require(:picture).permit( :pic, :user_id)

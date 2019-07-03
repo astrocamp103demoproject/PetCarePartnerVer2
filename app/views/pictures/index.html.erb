@@ -13,10 +13,11 @@
           <div class="index-pic">
               <%= link_to image_tag("#{picture.pic.thumb.url}"),user_picture_path(@user,picture
               ), class: 'add-symbol'  %>
-                             
+              <%= link_to  "✘", user_picture_path(params[:user_id],picture) , method: 'DELETE', data: { confirm: '確認刪除？'}, class: 'd-pic' if current_user && @user.email == current_user.email%>
           </div>
       <%end%>
   </div>
+
   
         
 </div>
