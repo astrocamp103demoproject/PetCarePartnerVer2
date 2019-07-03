@@ -12,7 +12,8 @@
       <% @user.pictures.each do |picture|%>
           <div class="index-pic">
               <%= link_to image_tag("#{picture.pic.thumb.url}"),user_picture_path(@user,picture
-              ), class: 'add-symbol'  %>                
+              ), class: 'add-symbol'  %>
+                              
           </div>
       <%end%>
   </div>
