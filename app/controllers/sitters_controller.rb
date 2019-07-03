@@ -1,48 +1,35 @@
 class SittersController < ApplicationController
   before_action :authenticate_user!, except: [:index,:show]
-  
+  before_action :find_sitter,only: [:show, :edit, :update]
 
   def show
-    @sitter = Sitter.find_by(id: params[:id])
     session[:current_sitter] = @sitter
-    @email_find_user = User.where("email = ?",@sitter.email).pluck(:id)
-    # byebug
-    picture = Picture.where("user_id = ?",@email_find_user)
-    @pic = picture.first  #第一個
-    @pictures = picture#第二個開始
-
-    @booking_dates = @sitter.booking_dates.all
+    @email_find_user = User.semail_to_uemail(@sitter.email)
+    @pictures = Picture.where("user_id = ?",@email_find_user)
     
-    # @current_sitter = Sitter.find_by("name== '#{current_user.name}'")
+    @booking_dates = @sitter.booking_dates.all
     @comments = @sitter.comments.all
     #設定日期
     @booking_date = BookingDate.new
+    # byebug
     
   end
 
   def edit
-    @sitter = Sitter.find_by(id: params[:id])
-    # @booking_date = BookingDate.new
-    # @pictures = @sitter.pictures.new(:user_id => )
-    
   end
 
   def update
-    @sitter = Sitter.find_by(id: params[:id])
-
-    # @booking_date = BookingDate.new(booking_date_params)
-    # @booking_date.available = false
-    
-    if @sitter.update(sitter_params)
-      
-      # byebug
-      # @booking_date.save
+    # @sitter.address = address_connect
+    if @sitter.update(sitter_params ) && @sitter.update(:address => address_connect)
+      User.where("email = ?",@sitter.email).update(name: params[:sitter][:name])
+      # binding.pry
       flash[:notice] = '更新成功'
       redirect_to sitter_path
     else
       render :edit
     end
   end
+  
   def new
     @sitter = Sitter.new
   end
@@ -70,15 +57,18 @@ class SittersController < ApplicationController
   private
   def sitter_params
     # byebug
-    params.require(:sitter).permit( :address, :slogan, :price, :square_meters, :pet_limit, :date, :available, :pic, :avatar)
+    params.require(:sitter).permit( :name, :slogan, :price, :square_meters, :pet_limit, :date, :available, :pic, :avatar)
   end
   def become_sitter_form
-    params.permit( :slogan, :price, :square_meters, :pet_limit)
+    params.permit( :slogan, :price, :square_meters, :pet_limit, :avatar, :name)
   end
   def address_connect
     TaiwanCity.get(params[:city_id])+TaiwanCity.get(params[:township_id])+params[:address]
   end
   def booking_date_params
     params.require(:booking_date).permit(:sitter_id, :date)
+  end
+  def find_sitter
+    @sitter = Sitter.find_by(id: params[:id])
   end
 end

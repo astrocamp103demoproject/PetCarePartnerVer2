@@ -30,12 +30,13 @@ class AvatarUploader < CarrierWave::Uploader::Base
     process resize_to_fill: [400,400]
   end
   # Provide a default URL as a default if there hasn't been a file uploaded:
-  # def default_url(*args)
-  #   # For Rails 3.1+ asset pipeline compatibility:
-  #   # ActionController::Base.helpers.asset_path("/images/iconfinder_Instagram_UI-17_2315585.png" + [version_name, "default.png"].compact.join('_'))
-  
-  #   "https://i.pravatar.cc/300?img=#{rand(1..50)}" + [version_name, "default.png"].compact.join('_')
-  # end
+  def default_url(*args)
+    # For Rails 3.1+ asset pipeline compatibility:
+    # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
+    
+    # "https://i.pravatar.cc/300?img=#{rand(1..50)}" + [version_name, "default.png"].compact.join('_')
+    "https://5x-pet-collage.s3-ap-northeast-1.amazonaws.com/uploads/picture/pic/for-seed/default_user"+ [version_name, ".png"].compact.join('_')
+  end
 
   # Process files as they are uploaded:
   # process scale: [200, 300]

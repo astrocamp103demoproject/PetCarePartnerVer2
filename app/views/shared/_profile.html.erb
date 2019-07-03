@@ -1,11 +1,7 @@
 
 <div class="section-top">
-  <div class="avatar">
-    <% if current_user && current_user.email == profile.email %>
-      <%= image_tag current_user.avatar_url(:thumb), class: 'avatar-img' if current_user.avatar? %>
-    <% else %>
-      <%= image_tag profile.avatar_url(:thumb), class: 'avatar-img' %>
-    <% end %>
+  <div class="avatar">  
+    <%= image_tag("#{profile.avatar_url(:thumb)}",class:"avatar-img") %> 
   </div>
   <div class="info">
     <% if current_user %>
@@ -37,20 +33,17 @@
 <div class="profile-pictures-content">
   <h3>圖片集</h3>
   <%= link_to '更多圖片', user_pictures_path(email_find_user), class: 'add-symbol' if find_first_pic(pictures) != -1%>
+  <span><%= link_to '加入更多照片', new_user_picture_path(email_find_user), class: 'add-symbol',id:'new-pic'  if current_user && current_user.id == email_find_user%></span>  
   <div class="profile-pic-wrap">
-
-    <!--sitter-->
     <% if find_first_pic(pictures) != -1%>
       <div class="profile-first-pic"> 
-          <%= link_to image_tag("#{find_first_pic(pictures).pic.thumb.url}" ),user_picture_path(email_find_user,firstpic.id
+          <%= link_to image_tag("#{find_first_pic(pictures).pic.thumb.url}" ),user_picture_path(email_find_user,find_first_pic(pictures).id
               ), class: 'add-symbol' %> 
       </div>
     <%else%>
-      <span><%= link_to '加入更多照片', new_user_picture_path(email_find_user), class: 'add-symbol',id:'new-pic'  if current_user && current_user.id == email_find_user%></span>  
+      <h3>目前沒有圖片</h3>
     <%end%>
-    
     <% if find_other_pictures(pictures) != -1%>
-      
       <div class="profile-pic-content" id ="pictures-count" data-value="<%=pictures.count%>">
           <% find_other_pictures(pictures).each do |picture|%>
             <div class="profile-pic">
@@ -82,14 +75,12 @@
             <p class="booked">已預訂</p>
           <% elsif booking_date.available == 'closure' %>
             <p class="closure">不開放</p>
-            <% if current_user %>
-              <%= link_to '開放預訂', sitter_booking_date_path(profile, booking_date), method: 'delete', class: 'open-date' if current_user.name == profile.name %>
-            <%end%>
+            <%= link_to '開放預訂', sitter_booking_date_path(profile, booking_date), method: 'delete', class: 'open-date' if current_user && current_user.name == profile.name %>
           <% end %>
         </div>
       <% end %>
-  <% end %>
   </div>
+  <% end %>
   <div class="comment">
     <%= content_tag(:h3, '飼主評論') %>
     <div class="comment-wrap">
@@ -98,27 +89,26 @@
     
   </div>
 <% end %>
-<% if profile == @user %>
-  <%= render 'shared/petcard' %>
-<% end %>
+
+<%= render 'shared/petcard' if profile == @user %>
 
 
 <% if profile == @sitter %>
 <!--modal-->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">無法服務的日期</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <%= render file: 'booking_dates/new' ,sitter: @sitter%>
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">無法服務的日期</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <%= render file: 'booking_dates/new' ,sitter: @sitter%>
+        </div>
       </div>
     </div>
   </div>
-</div>
 <!---->
 <%end%>

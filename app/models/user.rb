@@ -12,5 +12,7 @@ class User < ApplicationRecord
   has_many :orders
   has_many :comments
   has_many :pictures
-  
+
+  scope :semail_to_uemail,->(semail){ where("email = ?",semail).pluck(:id) }
+
 end
