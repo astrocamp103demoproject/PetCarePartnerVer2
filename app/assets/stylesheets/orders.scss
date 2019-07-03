@@ -6,6 +6,20 @@
 .order-type {
   text-align: center;
   margin: 20px 0;
+  .order-user-type,
+  .order-status {
+    margin: 10px 0;
+  }
+  .order-user-type {
+    a {
+      color: #777 !important;
+      transition: 0.3s;
+    }
+    a:hover {
+      color: #72a603 !important;
+      transition: 0.3s;
+    }
+  }
   li {
     display: inline-block;
     a {
@@ -24,6 +38,7 @@
 .order-info {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   margin: 10px auto;
   border: 1px solid #eee;
   width: 100%;
@@ -43,6 +58,15 @@
   }
   .order-content {
     margin-left: 40px;
+  }
+  .order-link {
+    display: flex;
+    flex-flow: column wrap;
+    align-self: flex-start;
+    margin-right: 20px;
+    a {
+      margin: 10px 0;
+    }
   }
 }
 //kaminari
@@ -120,6 +144,9 @@ nav .pagination {
     }
     a {
       align-self: center;
+    }
+    .order-link {
+      margin: auto;
     }
   }
   //show

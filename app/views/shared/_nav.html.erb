@@ -56,6 +56,7 @@
             <%= link_to '個人資料', user_path(current_user), class: 'dropdown-item' %>
             <%= link_to '我的訂單', user_orders_path(current_user), class: 'dropdown-item' %>
         <% end %>
+        <%= link_to '我的訂單', user_orders_path(current_user), class: 'dropdown-item' %>
         <%= link_to "登出", destroy_user_session_path, method: "delete", class: 'dropdown-item' %>
     <% else %>
         <%= link_to '登入', new_user_session_path %>
