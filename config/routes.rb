@@ -28,7 +28,7 @@ Rails.application.routes.draw do
     resources :booking_dates, only: [:new, :create, :destroy]
     # resources :pictures, only: [:show, :new, :create, :destroy]
     resources :comments, only: [:index, :new, :create]
-    resources :pictures, only: [ :index,:show, :new, :create, :destroy]
+    # resources :pictures, only: [ :index,:show, :new, :create, :destroy]
 
   end
 

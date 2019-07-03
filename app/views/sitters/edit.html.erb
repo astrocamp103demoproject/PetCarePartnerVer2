@@ -4,20 +4,18 @@
         <%= simple_form_for @sitter do |form| %>
             <%= form.input :name, label: '暱稱' %>
             <%= form.input :avatar, label: '頭貼' %>
-
+            <%= form.input :price, label: '每晚價位' %>
+            <%= form.input :square_meters, label: '空間總坪數' %>
+            <%= form.input :pet_limit, label: '允許寵物隻數' %>
+            <%= form.input :slogan, label: '想說的話' %>
+            <%= form_tag(@sitter, method: 'patch', class: 'bar-form') do %>
                 <div class="city-group">
                     <p>提供住宿地址：</p>
                     <p><%= select_tag(:city_id, options_for_select(TaiwanCity.list),prompt: "縣市",class:'city-select') %>
                         <%= select_tag(:township_id, raw("<option value="">鄉鎮市區</option>"),class:'city-select') %></p>
                     <p><%= text_field_tag :address, nil, placeholder:'請輸入街道地址' %><span><%= '地址不得空白' if @sitter.errors[:address].any? %></span></p> 
                 </div>
-            
-            <%= form.input :price, label: '每晚價位' %>
-            <%= form.input :square_meters, label: '空間總坪數' %>
-            <%= form.input :pet_limit, label: '允許寵物隻數' %>
-            <%= form.input :slogan, label: '想說的話' %>
-            <%= form_tag(@sitter, method: 'patch', class: 'bar-form') do %>
-            <%= form.button :submit, '送出', class: '.btn' %>
+                <%= form.button :submit, '送出', class: '.btn' %>
             <% end %>
         <% end %>
     </div>

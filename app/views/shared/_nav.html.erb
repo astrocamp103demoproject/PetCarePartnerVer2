@@ -20,7 +20,7 @@
         <% if user_signed_in? %>
             <% if current_user.role == "sitter" %>
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <%= "Hi, #{current_user.name}" %><%= image_tag @current_sitter.avatar_url(:thumb), class: "avatar-img" if @current_sitter.avatar? %>
+                <%= "Hi, #{current_user.name}" %><%= image_tag current_user.avatar_url(:thumb), class: "avatar-img" if current_user.avatar? %>
             </a>
             <% else %>
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -50,16 +50,13 @@
       <p><%= "Hi, #{current_user.name}" %></p>
         <% if current_user.role == "sitter" %>
             <%= link_to '個人資料', sitter_path(@current_sitter.id), class: 'dropdown-item' %>
-            <p><%= link_to '我的訂單', user_orders_path(current_user), class: 'dropdown-item' %><%=@current_sitter.orders.count if @current_sitter.orders.count > 0%></p>
+            <%= link_to '我的訂單', user_orders_path(current_user), class: 'dropdown-item' %>
         <% else %>  
             <%= link_to '成為褓姆', sitters_path, class: 'dropdown-item' %>
             <%= link_to '個人資料', user_path(current_user), class: 'dropdown-item' %>
-            <p><%= link_to '我的訂單', user_orders_path(current_user), class: 'dropdown-item' %><%=current_user.orders.count if current_user.orders.count > 0%></p>
+            <%= link_to '我的訂單', user_orders_path(current_user), class: 'dropdown-item' %>
         <% end %>
-<<<<<<< HEAD
         <%= link_to '我的訂單', user_orders_path(current_user), class: 'dropdown-item' %>
-=======
->>>>>>> 660478c90dc80348b68047d7b6830f271017d3b1
         <%= link_to "登出", destroy_user_session_path, method: "delete", class: 'dropdown-item' %>
     <% else %>
         <%= link_to '登入', new_user_session_path %>

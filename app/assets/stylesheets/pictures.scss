@@ -13,6 +13,17 @@
       width: 200px;
       height: 200px;
       margin: 5px;
+      .d-pic{
+        font-size: 30px;
+        position: relative;
+        color: white;
+        font-weight: normal;
+        bottom: 200px;
+        left: 170px;
+      }
+      .d-pic:hover{
+        color: #72a603;
+      }
       a {
         img {
           width: 100%;
