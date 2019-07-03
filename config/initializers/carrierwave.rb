@@ -3,17 +3,16 @@
     config.fog_provider = 'fog/aws'                        # required
     config.fog_credentials = {
       provider:              'AWS',                        # required
-      aws_access_key_id:     'aws_access_key_id' ,                        
-      aws_secret_access_key: 'aws_secret_access_key',                        
+      aws_access_key_id:     ENV["aws_access_key_id"] ,                        
+      aws_secret_access_key: ENV["aws_secret_access_key"],                        
       host: 				   "s3-ap-northeast-1.amazonaws.com", 
       region:                "ap-northeast-1" 
     }
-    config.fog_directory  = '5x-pet-collage'           # required
+    config.fog_directory  = ENV['bucket_name']            # required
                        # required unless using use_iam_profile
   # optional, defaults to {}
   end
 #  end
-
 
 # CarrierWave.configure do |config|
 #   config.fog_provider = 'fog/aws'                        # required

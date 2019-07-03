@@ -4,10 +4,7 @@ class UsersController < ApplicationController
   def show
     @user = current_user
     @pets = current_user.pets.all
-    
-    picture = Picture.where("user_id = ?",params[:id]).limit(4)#只會拿到五張
-    @pic = picture.first  #第一個
-    @pictures = picture.offset(1)#第二個開始
+    @pictures = Picture.where("user_id = ?",params[:id])
     # byebug
   end
 

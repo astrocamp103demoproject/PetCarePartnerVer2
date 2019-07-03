@@ -13,15 +13,15 @@ township_array =  ["臺北市中正區","臺北市大同區","臺北市中山區
     slogan = Faker::TvShows::GameOfThrones.quote
 
     price = Faker::Number.number(3)
-    avatar = "https://i.pravatar.cc/300?img=#{rand(1..50)}"
+    # avatar = "https://i.pravatar.cc/300?img=#{rand(1..50)}"
     number = rand(0..9)
     pet_limit = rand(1..5)
     square_meters = rand(20..50)
 
-    Sitter.create(name: name ,email: email, password: '123456', slogan:slogan, address:"臺北市中正區", price:price, pet_limit: pet_limit,square_meters: square_meters)
+    Sitter.create( name: name ,email: email, password: '123456', slogan:slogan, address:"臺北市中正區", price:price, pet_limit: pet_limit,square_meters: square_meters)
 
     puts "."
-    User.create(name: name ,email: email, password: '123456', address:"臺北市中正區")
+    User.create( name: name ,email: email, password: '123456', address:"臺北市中正區")
     puts "."
     sitterid = Faker::Number.number(1)
 }
