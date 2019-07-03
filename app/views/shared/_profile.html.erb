@@ -33,7 +33,7 @@
 <div class="profile-pictures-content">
   <h3>圖片集</h3>
 
-  <%= link_to '檢視圖片', user_pictures_path(email_find_user), class: 'add-symbol' if find_first_pic(pictures) != -1%>
+  <%= link_to '看所有照片', user_pictures_path(email_find_user), class: 'add-symbol' if find_first_pic(pictures) != -1%>
   <span><%= link_to '新增照片', new_user_picture_path(email_find_user), class: 'add-symbol',id:'new-pic'  if current_user && (params[:id].to_i == profile.id) %></span>
   <div class="profile-pic-wrap">
     <% if find_first_pic(pictures) != -1%>
@@ -42,7 +42,7 @@
               ), class: 'add-symbol' %> 
       </div>
     <%else%>
-      <h3>目前沒有圖片</h3>
+      <h3 class="pic-nil">目前沒有圖片</h3>
     <%end%>
     <% if find_other_pictures(pictures) != -1%>
       <div class="profile-pic-content" id ="pictures-count" data-value="<%=pictures.count%>">

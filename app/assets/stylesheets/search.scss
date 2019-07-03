@@ -9,7 +9,7 @@
     // background-color: #eee;
     width: 20%;
     height: 100vh;
-    padding: 0 10px;
+    padding: 0 5px;
     // border-right: 1px solid #ddd;
     .search-card {
       background-color: #fff;
@@ -41,8 +41,12 @@
         input {
           display: inline-block;
           width: 80px;
-          margin: 5px;
+          margin: 5px 0 5px 5px;
           text-align: center;
+        }
+        .calendar-icon {
+          width: 25px;
+          display: inline-block;
         }
       }
       .pet-count {
@@ -66,7 +70,8 @@
   }
   //中間的部分
   .search-sitters {
-    width: 40%;
+    width: 39.7%;
+    margin-right: 0.3%;
     height: 100vh;
     display: flex;
     flex-wrap: wrap;
@@ -89,6 +94,7 @@
       margin-bottom: 3px;
       overflow: hidden;
       display: flex;
+      justify-content: space-between;
       align-items: center;
       background-color: #fff;
       position: relative;
@@ -119,13 +125,14 @@
       }
       .item-price {
         text-align: center;
-        width: 20%;
+        margin: 0 5px;
+        // width: 20%;
         // padding: 5px;
         box-sizing: border-box;
         .per-price {
           font-size: 18px;
           color: #467302;
-          margin: 10px 0 0;
+          // margin: 5px 0 0;
         }
         p {
           margin: 0;
