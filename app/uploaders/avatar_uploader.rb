@@ -4,8 +4,8 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # include CarrierWave::MiniMagick
   include CarrierWave::MiniMagick
   # Choose what kind of storage to use for this uploader:
-  storage :file
-  # storage :fog
+  # storage :file
+  storage :fog
   # if Rails.env.production?
   #   storage :fog
   # else
@@ -32,8 +32,9 @@ class AvatarUploader < CarrierWave::Uploader::Base
   def default_url(*args)
     # For Rails 3.1+ asset pipeline compatibility:
     # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
-  
-    "https://i.pravatar.cc/300?img=#{rand(1..50)}" + [version_name, "default.png"].compact.join('_')
+    
+    # "https://i.pravatar.cc/300?img=#{rand(1..50)}" + [version_name, "default.png"].compact.join('_')
+    "https://5x-pet-collage.s3-ap-northeast-1.amazonaws.com/uploads/picture/pic/for-seed/default_user"+ [version_name, ".png"].compact.join('_')
   end
 
   # Process files as they are uploaded:

@@ -13,7 +13,6 @@ class Sitter < ApplicationRecord
   has_many :pictures
   has_many :comments
 
-  
 
   geocoded_by :address        #從add
   after_validation :geocode   #將取出的地址自動轉為經緯度分別存在 latitude、longitude 欄位
