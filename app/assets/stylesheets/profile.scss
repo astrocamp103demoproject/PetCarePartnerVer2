@@ -82,6 +82,7 @@
   .profile-pictures-content {
     margin: auto;
     width: 100%;
+    min-height: 300px;
     // height: 500px;
     h3 {
       display: inline-block;
@@ -96,6 +97,11 @@
       display: flex;
       flex-wrap: wrap;
       overflow: hidden;
+      .pic-nil {
+        font-size: 18px;
+        margin: 60px auto;
+        font-weight: normal;
+      }
       // justify-content: center;
       .profile-pic-nil {
         text-align-last: left;
@@ -195,14 +201,18 @@
       margin: 10px 0;
       margin-right: 0 !important;
     }
-    // .add-symbol {
-    //   display: block !important;
-    // }
+    .add-symbol {
+      display: block !important;
+    }
     .profile-pic-wrap {
       flex-flow: column wrap;
       align-items: center;
       .profile-pic-nil {
         text-align-last: center !important;
+      }
+      .profile-pic-content {
+        // flex-flow: column wrap;
+        // align-items: center;
       }
     }
   }
@@ -237,5 +247,12 @@
   .sitter-edit {
     width: 300px;
     margin: 0 10%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .profile-pic-content {
+    flex-flow: column wrap;
+    align-items: center;
   }
 }
