@@ -1,0 +1,17 @@
+//index
+.each-comment {
+  border-bottom: 1px solid #eee;
+  width: 100%;
+  padding: 0 10px;
+  .comment-date,
+  .comment-message {
+    color: #777;
+    font-size: 14px;
+  }
+  .comment-avatar {
+    width: 100%;
+    max-width: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+}

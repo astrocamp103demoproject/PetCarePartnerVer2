@@ -13,6 +13,10 @@ Rails.application.routes.draw do
     resources :pets, except: [:index]
     resources :orders, only: [:new, :create, :index, :show] do
       collection do
+        get :user_orders  
+        get :sitter_orders
+      end
+      collection do
         get :pending
         get :finish
         get :cancel
@@ -25,6 +29,7 @@ Rails.application.routes.draw do
     # resources :pictures, only: [:show, :new, :create, :destroy]
     resources :comments, only: [:index, :new, :create]
     resources :pictures, only: [ :index,:show, :new, :create, :destroy]
+
   end
 
 end

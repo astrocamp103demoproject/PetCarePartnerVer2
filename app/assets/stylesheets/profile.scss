@@ -22,7 +22,6 @@
       display: none;
     }
 
-    
     .info {
       display: inline-block;
       width: 100%;
@@ -65,8 +64,19 @@
   }
   .comment {
     width: 54%;
+    // max-height: 600px;
     box-sizing: border-box;
     padding: 20px;
+    // overflow: scroll;
+    h3 {
+      margin-top: 0;
+    }
+    .comment-wrap {
+      max-height: 600px;
+      box-sizing: border-box;
+      // padding: 20px;
+      overflow: scroll;
+    }
   }
   //照片集
   .profile-pictures-content {
@@ -80,6 +90,7 @@
     .add-symbol {
       display: inline-block;
       font-size: 18px;
+      margin: 0 10px;
     }
     .profile-pic-wrap {
       display: flex;
@@ -126,12 +137,12 @@
             padding: 3px;
           }
         }
-        .pic-count{
+        .pic-count {
           width: 200px;
           height: 200px;
           background-color: black;
           color: white;
-          opacity: .5;
+          opacity: 0.5;
           position: absolute;
           top: 0;
           left: 0;
@@ -144,7 +155,6 @@
           border-radius: 8px;
           overflow: hidden;
         }
-        
       }
     }
   }
@@ -184,9 +194,10 @@
     h3 {
       margin: 10px 0;
       margin-right: 0 !important;
-      
     }
-    
+    // .add-symbol {
+    //   display: block !important;
+    // }
     .profile-pic-wrap {
       flex-flow: column wrap;
       align-items: center;
@@ -215,15 +226,16 @@
   }
   .comment {
     width: 100% !important;
+    padding: 20px 0 !important;
   }
 }
-.sitter-edit-wrap{
+.sitter-edit-wrap {
   display: flex;
-  
+
   align-items: center;
   flex-direction: column;
-  .sitter-edit{
+  .sitter-edit {
     width: 300px;
-    margin: 0 10% ;
+    margin: 0 10%;
   }
 }

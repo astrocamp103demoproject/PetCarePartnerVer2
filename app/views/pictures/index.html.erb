@@ -1,12 +1,10 @@
 <div class="index-pictures-wrap" >
   <h3>圖片集</h3>
   <% if @user.role == 'sitter'%>
-    <%= link_to '回到個人資料', sitter_path(session[:current_sitter].to_h['id']), class: 'add-symbol'%>
+    <%= link_to '回上一頁', sitter_path(session[:current_sitter].to_h['id']), class: 'back-symbol'%>
   <% elsif @user.role == 'user'%>
-    <%= link_to '回到個人資料', user_path(@user), class: 'add-symbol'%>
+    <%= link_to '回上一頁', user_path(@user), class: 'back-symbol'%>
   <% end %>
-  
-  <span><%= link_to '加入更多照片', new_user_picture_path(@user), class: 'add-symbol',id:'new-pic' if current_user && @user.email == current_user.email%></span>
 
   <div class="index-pic-wrap">
       <% @user.pictures.each do |picture|%>
