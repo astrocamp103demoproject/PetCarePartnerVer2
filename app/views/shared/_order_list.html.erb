@@ -1,8 +1,16 @@
 <ul class="order-type">
-  <li><%= link_to '全部', user_orders_path(current_user) %></li>
-  <li><%= link_to '未完成', pending_user_orders_path(current_user) %></li>
-  <li><%= link_to '已完成', finish_user_orders_path(current_user) %></li>
-  <li><%= link_to '已取消', cancel_user_orders_path(current_user) %></li>
+  <% if current_user.role == 'sitter' %>
+  <div class="order-user-type">
+    <li><%= link_to '飼主方', user_orders_user_orders_path(current_user) %></li>
+    <li><%= link_to '保母方', sitter_orders_user_orders_path(current_user) %></li>
+  </div>
+  <% end %>
+  <div class="order-status">
+    <li><%= link_to '全部', user_orders_path(current_user) %></li>
+    <li><%= link_to '未完成', pending_user_orders_path(current_user) %></li>
+    <li><%= link_to '已完成', finish_user_orders_path(current_user) %></li>
+    <li><%= link_to '已取消', cancel_user_orders_path(current_user) %></li>
+  </div>
 </ul>
 <div>
   <div class="check-empty">

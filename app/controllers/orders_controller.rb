@@ -76,6 +76,14 @@ class OrdersController < ApplicationController
       @order = Order.find_by("user_id = ? OR sitter_id = ?",current_user.id,@current_sitter.id)
     end
   end
+
+  def user_orders
+    @orders = Order.where("user_id = ?",current_user.id).page(params[:page]).per(5)
+  end
+
+  def sitter_orders
+    @orders = Order.where("sitter_id = ?",@current_sitter.id).page(params[:page]).per(5)
+  end
   
   def pending
     # @current_sitter = Sitter.find_by("name == '#{current_user.name}'")
