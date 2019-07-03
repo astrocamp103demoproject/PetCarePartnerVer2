@@ -97,6 +97,7 @@
       display: flex;
       flex-wrap: wrap;
       overflow: hidden;
+      text-align: center;
       .pic-nil {
         font-size: 18px;
         margin: 60px auto;
@@ -207,6 +208,9 @@
     .profile-pic-wrap {
       flex-flow: column wrap;
       align-items: center;
+      .pic-nil {
+        margin: 60px 0 !important;
+      }
       .profile-pic-nil {
         text-align-last: center !important;
       }
