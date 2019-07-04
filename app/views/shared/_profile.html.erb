@@ -1,7 +1,10 @@
-
 <div class="section-top">
   <div class="avatar">  
-    <%= image_tag("#{profile.avatar_url(:thumb)}",class:"avatar-img") %> 
+    <% if profile.email.include?("@example.com")%>
+      <img src=<%= find_avatar(profile.id)%>>
+    <%else%>
+      <%= image_tag("#{profile.avatar_url}",class:"avatar-img") %> 
+    <%end%>
   </div>
   <div class="info">
     <% if current_user %>
@@ -32,13 +35,11 @@
 
 <div class="profile-pictures-content">
   <h3>圖片集</h3>
-
-  <%= link_to '看所有照片', user_pictures_path(email_find_user), class: 'add-symbol' if find_first_pic(pictures) != -1%>
-  <span><%= link_to '新增照片', new_user_picture_path(email_find_user), class: 'add-symbol',id:'new-pic'  if current_user && profile.email == current_user.email %></span>
+  <%= link_to '看所有照片', user_pictures_path(email_find_user), class: 'add-symbol'%>
   <div class="profile-pic-wrap">
     <% if find_first_pic(pictures) != -1%>
       <div class="profile-first-pic"> 
-          <%= link_to image_tag("#{find_first_pic(pictures).pic.thumb.url}" ),user_picture_path(email_find_user,find_first_pic(pictures).id) %> 
+          <%= link_to image_tag("#{find_first_pic(pictures).pic.url}" ),user_picture_path(email_find_user,find_first_pic(pictures).id) %> 
       </div>
     <%else%>
       <h3 class="pic-nil">目前沒有圖片</h3>
@@ -47,7 +48,7 @@
       <div class="profile-pic-content" id ="pictures-count" data-value="<%=pictures.count%>">
           <% find_other_pictures(pictures).each do |picture|%>
             <div class="profile-pic">
-                <%= link_to image_tag("#{picture.pic.thumb.url}"), user_picture_path(email_find_user,picture.id), class: 'picture' %> 
+                <%= link_to image_tag("#{picture.pic.url}"), user_picture_path(email_find_user,picture.id), class: 'picture' %> 
             </div>
           <%end%>
       </div>

@@ -9,12 +9,11 @@ class OrdersController < ApplicationController
       @orders = Order.where("user_id = ?",current_user.id).page(params[:page]).per(5)
     else
       @orders = Order.where("user_id = ? OR sitter_id = ?",current_user.id,@current_sitter.id).page(params[:page]).per(5)
-      
     end
     
     #render comment/new
-    # @sitter = Sitter.find_by(id: params["sitter_id"])
-    # @comment = Comment.new
+
+    @comment = Comment.new
   end
 
   def new

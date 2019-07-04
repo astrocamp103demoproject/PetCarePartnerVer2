@@ -5,7 +5,9 @@ class UsersController < ApplicationController
     @user = current_user
     @pets = current_user.pets.all
     @pictures = Picture.where("user_id = ?",params[:id])
+    @picture = Picture.new
     # byebug
+    # binding.pry
   end
 
   def update
