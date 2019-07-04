@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
     before_action :authenticate_user!
     def index
+        
         @sitter = Sitter.find_by(id: params["sitter_id"])
         @comments = @sitter.comments
     end

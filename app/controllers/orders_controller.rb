@@ -12,6 +12,7 @@ class OrdersController < ApplicationController
     end
     
     #render comment/new
+
     @comment = Comment.new
   end
 

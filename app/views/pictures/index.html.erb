@@ -1,15 +1,18 @@
 <div class="index-pictures-wrap" >
   <h3>圖片集</h3>
+ 
   <% if @user.role == 'sitter'%>
     <%= link_to '回上一頁', sitter_path(session[:current_sitter].to_h['id']), class: 'back-symbol'%>
   <% elsif @user.role == 'user'%>
     <%= link_to '回上一頁', user_path(@user), class: 'back-symbol'%>
   <% end %>
-
+  <%if @user.email == current_user.email%>
+    <button type="button" class="btn" data-toggle="modal" data-target="#newPic">新增照片</button>
+  <%end%>
   <div class="index-pic-wrap">
       <% @user.pictures.each do |picture|%>
           <div class="index-pic">
-              <%= link_to image_tag("#{picture.pic.thumb.url}"),user_picture_path(@user,picture
+              <%= link_to image_tag("#{picture.pic.url}"),user_picture_path(@user,picture
               ), class: 'add-symbol'  %>
               <%= link_to  "✘", user_picture_path(params[:user_id],picture) , method: 'DELETE', data: { confirm: '確認刪除？'}, class: 'd-pic' if current_user && @user.email == current_user.email%>
           </div>
@@ -17,5 +20,20 @@
   </div>
 
   
+  <div class="modal fade" id="newPic" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="newPicLabel">新增照片</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <%= render file: 'pictures/new'%>
+          </div>
+        </div>
+      </div>
+    </div>
         
 </div>

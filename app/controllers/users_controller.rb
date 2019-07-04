@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     @pictures = Picture.where("user_id = ?",params[:id])
     @picture = Picture.new
     # byebug
+    # binding.pry
   end
 
   def update

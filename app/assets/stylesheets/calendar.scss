@@ -33,6 +33,8 @@
 }
 @media screen and (max-width: 767px) {
   .simple-calendar {
+    th,
+    td,
     .booked,
     .closure {
       font-size: 12px;

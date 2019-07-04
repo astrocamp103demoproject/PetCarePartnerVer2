@@ -3,7 +3,7 @@
     <% if profile.email.include?("@example.com")%>
       <img src=<%= find_avatar(profile.id)%>>
     <%else%>
-      <%= image_tag("#{profile.avatar_url(:thumb)}",class:"avatar-img") %> 
+      <%= image_tag("#{profile.avatar_url}",class:"avatar-img") %> 
     <%end%>
   </div>
   <div class="info">
@@ -35,24 +35,20 @@
 
 <div class="profile-pictures-content">
   <h3>圖片集</h3>
-  <%= link_to '檢視圖片', user_pictures_path(email_find_user), class: 'add-symbol' if find_first_pic(pictures) != -1%>
-  <% if current_user && params[:id].to_i == profile.id%>
-    <button type="button" class="btn" data-toggle="modal" data-target="#newPicture">新增照片</button>
-  <%end%>
+  <%= link_to '看所有照片', user_pictures_path(email_find_user), class: 'add-symbol'%>
   <div class="profile-pic-wrap">
     <% if find_first_pic(pictures) != -1%>
       <div class="profile-first-pic"> 
-          <%= link_to image_tag("#{find_first_pic(pictures).pic.thumb.url}" ),user_picture_path(email_find_user,find_first_pic(pictures).id
-              ), class: 'add-symbol' %> 
+          <%= link_to image_tag("#{find_first_pic(pictures).pic.url}" ),user_picture_path(email_find_user,find_first_pic(pictures).id) %> 
       </div>
     <%else%>
-      <h3>目前沒有圖片</h3>
+      <h3 class="pic-nil">目前沒有圖片</h3>
     <%end%>
     <% if find_other_pictures(pictures) != -1%>
       <div class="profile-pic-content" id ="pictures-count" data-value="<%=pictures.count%>">
           <% find_other_pictures(pictures).each do |picture|%>
             <div class="profile-pic">
-                <%= link_to image_tag("#{picture.pic.thumb.url}"), user_picture_path(email_find_user,picture.id), class: 'picture' %> 
+                <%= link_to image_tag("#{picture.pic.url}"), user_picture_path(email_find_user,picture.id), class: 'picture' %> 
             </div>
           <%end%>
       </div>
@@ -117,20 +113,3 @@
   </div>
 <!---->
 <%end%>
-
-
-  <div class="modal fade" id="newPicture" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="newPictureLabel">新增照片</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <%= render file: 'pictures/new'%>
-        </div>
-      </div>
-    </div>
-  </div>

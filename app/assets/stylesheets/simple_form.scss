@@ -14,10 +14,12 @@
   }
 }
 @media screen and (max-width: 992px) {
-  input,
-  textarea {
-    width: 100%;
-    max-width: 250px;
-    margin: auto !important;
+  .sitter-edit {
+    input,
+    textarea {
+      width: 100%;
+      max-width: 250px;
+      margin: auto !important;
+    }
   }
 }

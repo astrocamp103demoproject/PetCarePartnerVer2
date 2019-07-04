@@ -40,10 +40,12 @@
   align-items: center;
   justify-content: space-between;
   margin: 10px auto;
+  padding: 5px;
   border: 1px solid #eee;
   width: 100%;
   max-width: 800px;
-  box-shadow: 0 0 8px 2px #eee;
+  box-shadow: 0 0 8px 2px #aaa;
+  background: #fff;
   a {
     text-decoration: none;
     align-self: flex-start;
