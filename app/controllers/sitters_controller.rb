@@ -13,6 +13,16 @@ class SittersController < ApplicationController
     @booking_date = BookingDate.new
     # byebug
     
+    #判斷booking btn hidden
+    @drop = session[:drop_off]
+    @pick = session[:pick_up]
+
+
+    #map
+    # @result = Sitter.where('id NOT IN (?,?)',un_sitter_ids,un_current_sitter_id).where("pet_limit >= ?",pet_count).where("address LIKE ?",location_code).page(params[:page]).per(10)
+    # @result = @sitter
+    # g_map(@result)
+    # render :show
   end
 
   def edit
@@ -73,4 +83,28 @@ class SittersController < ApplicationController
   def find_sitter
     @sitter = Sitter.find_by(id: params[:id])
   end
+
+
+
+  # def g_map(result)
+    
+
+  #   @gmaps = result
+  #   # byebug
+  #   @hash = Gmaps4rails.build_markers(@gmaps) do |gmap, marker|      
+  #     marker.lat gmap.latitude
+  #     marker.lng gmap.longitude
+  #     marker.infowindow gmap.address
+  #     marker.picture({
+  #       :url    => "http://www.blankdots.com/img/github-32x32.png",
+  #       :width  => "32",
+  #       :height => "32"
+  #      })
+  #     marker.title   gmap.name
+  #     marker.json({ :id => gmap.id,:email => gmap.email,:price => gmap.price })
+  #   end
+    
+  # end
+
+
 end
