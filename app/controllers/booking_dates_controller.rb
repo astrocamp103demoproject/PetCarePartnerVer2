@@ -1,9 +1,9 @@
 class BookingDatesController < ApplicationController
   before_action :authenticate_user!
   def new
-    # byebug
     # @current_sitter = Sitter.find_by("name == '#{current_user.name}'")
     @booking_date = BookingDate.new
+
   end
 
   def create

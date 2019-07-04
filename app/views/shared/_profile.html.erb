@@ -1,7 +1,10 @@
-
 <div class="section-top">
   <div class="avatar">  
-    <%= image_tag("#{profile.avatar_url(:thumb)}",class:"avatar-img") %> 
+    <% if profile.email.include?("@example.com")%>
+      <img src=<%= find_avatar(profile.id)%>>
+    <%else%>
+      <%= image_tag("#{profile.avatar_url(:thumb)}",class:"avatar-img") %> 
+    <%end%>
   </div>
   <div class="info">
     <% if current_user %>
@@ -32,9 +35,10 @@
 
 <div class="profile-pictures-content">
   <h3>圖片集</h3>
-
   <%= link_to '檢視圖片', user_pictures_path(email_find_user), class: 'add-symbol' if find_first_pic(pictures) != -1%>
-  <span><%= link_to '新增照片', new_user_picture_path(email_find_user), class: 'add-symbol',id:'new-pic'  if current_user && (params[:id].to_i == profile.id) %></span>
+  <% if current_user && params[:id].to_i == profile.id%>
+    <button type="button" class="btn" data-toggle="modal" data-target="#newPicture">新增照片</button>
+  <%end%>
   <div class="profile-pic-wrap">
     <% if find_first_pic(pictures) != -1%>
       <div class="profile-first-pic"> 
@@ -113,3 +117,20 @@
   </div>
 <!---->
 <%end%>
+
+
+  <div class="modal fade" id="newPicture" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="newPictureLabel">新增照片</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <%= render file: 'pictures/new'%>
+        </div>
+      </div>
+    </div>
+  </div>
