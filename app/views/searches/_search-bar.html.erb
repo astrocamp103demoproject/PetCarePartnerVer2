@@ -14,9 +14,13 @@
       </div>
       <div class="select-date">
         
-          <%= text_field_tag 'Drop_Off', nil, :'data-provide' =>'datepicker', placeholder:'送出日期' ,autocomplete:"off"%><%= image_tag 'iconfinder_calendar_299092.png', class: 'calendar-icon' %>
+          <div class="datepick-wrap">
+            <%= text_field_tag 'Drop_Off', nil, :'data-provide' =>'datepicker', placeholder:'送出日期' ,autocomplete:"off"%><%= image_tag 'iconfinder_calendar_299092.png', class: 'calendar-icon' %>
+          </div>
         
-          <%= text_field_tag 'Pick_Up', nil, :'data-provide' =>'datepicker', placeholder:'接回日期' ,autocomplete:"off"%><%= image_tag 'iconfinder_calendar_299092.png', class: 'calendar-icon' %>
+          <div class="datepick-wrap">
+            <%= text_field_tag 'Pick_Up', nil, :'data-provide' =>'datepicker', placeholder:'接回日期' ,autocomplete:"off"%><%= image_tag 'iconfinder_calendar_299092.png', class: 'calendar-icon' %>
+          </div>
         
       </div>
       <div class="pet-count">

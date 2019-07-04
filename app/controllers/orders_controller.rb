@@ -13,8 +13,8 @@ class OrdersController < ApplicationController
     end
     
     #render comment/new
-    @sitter = Sitter.find_by(id: params["sitter_id"])
-    @comment = Comment.new
+    # @sitter = Sitter.find_by(id: params["sitter_id"])
+    # @comment = Comment.new
   end
 
   def new
