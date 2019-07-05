@@ -13,7 +13,7 @@ array.each do |address_six_country|
     square_meters = rand(20..50)
     pic_mount = rand(8..13)
     avatar = rand(1..66)
-    address  rand(0..90)
+    address = rand(0..90)
     #建立保母 25~33
     puts "."
     user = User.create(name: name ,avatar: "avatar"+avatar.to_s+".jpg", email: email[0].downcase+"@example.com", password: '123456', address:address_six_country,role: 'sitter')
