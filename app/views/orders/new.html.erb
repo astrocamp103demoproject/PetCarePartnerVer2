@@ -13,7 +13,7 @@
             <%= content_tag(:p, "接回日期： #{@pick}") %>
             <%= f.input :status, as: :hidden, input_html: { value: 'pending'} %>
             <%= content_tag(:p, "總金額： #{@total} 元") %>
-            
+            <%= f.input :pet_count, as: :hidden, input_html: { value: @pet_count} %>
             <%= f.input :note %>
         </div>
         <div class="check-item item-payment">
