@@ -11,8 +11,9 @@
     .index-pic {
       display: inline-block;
       width: 200px;
+      box-sizing: border-box;
       height: 200px;
-      margin: 5px;
+      margin: 3px 0;
       position: relative;
       .d-pic {
         font-size: 30px;
