@@ -56,6 +56,7 @@ gem 'fog-aws', '~> 3.5', '>= 3.5.1'
 #google map
 gem 'gmaps4rails', '~> 2.1', '>= 2.1.2'
 gem 'geocoder', '~> 1.5', '>= 1.5.1'
+gem 'faker', '~> 1.9', '>= 1.9.3'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -66,12 +67,12 @@ group :development, :test do
   gem 'factory_bot_rails', '~> 5.0', '>= 5.0.2'
   gem 'timecop', '~> 0.9.1'
   gem 'pg', '~> 1.1', '>= 1.1.4'
+  
 
 end
 group :production do 
   # gem 'postgresql', '~> 1.0'
   gem 'pg', '~> 1.1', '>= 1.1.4'
-  gem 'faker', '~> 1.9', '>= 1.9.3'
 end
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
