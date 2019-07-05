@@ -15,7 +15,7 @@
                         <%= select_tag(:township_id, raw("<option value="">鄉鎮市區</option>"),class:'city-select') %></p>
                     <p><%= text_field_tag :address, nil, placeholder:'請輸入街道地址' %><span><%= '地址不得空白' if @sitter.errors[:address].any? %></span></p> 
                 </div>
-                <%= form.button :submit, '送出', class: '.btn' %>
+                <%= form.button :submit, '送出', class: '.btn', id: 'sitter-edit' %>
             <% end %>
         <% end %>
     </div>

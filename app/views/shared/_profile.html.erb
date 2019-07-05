@@ -25,7 +25,7 @@
     <%= content_tag(:p, "$ #{profile.price} /每晚", class:'per-price') if profile == @sitter %>
 
     <% if current_user %>
-      <%= link_to '預訂付款', new_user_order_path(current_user), class: 'btn btn-booking' if profile == @sitter && current_user.email != profile.email %>
+      <%= link_to '預訂付款', new_user_order_path(current_user), class: 'btn btn-booking' if profile == @sitter && current_user.email != profile.email && @drop != nil && @pick != nil %>
     <% else %>
       <%= link_to '預訂付款', user_session_path, class: 'btn btn-booking' %>
     <%end%>

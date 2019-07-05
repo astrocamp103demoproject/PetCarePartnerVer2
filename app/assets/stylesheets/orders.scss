@@ -109,6 +109,9 @@ nav .pagination {
     .order-content {
       text-align: left;
       margin: auto;
+      p {
+        margin: 0;
+      }
     }
   }
   //show
@@ -154,8 +157,13 @@ nav .pagination {
   //show
   .detail-text {
     p {
-      span {
-        width: 100% !important;
+      span:first-of-type {
+        width: 30% !important;
+        text-align: right;
+      }
+      span:nth-of-type(2) {
+        width: 65% !important;
+        text-align: center;
       }
     }
   }

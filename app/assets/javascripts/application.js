@@ -24,6 +24,7 @@
 //= require picture_wall
 //= require search_es
 //= require turbolinks
+//= require uploader_nil
 //
 //google map
 //= require underscore-min
