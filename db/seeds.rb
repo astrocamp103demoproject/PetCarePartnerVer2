@@ -1,8 +1,8 @@
 file = File.open("address_six_country_test.txt")
 array = JSON.parse(file.read)
-# township_array =  ["臺北市中正區","臺北市大同區","臺北市中山區","臺北市松山區","臺北市大安區","臺北市萬華區","臺北市信義區","臺北市士林區","臺北市北投區","臺北市內湖區"]
+# address =  ["臺北市中正區","臺北市大同區","臺北市中山區","臺北市松山區","臺北市大安區","臺北市萬華區","臺北市信義區","臺北市士林區","臺北市北投區","臺北市內湖區"]
 array.each do |address_six_country| 
-# 1.times { 
+# 5.times { 
     
     name = Faker::Name.unique.name
     email = name.split(' ')
@@ -11,9 +11,9 @@ array.each do |address_six_country|
     number = rand(0..9)
     pet_limit = rand(1..5)
     square_meters = rand(20..50)
-    pic_mount = rand(10..20)
+    pic_mount = rand(8..13)
     avatar = rand(1..66)
-    address = rand(0..90)
+    address  rand(0..90)
     #建立保母 25~33
     puts "."
     user = User.create(name: name ,avatar: "avatar"+avatar.to_s+".jpg", email: email[0].downcase+"@example.com", password: '123456', address:address_six_country,role: 'sitter')
