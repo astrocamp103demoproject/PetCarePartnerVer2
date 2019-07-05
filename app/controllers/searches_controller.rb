@@ -22,7 +22,7 @@ class SearchesController < ApplicationController
     else
       un_current_sitter_id = -1
     end
-    
+    session[:order_status] = nil
     # binding.pry
     @result = Sitter.where('id NOT IN (?,?)',un_sitter_ids,un_current_sitter_id).where("pet_limit >= ?",pet_count).where("address LIKE ?",location_code).page(params[:page]).per(10)
     session[:drop_off] = params[:Drop_Off]
