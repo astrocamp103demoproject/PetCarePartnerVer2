@@ -5,7 +5,8 @@ class SittersController < ApplicationController
   def show
     session[:current_sitter] = @sitter
     @email_find_user = User.semail_to_uemail(@sitter.email)
-    @pictures = Picture.where("user_id = ?",@email_find_user)
+    # binding.pry
+    @pictures = Picture.where("user_id = ?",@email_find_user[0].id)
     @picture = Picture.new
     @booking_dates = @sitter.booking_dates.all
     @comments = @sitter.comments.all
