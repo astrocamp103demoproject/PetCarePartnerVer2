@@ -1,10 +1,6 @@
 <div class="section-top">
   <div class="avatar">  
-    <% if profile.email.include?("@example.com")%>
-      <img src=<%= find_avatar(profile.id)%>>
-    <%else%>
       <%= image_tag("#{profile.avatar_url}",class:"avatar-img") %> 
-    <%end%>
   </div>
   <div class="info">
     <% if current_user %>

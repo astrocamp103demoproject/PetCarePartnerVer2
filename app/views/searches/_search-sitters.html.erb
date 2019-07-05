@@ -5,11 +5,7 @@
     <% else %>
         <% sitters.each do |sitter|%>
             <div class="sitter-item" id="<%=sitter.id%>">
-                <% if sitter.email.include?("@example.com")  %>
-                    <div class="item-pic"><img src=<%= find_avatar(sitter.id)%>></div>
-                <% else %>
-                    <div class="item-pic"><img src=<%=sitter.avatar%>></div>
-                <% end %>
+                <div class="item-pic"><img src=<%=sitter.avatar%>></div>
                 
                 <div class="item-sitter-info">
                     <div class="item-sitter-name"><%=sitter.name%></div>

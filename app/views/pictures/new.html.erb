@@ -1,5 +1,7 @@
-<%= simple_form_for([current_user,@picture]) do |f| %> 
-    <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id} %>
-    <%= f.input :pic %>
-    <%= f.submit '新增', class: 'btn', id: 'add-pic' %>
-<% end %>
+<%if current_user%>
+    <%= simple_form_for([current_user,@picture]) do |f| %> 
+        <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id} %>
+        <%= f.input :pic %>
+        <%= f.submit '新增', class: 'btn', id: 'add-pic' %>
+    <% end %>
+<%end%>

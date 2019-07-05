@@ -71,7 +71,7 @@ end
 group :production do 
   # gem 'postgresql', '~> 1.0'
   gem 'pg', '~> 1.1', '>= 1.1.4'
-
+  gem 'faker', '~> 1.9', '>= 1.9.3'
 end
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
