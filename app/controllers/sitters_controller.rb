@@ -5,7 +5,8 @@ class SittersController < ApplicationController
   def show
     session[:current_sitter] = @sitter
     @email_find_user = User.semail_to_uemail(@sitter.email)
-    @pictures = Picture.where("user_id = ?",@email_find_user)
+    # binding.pry
+    @pictures = Picture.where("user_id = ?",@email_find_user[0].id)
     @picture = Picture.new
     @booking_dates = @sitter.booking_dates.all
     @comments = @sitter.comments.all
@@ -54,15 +55,15 @@ class SittersController < ApplicationController
     @sitter.address = address_connect
     @sitter.name = current_user.name
     # byebug
-    if @sitter.save
-      User.update(role:'sitter')
+    # binding.pry
+    if @sitter.save && User.update(role:'sitter')
       get_current_sitter
       redirect_to sitter_path(@current_sitter.id), notice:'恭喜你成為褓姆'
     else
       render :new
     end
   end
- 
+
   private
   def sitter_params
     # byebug

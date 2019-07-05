@@ -18,15 +18,9 @@
             
         <li class="navnbar-right nav-item dropdown navbar-nav xs-hide">
         <% if user_signed_in? %>
-            <% if current_user.role == "sitter" %>
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <%= "Hi, #{current_user.name}" %><%= image_tag current_user.avatar_url, class: "avatar-img"  %>
             </a>
-            <% else %>
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <%= "Hi, #{current_user.name}" %><%= image_tag current_user.avatar_url, class: "avatar-img"  %>
-            </a>
-            <% end %>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <% if current_user.role == "sitter" %>
                 <%= link_to '個人資料', sitter_path(@current_sitter.id), class: 'dropdown-item' %>
