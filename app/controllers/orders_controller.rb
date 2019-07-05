@@ -22,6 +22,7 @@ class OrdersController < ApplicationController
     @sitter = session[:current_sitter].to_h
     @drop = Date.strptime(session[:drop_off], '%m/%d/%Y')
     @pick = Date.strptime(session[:pick_up], '%m/%d/%Y')
+    
     @total = (@pick - @drop).to_i * @sitter['price']
     
     @token = gateway.client_token.generate
@@ -119,6 +120,4 @@ class OrdersController < ApplicationController
   # def booking_date_params
   #   params.require(:booking_date).permit(:sitter_id, :date, :avaliable)
   # end
-  
-  
 end

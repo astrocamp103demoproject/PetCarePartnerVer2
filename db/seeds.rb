@@ -1,4 +1,4 @@
-file = File.open("address_six_country_test.txt")
+file = File.open("address_six_country_new.txt")
 array = JSON.parse(file.read)
 i = 0
 # township_array =  ["臺北市中正區","臺北市大同區","臺北市中山區","臺北市松山區","臺北市大安區","臺北市萬華區","臺北市信義區","臺北市士林區","臺北市北投區","臺北市內湖區"]
@@ -7,8 +7,7 @@ array.each do |address_six_country|
 # url = "https://5x-pet-collage.s3-ap-northeast-1.amazonaws.com/uploads/picture/pic/for-seed/"
 
 # 1.times { 
-#     #sitter
-    
+
     puts "這是第"+i+"遍"
     name = Faker::Name.unique.name
     email = name.split(' ')
