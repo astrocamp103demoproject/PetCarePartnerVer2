@@ -15,8 +15,8 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
     # "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
-    # "uploads/#{model.class.to_s.underscore}/#{mounted_as}/for-seed"
-    "seed/avatar"
+    "uploads/picture/pic/for-seed"
+    # "seed/avatar"
   end
 # 指定圖片size (同時產生其他size :thumb, :medium)
 
@@ -35,7 +35,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
     # For Rails 3.1+ asset pipeline compatibility:
     # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
     
-    "https://i.pravatar.cc/300?img=#{rand(1..50)}" + [version_name, "default.png"].compact.join('_')
+    "https://5x-pet-collage.s3-ap-northeast-1.amazonaws.com/seed/avatar/thumb_285645-128" + [".png"].compact.join('_')
     # "https://5x-pet-collage.s3-ap-northeast-1.amazonaws.com/uploads/picture/pic/for-seed/default_user"+ [version_name, ".png"].compact.join('_')
   end
 

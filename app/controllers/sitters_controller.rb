@@ -6,7 +6,7 @@ class SittersController < ApplicationController
     session[:current_sitter] = @sitter
     @email_find_user = User.semail_to_uemail(@sitter.email)
     @pictures = Picture.where("user_id = ?",@email_find_user)
-    
+    @picture = Picture.new
     @booking_dates = @sitter.booking_dates.all
     @comments = @sitter.comments.all
     #設定日期
@@ -29,7 +29,6 @@ class SittersController < ApplicationController
   end
 
   def update
-    # @sitter.address = address_connect
     if @sitter.update(sitter_params ) && @sitter.update(:address => address_connect)
       user = User.where("email = ?",@sitter.email)
       user.update(name: params[:sitter][:name])
@@ -52,9 +51,6 @@ class SittersController < ApplicationController
     
     @sitter = Sitter.new(become_sitter_form)
     @sitter.email = current_user.email
-    @sitter.name = current_user.name
-    @sitter.avatar = current_user.avatar
-
     @sitter.address = address_connect
     # byebug
     if @sitter.save
@@ -72,7 +68,7 @@ class SittersController < ApplicationController
     params.require(:sitter).permit( :name, :slogan, :price, :square_meters, :pet_limit, :date, :available, :pic, :avatar)
   end
   def become_sitter_form
-    params.permit( :slogan, :price, :square_meters, :pet_limit, :avatar, :name)
+    params.permit( :slogan, :price, :square_meters, :pet_limit)
   end
   def address_connect
     TaiwanCity.get(params[:city_id])+TaiwanCity.get(params[:township_id])+params[:address]

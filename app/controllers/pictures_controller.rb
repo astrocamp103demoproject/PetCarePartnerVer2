@@ -2,6 +2,7 @@ class PicturesController < ApplicationController
   before_action :authenticate_user!,except: [:index,:show]
   def index
     @user = User.find_by(id: params[:user_id])
+    @picture = Picture.new
   end
   def show
     @user = User.find_by(id: params[:user_id])

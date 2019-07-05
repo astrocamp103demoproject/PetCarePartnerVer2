@@ -9,5 +9,20 @@ $(document).on('turbolinks:load', function() {
       return true //提交表單
     }
   })
+    
+  // var check = 0;
+  // $('#addPictureBtn').click(function() {
+  //   $('#picture_pic').change(function(e){
+  //     check += 1
+  //     alert(222)
+  //   });
+  //   if (check == 0){
+  //     alert(check)
+  //     return false
+  //   }
+  //   else{
+  //     return true
+  //   }
+  // })
 
 })
