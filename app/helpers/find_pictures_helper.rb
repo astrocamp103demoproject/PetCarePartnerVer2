@@ -1,5 +1,6 @@
 module FindPicturesHelper
   def find_first_pic(pictures)
+    # binding.pry
     y = (pictures.empty?) ? -1 : pictures
     if (y != -1)
       pictures[0] 

@@ -1,14 +1,9 @@
-file = File.open("address_six_country_new.txt")
+file = File.open("address_six_country_test.txt")
 array = JSON.parse(file.read)
-i = 0
 # township_array =  ["臺北市中正區","臺北市大同區","臺北市中山區","臺北市松山區","臺北市大安區","臺北市萬華區","臺北市信義區","臺北市士林區","臺北市北投區","臺北市內湖區"]
 array.each do |address_six_country| 
-#0-247
-# url = "https://5x-pet-collage.s3-ap-northeast-1.amazonaws.com/uploads/picture/pic/for-seed/"
-
 # 1.times { 
-
-    puts "這是第"+i+"遍"
+    
     name = Faker::Name.unique.name
     email = name.split(' ')
     slogan = Faker::TvShows::GameOfThrones.quote
@@ -32,9 +27,9 @@ array.each do |address_six_country|
     }
     #建立使用者用這條
     # user = User.create(name: name ,avatar: "avatar"+avatar.to_s+".jpg", email: email[0].downcase+"@example.com", password: '123456', address:array[address])
-# }
-    i++
+    
 end
+# }
 
 # 1.times { 
 #     #sitter
