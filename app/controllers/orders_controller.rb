@@ -75,6 +75,7 @@ class OrdersController < ApplicationController
     
     @order = Order.find(params[:id])
     # binding.pry
+    session[:order_status]= @order.state
     
     
     
