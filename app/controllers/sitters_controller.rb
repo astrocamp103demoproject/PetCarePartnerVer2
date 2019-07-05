@@ -54,15 +54,15 @@ class SittersController < ApplicationController
     @sitter.address = address_connect
     @sitter.name = current_user.name
     # byebug
-    if @sitter.save
-      User.update(role:'sitter')
+    # binding.pry
+    if @sitter.save && User.update(role:'sitter')
       get_current_sitter
       redirect_to sitter_path(@current_sitter.id), notice:'恭喜你成為褓姆'
     else
       render :new
     end
   end
- 
+
   private
   def sitter_params
     # byebug
