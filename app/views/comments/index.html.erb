@@ -4,7 +4,7 @@
     <% @comments.each do |comment| %>
         <div class="each-comment">
             <p class="comment-date"><%= comment.created_at.to_date %></p>
-            <p><%= image_tag comment.user.avatar_url(:thumb), class: 'comment-avatar' %><%= comment.user.name %>：</p>
+            <p><%= image_tag comment.user.avatar_url, class: 'comment-avatar' %><%= comment.user.name %>：</p>
             <p class="comment-message"><%= comment.message %></p>
         </div>
     <% end %>
