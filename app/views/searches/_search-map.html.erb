@@ -8,6 +8,7 @@
          </div>
         
         <script type="text/javascript">
+        document.addEventListener('turbolinks:load', function(){
           function initialize(){
             var hashes = '<%= raw hash.to_json %>';
              console.log("result in initialize"+hashes)
@@ -25,5 +26,7 @@
                 });
                 
           }
+          initialize();
+        });
         </script>
        
