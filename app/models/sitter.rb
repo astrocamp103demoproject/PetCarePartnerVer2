@@ -1,5 +1,5 @@
 class Sitter < ApplicationRecord
-  mount_uploader :avatar, AvatarUploader
+  # mount_uploader :avatar, AvatarUploader
 
   validates :square_meters, numericality: { greater_than_or_equal_to:1 }
   validates :pet_limit, numericality: { greater_than_or_equal_to:1 }
@@ -13,7 +13,7 @@ class Sitter < ApplicationRecord
   has_many :comments
 
 
-  geocoded_by :address        #從add
+  geocoded_by :address        #從add1
   after_validation :geocode   #將取出的地址自動轉為經緯度分別存在 latitude、longitude 欄位
 
 end
