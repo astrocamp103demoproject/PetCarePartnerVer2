@@ -9,8 +9,8 @@ pic_array = ["animal-214715_640.jpg","animal-272473_640.jpg","animal-339400_640.
 
 1.times { 
 #     #sitter
-    email = Faker::Internet.email
     name = Faker::Name.unique.name
+    email = name.split(' ')
     slogan = Faker::TvShows::GameOfThrones.quote
     price = Faker::Number.number(3)
     # avatar = "https://i.pravatar.cc/300?img=#{rand(1..50)}"
@@ -18,14 +18,22 @@ pic_array = ["animal-214715_640.jpg","animal-272473_640.jpg","animal-339400_640.
     pet_limit = rand(1..5)
     square_meters = rand(20..50)
     pic_mount = rand(10..20)
+    avatar = rand(1..66)
+    address = rand(0..5)
+    #建立保母 25~33
     puts "."
-    user = User.create(name: name ,email: email, password: '123456', address:"臺北市大安區")
-    Sitter.create(name: name ,email: email, password: '123456', slogan:slogan, address:"臺北市大安區", price:price, pet_limit: pet_limit,square_meters: square_meters)
+    user = User.create(name: name ,avatar: "avatar"+avatar.to_s+".jpg", email: email[0].downcase+"@example.com", password: '123456', address:array[address],role: 'sitter')
+    # binding.pry
+    puts "."
+    Sitter.create(name: name ,avatar: "avatar"+avatar.to_s+".jpg", email: email[0].downcase+"@example.com", password: '123456', slogan:slogan, address:array[address], price:price, pet_limit: pet_limit,square_meters: square_meters)
     puts "."
     pic_mount.times{
         pic = rand(1..239)       
         Picture.create(pic: "photo"+pic.to_s+".jpg",user_id: user.id)
     }
+    puts "."
+    #建立使用者用這條
+    # user = User.create(name: name ,avatar: "avatar"+avatar.to_s+".jpg", email: email[0].downcase+"@example.com", password: '123456', address:array[address])
 }
 # end
 

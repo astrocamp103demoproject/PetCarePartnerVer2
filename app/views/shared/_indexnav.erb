@@ -20,11 +20,11 @@
         <% if user_signed_in? %>
             <% if current_user.role == "sitter" %>
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <%= "Hi, #{current_user.name}" %><%= image_tag current_user.avatar_url(:thumb), class: "avatar-img"  %>
+                <%= "Hi, #{current_user.name}" %><%= image_tag current_user.avatar_url, class: "avatar-img"  %>
             </a>
             <% else %>
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <%= "Hi, #{current_user.name}" %><%= image_tag current_user.avatar_url(:thumb), class: "avatar-img"  %>
+                <%= "Hi, #{current_user.name}" %><%= image_tag current_user.avatar_url, class: "avatar-img"  %>
             </a>
             <% end %>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
