@@ -7,7 +7,7 @@ array = JSON.parse(file.read)
 
 # url = "https://5x-pet-collage.s3-ap-northeast-1.amazonaws.com/uploads/picture/pic/for-seed/"
 
-10.times { 
+50.times { 
 #     #sitter
     name = Faker::Name.unique.name
     email = name.split(' ')

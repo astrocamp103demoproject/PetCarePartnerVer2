@@ -27,6 +27,7 @@ class OrdersController < ApplicationController
     
     @token = gateway.client_token.generate
     
+    @pet_count = session[:pet_count]
   end
   
   def create
@@ -43,9 +44,7 @@ class OrdersController < ApplicationController
     # find_or_initialize_by (new)
     @total = (@pick - @drop).to_i * @sitter['price']
 
-
     #多筆操作 用transaction包
-    
     if @order.save
       (@drop .. @pick).to_a.each do |day|
         BookingDate.find_or_initialize_by(sitter_id: @sitter['id'], date: day, available: 'booked') do |booking_date|
@@ -71,11 +70,14 @@ class OrdersController < ApplicationController
 
   def show
     # @current_sitter = Sitter.find_by(name: current_user.name)
-    if @current_sitter.nil?
-      @order = Order.find_by("user_id = ?",current_user.id)
-    else
-      @order = Order.find_by("user_id = ? OR sitter_id = ?",current_user.id,@current_sitter.id)
-    end
+    
+    
+    
+    @order = Order.find(params[:id])
+    # binding.pry
+    
+    
+    
   end
 
   def user_orders
@@ -115,7 +117,7 @@ class OrdersController < ApplicationController
 
   private
   def order_params
-    params.require(:order).permit(:user_id, :sitter_id, :drop_off, :pick_up, :state, :note)
+    params.require(:order).permit(:user_id, :sitter_id, :drop_off, :pick_up, :state, :note, :pet_count)
   end
   # def booking_date_params
   #   params.require(:booking_date).permit(:sitter_id, :date, :avaliable)

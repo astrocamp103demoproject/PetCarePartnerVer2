@@ -2,7 +2,7 @@
 <div class="order-detail">
   <div class="order-section-top">
     <div class="sitter-avatar">
-      <%= image_tag @order.sitter.avatar_url(:thumb) %>
+      <%= image_tag @order.sitter.avatar_url %>
     </div>
     <div class="sitter-info">
       <h3>褓姆： <%= @order.sitter.name %></h3>
@@ -21,8 +21,8 @@
     <p><span>飼主：</span> <span><%= @order.user.name %></span></p>
     <p><span>飼主email：</span> <span><%= @order.user.email %></span></p>
     <hr>
-    <p><span>寵物數量：</span> <span><%= @order.user.pets.count %> 隻</span></p>
-    <p><span>寵物體型：</span> <span><%= @order.user.pets.size %> 公斤</span></p>
+    
+    <p><span>寵物數量：</span> <span><%= @order.pet_count %> 隻</span></p>
     <p><span>備註：</span> <span><%= @order.note %></span></p>
     <hr>
     <p><span>每晚金額：</span> <span><%= @order.sitter.price %> 元</span></p>
