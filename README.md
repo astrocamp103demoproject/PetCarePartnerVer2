@@ -48,3 +48,5 @@ Petcollage未來預計發展的功能</br>
 3.線上聊天室</br>
 4.褓姆技能認證&會員分級</br>
 5.手機(app)</br>
+
+![image](https://github.com/astrocamp103demoproject/PetCarePartnerVer2/blob/859baa4d1fbccb0d453a62a891d4341ee9ba2253/petcollage_ermodel.png)
