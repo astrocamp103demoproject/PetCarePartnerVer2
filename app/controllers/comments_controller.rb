@@ -14,7 +14,9 @@ class CommentsController < ApplicationController
     def create
         @sitter = Sitter.find_by(id: params["sitter_id"])
         @comment = Comment.new(comment_params)
-        if @comment.save
+        
+        if @comment.save 
+            session[:order_status] = "waitting"
             redirect_to sitter_path(@sitter.id), notice: '已留下評價'
         end
     end
