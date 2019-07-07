@@ -54,9 +54,11 @@ class SittersController < ApplicationController
     @sitter.email = current_user.email
     @sitter.address = address_connect
     @sitter.name = current_user.name
-    # byebug
-    # binding.pry
-    if @sitter.save && User.update(role:'sitter')
+    
+    user = User.where("email = ?",@sitter.email) 
+    
+    
+    if @sitter.save && user.update(role:'sitter')
       get_current_sitter
       redirect_to sitter_path(@current_sitter.id), notice:'恭喜你成為褓姆'
     else
@@ -66,7 +68,7 @@ class SittersController < ApplicationController
 
   private
   def sitter_params
-    # byebug
+    
     params.require(:sitter).permit( :name, :slogan, :price, :square_meters, :pet_limit, :date, :available, :pic, :avatar)
   end
   def become_sitter_form

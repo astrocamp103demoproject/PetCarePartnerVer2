@@ -22,7 +22,7 @@
                 <%= "Hi, #{current_user.name}" %><%= image_tag current_user.avatar_url, class: "avatar-img"  %>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <% if current_user.role == "sitter" %>
+            <% if @current_sitter %>
                 <%= link_to '個人資料', sitter_path(@current_sitter.id), class: 'dropdown-item' %>
                 <%= link_to '我的訂單', user_orders_path(current_user), class: 'dropdown-item' %>
             <% else %>  
