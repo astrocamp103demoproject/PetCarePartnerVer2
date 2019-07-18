@@ -1,4 +1,4 @@
-# 這是我們在5倍紅寶石實作的Demo Project - Petcallage 
+# 這是我們在5倍紅寶石實作的Demo Project - PetCollage 
 
 </br>
 
