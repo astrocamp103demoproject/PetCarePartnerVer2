@@ -55,7 +55,7 @@ gem 'simple_calendar', '~> 2.3'
 gem 'fog-aws', '~> 3.5', '>= 3.5.1'
 #google map
 gem 'gmaps4rails', '~> 2.1', '>= 2.1.2'
-gem 'geocoder', '~> 1.5', '>= 1.5.1'
+gem 'geocoder', '~> 1.6'
 gem 'faker', '~> 1.9', '>= 1.9.3'
 
 group :development, :test do
